@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "blog/base.html" %}
 
-</body>
-</html>
+
+
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Page Heading
+          <small>Secondary Text</small>
+        </h1>
+
+        <!-- Blog Post -->
+      {% for post in posts %}
+        <div class="card mb-4">
+
+        {% if post.image %}
+          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+        {% endif %}
+
+          <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text">{{ post.overview | safe | slice:":250" }}</p>
+            <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            <i class="far fa-calendar-alt"></i> {{ post.pub_date | date:"F d, Y"}}
+            <i class="fas fa-user"></i> <a href="#">{{ post.author }}</a>
+          </div>
+        </div>
+      {% endfor %}
+
+      </div>
+
+      {% include 'blog/sidebar.html'%}
+
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+{% endblock content%}
