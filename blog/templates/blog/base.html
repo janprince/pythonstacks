@@ -18,13 +18,21 @@
   <!-- Custom styles for this template -->
 <!--  <link href="{% static 'blog/css/index.css' %}" rel="stylesheet">-->
 
+  <!-- Prism CSS -->
+  <link rel="stylesheet" href="{% static 'blog/prism.css' %}">
+
   <!-- Font Awesome-->
   <link rel="stylesheet" href="{% static 'blog/css/all.css' %}">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
   <style>
     body {
       padding-top: 56px;
+<!--      font-family: 'Inter', sans-serif;-->
     }
+
   </style>
 </head>
 
@@ -72,6 +80,8 @@
     <!-- /.container -->
   </footer>
 
+  <!-- Prism JS -->
+  <script src="{% static 'blog/prism.js' %}"></script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
