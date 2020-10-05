@@ -1,6 +1,4 @@
-
-<!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
+<div class="col-md-4">
 
         <!-- Search Widget -->
         <div class="card my-4">
@@ -15,47 +13,34 @@
           </div>
         </div>
 
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Most Recent Posts</h5>
+          <div class="card-body">
+            {% for recent in recent_posts %}
+            <p ><a class="text-dark" href="{% url 'blog:detail' recent.slug %}">&rarr; {{ recent.title }}</a></p>
+            {% endfor %}
+          </div>
+        </div>
+
+
         <!-- Categories Widget -->
         <div class="card my-4">
           <h5 class="card-header">Categories</h5>
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="container ml-5">
                 <ul class="list-unstyled mb-0">
+                  {% for cat in categories %}
                   <li>
-                    <a href="#">Web Design</a>
+                    <a href="{% url 'blog:category' cat.tag %}">{{ cat }}</a>
                   </li>
-                  <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#">Tutorials</a>
-                  </li>
+                  {% endfor %}
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
-          <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-          </div>
-        </div>
-
-      </div>
+</div>

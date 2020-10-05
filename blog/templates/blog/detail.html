@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 
+{% load crispy_forms_tags %}
 
 
 {% block content %}
@@ -37,9 +38,52 @@
         <!-- Post Content -->
         {{ post.content | safe}}
         <hr>
+
       </div>
 
       {% include "blog/sidebar.html" %}
+
+
+      <!-- Comments -->
+        <div class="col-md-8 card my-4">
+          <div class="card-body">
+            <!-- Comments -->
+            <h2>{{ comments.count }} Comments</h2>
+
+            {% for comment in comments%}
+            <div class="comments" style="padding: 10px;">
+              <p class="font-weight-bold">
+                {{ comment.name }}
+                <span class=" text-muted font-weight-normal">
+                 . {{ comment.created_on | date:"F d, Y" }}
+                </span>
+              </p>
+              {{ comment.content | linebreaks }}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+
+        <!-- Comments Form -->
+        <div class="col-md-8 card my-4">
+          <div class="card-body">
+            {% if new_comment %} <!-- If a new comment has been submitted -->
+              <div class="alert alert-success">
+                Your comment is awaiting moderation
+              </div>
+            {% else %}
+              <h3>Leave a comment </h3>
+              <form method="post" class="form">
+                {% csrf_token %}
+                {{ comment_form | crispy }}
+                <button type="submit" class="btn btn-primary btn-lg px-4">Submit</button>
+              </form>
+            {%  endif %}
+          </div>
+        </div>
+
+
     </div>
 </div>
 
