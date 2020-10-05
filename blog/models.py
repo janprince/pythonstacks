@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 # Author model
@@ -25,7 +26,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='post_images', blank=True)
     slug = models.SlugField(unique=True)
     overview = models.TextField()
-    content = models.TextField()
+    content = RichTextUploadingField()
     pub_date = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField(Category, related_name='posts')
     featured = models.BooleanField(default=False)

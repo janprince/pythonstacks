@@ -87,8 +87,7 @@ def category(request, category_tag):
 def search(request):
     if request.GET.get('q'):
         query = request.GET.get('q')
-        print(query)
-        query_list = Post.objects.filter(Q(title__icontains=query)) # Note: two underscores
+        query_list = Post.objects.filter(Q(title__icontains=query), featured=True) # Note: two underscores
 
 
         context = {
