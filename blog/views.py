@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import *
+from django.core.paginator import PageNotAnInteger, Paginator, EmptyPage
+
 
 # global variables
 categories = Category.objects.all()
@@ -11,9 +13,22 @@ def index(request):
     posts = Post.objects.filter(featured=True)
 
 
+    # Pagination
+    paginator = Paginator(posts, 3)
+    page = request.GET.get('page')
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        post_list = paginator.page(1)
+    except EmptyPage:
+        # if page is out of range, deliver last page of results
+        post_list = paginator.page(paginator.num_pages)
+
+
 
     context = {
-        'posts': posts,
+        'posts': post_list,
         'categories': categories,
         'recent_posts': recent_posts,
     }
