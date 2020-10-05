@@ -11,8 +11,9 @@
       <!-- Blog Entries Column -->
       <div class="col-md-8">
 
-        <div class="my-5 py-2">
-          <h3>Category: <span class="text-success font-weight-bold">{{ cat_name }}</span></h3>
+    {% if query or query_count != 0 %}
+        <div class="my-4 py-2">
+          <h4>{{ query_count }} results for "{{ q }}" </h4>
         </div>
 
         <!-- Blog Post -->
@@ -20,7 +21,7 @@
         <div class="card mb-4">
 
         {% if post.image %}
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
         {% endif %}
 
           <div class="card-body">
@@ -35,6 +36,11 @@
         </div>
       {% endfor %}
 
+    {% else %}
+        <div>
+          <h2 class="my-5">No Search results!</h2>
+        </div>
+    {% endif %}
 
 
       </div>

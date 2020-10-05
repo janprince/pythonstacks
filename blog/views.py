@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.core.paginator import PageNotAnInteger, Paginator, EmptyPage
 from .forms import CommentForm
+from django.db.models import Q
 
 
 # global variables
@@ -82,7 +83,25 @@ def category(request, category_tag):
     return render(request, 'blog/category.html', context)
 
 
+# View to handle Search
 def search(request):
-    query = render.GET.get('q')
-    pass
+    if request.GET.get('q'):
+        query = request.GET.get('q')
+        print(query)
+        query_list = Post.objects.filter(Q(title__icontains=query)) # Note: two underscores
+
+
+        context = {
+            'posts': query_list,
+            'categories': categories,
+            'recent_posts': recent_posts,
+            'query_count': len(query_list),
+            'q': query,
+        }
+        return render(request, 'blog/search.html', context)
+    else:
+        return render(request, "blog/search.html", {
+            'categories': categories,
+            'recent_posts': recent_posts,
+        })
 
