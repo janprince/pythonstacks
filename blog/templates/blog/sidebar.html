@@ -2,11 +2,11 @@
 
         <!-- Search Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Search</h5>
+          <h5 class="card-header">Search This Blog</h5>
           <div class="card-body">
             <form method="get" action="{% url 'blog:search' %}">
             <div class="input-group">
-              <input type="text" class="form-control" name="q" placeholder="Search for...">
+              <input type="text" class="form-control" name="q" placeholder="Search Python keywords...">
               <span class="input-group-append">
                 <button class="btn btn-secondary" type="submit">Go!</button>
               </span>
@@ -31,17 +31,9 @@
         <div class="card my-4">
           <h5 class="card-header">Categories</h5>
           <div class="card-body">
-            <div class="row">
-              <div class="container ml-5">
-                <ul class="list-unstyled mb-0">
-                  {% for cat in categories %}
-                  <li>
-                    <a href="{% url 'blog:category' cat.tag %}">{{ cat }}</a>
-                  </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </div>
+            {% for cat in categories %}
+              <a class="btn btn-success mt-2" href="{% url 'blog:category' cat.tag %}">{{ cat }}</a>
+            {% endfor %}
           </div>
         </div>
 

@@ -13,8 +13,10 @@
 
     {% if query or query_count != 0 %}
         <div class="my-4 py-2">
-          <h4>{{ query_count }} results for "{{ q }}" </h4>
+          <h3>{{ query_count }} results for "{{ q }}" </h3>
         </div>
+
+        <hr class="mb-4">
 
         <!-- Blog Post -->
       {% for post in posts %}
@@ -30,8 +32,8 @@
             <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-            <i class="far fa-calendar-alt"></i> {{ post.pub_date | date:"F d, Y"}}
-            <i class="fas fa-user"></i> <a href="#">{{ post.author }}</a>
+            <i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y"}}
+            <i class="fa fa-user ml-4 mr-2"></i> <a href="#">{{ post.author }}</a>
           </div>
         </div>
       {% endfor %}

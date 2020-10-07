@@ -15,16 +15,15 @@
         <!-- Title -->
         <h1 class="mt-4">{{ post.title }}</h1>
 
-        <!-- Author -->
-        <p class="lead">
-          by
-          <a href="#">{{ post.author }}</a>
-        </p>
 
         <hr>
 
-        <!-- Date/Time -->
-        <p>Posted on {{ post.pub_date | date:"F d, Y" }}</p>
+        <!-- Author and Date/Time -->
+        <p><i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y" }}
+          <span> by
+            <i class="fa fa-user ml-4 mr-2"></i><a href="#">{{ post.author }}</a>
+          </span>
+        </p>
 
         <hr>
 

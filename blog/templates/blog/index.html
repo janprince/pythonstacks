@@ -1,19 +1,31 @@
 {% extends "blog/base.html" %}
 
-
+{% load static %}
 
 {% block content %}
 
   <div class="container">
 
+    
     <div class="row">
-
+      
       <!-- Blog Entries Column -->
-      <div class="col-md-8">
+      <div class="col-md-8 mt-4">
 
-        <h1 class="my-4">Page Heading
-          <small>Secondary Text</small>
-        </h1>
+<!--        &lt;!&ndash; Picture Info &ndash;&gt;-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-8">-->
+<!--            <img class="img-fluid" width="500" height="260" src="{% static 'blog/images/empty.png' %}">-->
+<!--          </div>-->
+
+<!--          <div class="col-md-4 my-5">-->
+<!--            <h2>Exclusive Python Tutorials</h2>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <h1 class="my-4">Page Heading-->
+<!--          <small>Secondary Text</small>-->
+<!--        </h1>-->
 
         <!-- Blog Post -->
       {% for post in posts %}
@@ -24,13 +36,13 @@
         {% endif %}
 
           <div class="card-body">
-            <h2 class="card-title">{{ post.title }}</h2>
+            <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary">{{ post.title }}</h2></a>
             <p class="card-text">{{ post.overview | safe | slice:":250" }}</p>
             <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-            <i class="far fa-calendar-alt"></i> {{ post.pub_date | date:"F d, Y"}}
-            <i class="fas fa-user"></i> <a href="#">{{ post.author }}</a>
+            <i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y"}}
+            <i class="fa fa-user ml-4 mr-2"></i> <a href="#">{{ post.author }}</a>
           </div>
         </div>
       {% endfor %}
