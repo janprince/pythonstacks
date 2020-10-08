@@ -29,7 +29,7 @@
 
         <!-- Preview Image -->
         {% if post.image %}
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="img-fluid rounded" src="{{ post.image.url }}" alt="">
         {% endif %}
 
         <hr>

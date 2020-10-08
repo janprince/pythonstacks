@@ -12,7 +12,7 @@
       <div class="col-md-8">
 
         <div class="my-5 py-2">
-          <h3>Category: <span class="text-success font-weight-bold">{{ cat_name }}</span></h3>
+          <h3>Category: <span class="text-info font-weight-bold">{{ cat_name }}</span></h3>
         </div>
 
         <!-- Blog Post -->
@@ -20,7 +20,7 @@
         <div class="card mb-4">
 
         {% if post.image %}
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
         {% endif %}
 
           <div class="card-body">

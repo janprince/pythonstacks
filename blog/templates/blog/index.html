@@ -32,17 +32,21 @@
         <div class="card mb-4">
 
         {% if post.image %}
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
         {% endif %}
 
           <div class="card-body">
             <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary">{{ post.title }}</h2></a>
-            <p class="card-text">{{ post.overview | safe | slice:":250" }}</p>
+            <p class="card-text" style="font-size: 16px;">{{ post.overview | safe | slice:":250" }}</p>
             <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
             <i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y"}}
             <i class="fa fa-user ml-4 mr-2"></i> <a href="#">{{ post.author }}</a>
+            <i class="fa fa-tag ml-5 mr-2"></i>
+            {% for cat in post.categories.all %}
+              <a class="mr-2" href="{% url 'blog:category' cat.tag %}">{{cat}}</a>
+            {% endfor %}
           </div>
         </div>
       {% endfor %}
