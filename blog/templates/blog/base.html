@@ -19,7 +19,7 @@
   <!--  <link href="{% static 'blog/css/index.css' %}" rel="stylesheet">-->
 
   <!-- Prism CSS -->
-  <link rel="stylesheet" href="{% static 'blog/prism.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/prism/prism.css' %}">
 
   <!-- Font Awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,7 +28,7 @@
 
   <style>
     body {
-      padding-top: 56px;
+      padding-top: 75px;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
@@ -36,6 +36,11 @@
       color: #3498db;
     }
 
+    .navbar-nav .nav-item:hover .nav-link {
+      color: #3498db;
+    }
+
+    
   </style>
 </head>
 
@@ -44,35 +49,43 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'blog:index' %}">Start Bootstrap</a>
+      <a class="navbar-brand" href="{% url 'blog:index' %}"><img class="mr-2" height="45" src="{% static 'blog/images/logo5.png' %}"></a>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'blog:index' %}"><strong>Home</strong>
+        <ul class="navbar-nav ml-auto mr-5">
+
+          <li class="nav-item">
+            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Blog</strong>
               <span class="sr-only">(current)</span>
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Topics</strong></a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#"><strong>Services</strong></a>
+            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>About Us</strong></a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#"><strong>Contact</strong></a>
+            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Contact</strong></a>
           </li>
+
         </ul>
+
         <form method="get" action="{% url 'blog:search' %}">
             <div class="input-group">
-              <input type="text" class="form-control" name="q" placeholder="Search Python keywords...">
+              <input type="text" class="form-control" name="q" placeholder="Search the blog...">
               <span class="input-group-append">
                 <button class="btn btn-info" type="submit">Go!</button>
               </span>
             </div>
-          </form>
+        </form>
 
       </div>
     </div>
@@ -87,13 +100,48 @@
   <!-- Footer -->
   <footer class="py-5 bg-primary">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      
+      <div class="row">
+
+        <div class="col-md-3">
+          <a href="{% url 'blog:index' %}"><img height="45" src="{% static 'blog/images/logo5.png' %}"></a>
+          <p class="mt-5 ml-5 text-white">Copyright &copy; 2020</p>
+        </div>
+
+        <div class="col-md-3">
+          <h5 class="text-white">Features</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted text-white" href="#">Blog</a></li>
+            <li><a class="text-muted text-white" href="#">Tutorials</a></li>
+            <li><a class="text-muted text-white" href="#">Categories</a></li>
+            <li><a class="text-muted text-white" href="#">Cool Stuff</a></li>
+            <li><a class="text-muted text-white" href="#">Cool Stuff</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h5 class="text-white">About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted text-white" href="#">About Us</a></li>
+            <li><a class="text-muted text-white" href="#">Contact</a></li>
+            <li><a class="text-muted text-white" href="#">Terms</a></li>
+            <li><a class="text-muted text-white" href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <p class="text-white">Buy me a cup of coffe</p>
+        </div>
+
+      </div>
+
+      <p class="m-0 text-center text-white">Made with &hearts;</p>
     </div>
     <!-- /.container -->
   </footer>
 
   <!-- Prism JS -->
-  <script src="{% static 'blog/prism.js' %}"></script>
+  <script src="{% static 'blog/prism/prism.js' %}"></script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

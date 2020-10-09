@@ -1,0 +1,101 @@
+
+TODO:
+    * Navbar:
+        - Add topics dropdown
+        - Add Stacks(python tutorials)
+    * Implement the stacks app
+    * Add mailing System
+    * Implement actual footer :
+        - add buy me coffee
+    * Add Sitemaps
+
+    * Create a PythonStacks email, github, reddit and twitter
+
+    * Create a bunch of content
+
+    * Deploy on linode / PythonAnywhere
+    * Google Adsense Ads
+    * Add site to Google - Google Search Console
+    * Other search engines
+    * Google Analytics
+
+
+
+When Creating Contents:
+
+blog:
+    * Main post images should have certain width and height
+    * In ckeditor, required font size for content is 18 px and h3 for content headings
+    * In ckeditor, images uploaded should be given a class of 'img-fluid'.
+    * In ckeditor, double click on code snippets to give them a language
+
+
+
+
+
+Topics :
+    * Pick up explanations from books (python_notes_for_professionals, )
+    * Python library explanations from their docs
+
+    * Make posts simple and concise
+
+    how to setup up a python dev env
+    hello world! its python!
+    How to add Python to Env variables
+    Top five Ide for Python
+    Setting Up Pycharm for Python
+    Creating Multidimensional Arrays in Python
+    Stacks in Python (Python Stacks)
+    The Python Return Statement : Usage
+    Common Python Data Structures
+    Python 3 Installation and Setup Guide
+    Python Import: Tips and Tricks
+    Introduction to Object Oriented Programming in Python
+    Python eval()
+    Using Python Datetime
+    Sorting Algorithms in Python
+    The python math module
+    How to implement a binary search in python
+    Beautiful Soup
+    How to read and write files in python
+    Thinking Recursively in Python
+    Working with Strings in python
+    Logic Gates in python
+    python yield function
+    Python *args and *kwarg
+    Inheritance in Python
+    Exception handling in python
+    Modules and packages
+    What is pip: A beginners guide
+    Python Lambda functions
+    python for downloading youtube videos
+
+    Introduction Aritificial Intelligence in Python
+
+
+    create small content in the beginning of your blog post
+
+
+
+    Django Installation
+    Creating Your first App in Django
+    Django Forms
+    Django views
+    Django models
+
+    * Essentials - Interesting python stuff - can be chosen from the python stacks
+    Python | dir() function
+    Python | List Comprehension
+
+    * Stacks > modules
+    Python Beginner Stack
+    Python Intermediate Stack
+    Python Advanced Stack
+    Python Developer Tools Stack
+    Django Beginner Stack
+    Django Intermediate Stack
+    Django Advanced Stack
+    Web Scraping Stack
+    Introduction to Artificial Intelligence Stack
+
+
