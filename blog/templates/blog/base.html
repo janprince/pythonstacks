@@ -103,12 +103,25 @@
       
       <div class="row">
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <a href="{% url 'blog:index' %}"><img height="45" src="{% static 'blog/images/logo5.png' %}"></a>
-          <p class="mt-5 ml-5 text-white">Copyright &copy; 2020</p>
+
+          <!-- Subscribe Widget -->
+          <div class="my-4 ml-3 mr-5 pr-5">
+            <p class="mt-3 text-white">Join our mailing list to be notified about new tutorials </p>
+            <form method="" action="#">
+              <div class="input-group">
+                <input type="text" class="form-control" name="q" placeholder="Enter Email...">
+                <span class="input-group-append">
+                  <button class="btn btn-info" type="submit">Join</button>
+                </span>
+              </div>
+            </form>
+          </div>
+
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
           <h5 class="text-white">Features</h5>
           <ul class="list-unstyled text-small">
             <li><a class="text-muted text-white" href="#">Blog</a></li>
@@ -119,7 +132,7 @@
           </ul>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
           <h5 class="text-white">About</h5>
           <ul class="list-unstyled text-small">
             <li><a class="text-muted text-white" href="#">About Us</a></li>
@@ -129,13 +142,20 @@
           </ul>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <p class="text-white">Buy me a cup of coffe</p>
         </div>
 
       </div>
 
-      <p class="m-0 text-center text-white">Made with &hearts;</p>
+      <hr class="my-4">
+      <div class="mt-1">
+        <p class="m-0 text-center text-white">
+          <span class="mt-5 ml-5 text-white mr-3">Copyright &copy; 2020</span>
+          Made with &hearts;
+        </p>
+      </div>
+
     </div>
     <!-- /.container -->
   </footer>

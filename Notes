@@ -1,5 +1,6 @@
 
 TODO:
+    * Paginate The Category and Search View
     * Navbar:
         - Add topics dropdown
         - Add Stacks(python tutorials)
@@ -7,6 +8,7 @@ TODO:
     * Add mailing System
     * Implement actual footer :
         - add buy me coffee
+        - add social media icons
     * Add Sitemaps
 
     * Create a PythonStacks email, github, reddit and twitter
@@ -88,14 +90,19 @@ Topics :
     Python | List Comprehension
 
     * Stacks > modules
-    Python Beginner Stack
-    Python Intermediate Stack
-    Python Advanced Stack
-    Python Developer Tools Stack
-    Django Beginner Stack
-    Django Intermediate Stack
-    Django Advanced Stack
-    Web Scraping Stack
-    Introduction to Artificial Intelligence Stack
+        - Python Stacks:
+            Python Beginner Stack
+            Python Intermediate Stack
+            Python Advanced Stack
+            Python Developer Tools Stack
+            Algorithms and Data Structures in Python Stack
+            Web Scraping Stack
+        - Django stacks
+            Django Beginner Stack
+            Django Intermediate Stack
+            Django Advanced Stack
+        - AI Stacks
+            Introduction to Artificial Intelligence Stack
 
 
+    * Curate Python Stack Topics from programiz and sololearn
