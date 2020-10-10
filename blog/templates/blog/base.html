@@ -65,6 +65,10 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Stacks</strong></a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Topics</strong></a>
           </li>
 
@@ -73,7 +77,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Contact</strong></a>
+            <a class="nav-link lead" href="{% url 'blog:contact' %}"><strong>Contact</strong></a>
           </li>
 
         </ul>
@@ -136,7 +140,7 @@
           <h5 class="text-white">About</h5>
           <ul class="list-unstyled text-small">
             <li><a class="text-muted text-white" href="#">About Us</a></li>
-            <li><a class="text-muted text-white" href="#">Contact</a></li>
+            <li><a class="text-muted text-white" href="{% url 'blog:contact' %}">Contact</a></li>
             <li><a class="text-muted text-white" href="#">Terms</a></li>
             <li><a class="text-muted text-white" href="#">Privacy</a></li>
           </ul>
@@ -148,7 +152,7 @@
 
       </div>
 
-      <hr class="my-4">
+      <hr class="my-2">
       <div class="mt-1">
         <p class="m-0 text-center text-white">
           <span class="mt-5 ml-5 text-white mr-3">Copyright &copy; 2020</span>

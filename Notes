@@ -5,6 +5,7 @@ TODO:
         - Add topics dropdown
         - Add Stacks(python tutorials)
     * Implement the stacks app
+
     * Add mailing System
     * Implement actual footer :
         - add buy me coffee
@@ -97,6 +98,7 @@ Topics :
             Python Developer Tools Stack
             Algorithms and Data Structures in Python Stack
             Web Scraping Stack
+            Python Essentials Stack
         - Django stacks
             Django Beginner Stack
             Django Intermediate Stack

@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.core.paginator import PageNotAnInteger, Paginator, EmptyPage
-from .forms import CommentForm
+from .forms import *
 from django.db.models import Q
+from django.contrib import messages
 
 
 # global variables
@@ -104,3 +105,20 @@ def search(request):
             'recent_posts': recent_posts,
         })
 
+
+def contact(request):
+
+    if request.method == 'POST':
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, "Message Sent. ")
+
+    contact_form = ContactForm()
+    context = {
+        'categories': categories,
+        'recent_posts': recent_posts,
+        'contact_form': contact_form,
+    }
+
+    return render(request, 'blog/contact.html', context)

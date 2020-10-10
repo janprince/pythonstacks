@@ -30,8 +30,14 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(active=True)
 
 
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'email', 'message']
+
+
 # Registering models
 admin.site.register(Author)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Contact, ContactAdmin)

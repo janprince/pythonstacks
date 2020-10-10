@@ -51,5 +51,13 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return f"Comment: {self.content[:20]} by {self.name}"
+        return f"Comment: {self.content[:20]}... by {self.name}"
 
+
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField(blank=False)
+    message = models.TextField()
+
+    def __str__(self):
+        return f"Message: {self.name} - {self.message[:150]}..."
