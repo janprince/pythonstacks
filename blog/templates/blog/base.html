@@ -10,7 +10,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog Home - Start Bootstrap Template</title>
+  {% block title %}
+    <title> PythonStacks - Python Tutorials </title>
+  {% endblock title%}
+  <link rel="shortcut icon" href="{% static 'blog/images/stack2.ico' %} " type="image/x-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">

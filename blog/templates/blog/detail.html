@@ -3,6 +3,11 @@
 {% load crispy_forms_tags %}
 
 
+{% block title %}
+  <title>{{ post.title }} - PythonStacks</title>
+{% endblock title %}
+
+
 {% block content %}
 
 <div class="container">
@@ -47,7 +52,7 @@
         <div class="col-md-8 card my-4">
           <div class="card-body">
             <!-- Comments -->
-            <h2>{{ comments.count }} Comments</h2>
+            <h3>{{ comments.count }} Comments</h3>
 
             {% for comment in comments%}
             <div class="comments" style="padding: 10px;">

@@ -116,6 +116,7 @@ def contact(request):
 
     contact_form = ContactForm()
     context = {
+        'title': "Conatact",
         'categories': categories,
         'recent_posts': recent_posts,
         'contact_form': contact_form,
