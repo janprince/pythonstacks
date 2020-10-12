@@ -75,9 +75,23 @@ def detail(request, slug):
 def category(request, category_tag):
     cat = Category.objects.get(tag=category_tag)
     posts = cat.posts.all()
+
+    # Pagination
+    paginator = Paginator(posts, 2)
+    page = request.GET.get('page')
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        post_list = paginator.page(1)
+    except EmptyPage:
+        # if page is out of range, deliver last page of results
+        post_list = paginator.page(paginator.num_pages)
+
+
     context = {
         'cat_name': category_tag,
-        'posts': posts,
+        'posts': post_list,
         'categories': categories,
         'recent_posts': recent_posts,
     }
@@ -89,7 +103,6 @@ def search(request):
     if request.GET.get('q'):
         query = request.GET.get('q')
         query_list = Post.objects.filter(Q(title__icontains=query), featured=True) # Note: two underscores
-
 
         context = {
             'posts': query_list,
@@ -106,6 +119,7 @@ def search(request):
         })
 
 
+# Contact View
 def contact(request):
 
     if request.method == 'POST':
@@ -116,10 +130,19 @@ def contact(request):
 
     contact_form = ContactForm()
     context = {
-        'title': "Conatact",
+        'title': "Contact",
         'categories': categories,
         'recent_posts': recent_posts,
         'contact_form': contact_form,
     }
 
     return render(request, 'blog/contact.html', context)
+
+
+# About View
+def about(request):
+    context = {
+        'categories': categories,
+        'recent_posts': recent_posts,
+    }
+    return render(request, 'blog/about.html', context)
