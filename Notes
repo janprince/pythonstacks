@@ -27,7 +27,7 @@ TODO:
 When Creating Contents:
 
 blog:
-    * Main post images should have certain width and height
+    * Main post images should have certain 750 x 300
     * In ckeditor, required font size for content is 18 px and h3 for content headings
     * In ckeditor, images uploaded should be given a class of 'img-fluid'.
     * In ckeditor, double click on code snippets to give them a language
@@ -42,6 +42,7 @@ Topics :
 
     * Make posts simple and concise
 
+    how to integrate mailchimp with django - modern way
     how to setup up a python dev env
     hello world! its python!
     How to add Python to Env variables

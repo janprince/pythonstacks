@@ -4,6 +4,7 @@ from django.core.paginator import PageNotAnInteger, Paginator, EmptyPage
 from .forms import *
 from django.db.models import Q
 from django.contrib import messages
+from django.conf import settings  # import some variables from settings
 
 
 # global variables
@@ -146,3 +147,4 @@ def about(request):
         'recent_posts': recent_posts,
     }
     return render(request, 'blog/about.html', context)
+

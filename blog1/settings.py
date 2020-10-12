@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'blog',
+    'marketing',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
+
 ]
 
 MIDDLEWARE = [
@@ -206,3 +208,9 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+
+# Mailchimp Configs
+MAILCHIMP_API_KEY = "f3acc2e0170559a06be9f507257b4b13-us2"
+MAILCHIMP_DATA_CENTER = 'us2'
+MAILCHIMP_EMAIL_LIST_ID = 'd4d6ddd408'
