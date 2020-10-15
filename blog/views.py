@@ -45,6 +45,11 @@ def detail(request, slug):
     comments = post.comments.filter(active=True) # all active comments associated with this post
     new_comment = None
 
+    # Related Posts
+    post_cat = post.categories.all().first()  # only generating related posts via just one of the post's category
+    related_posts = post_cat.posts.all().exclude(slug=post.slug)[:4]  # only 3 of related posts, excluding current post
+
+
     # Comment posted
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)  # pass in the data received to the CommentForm
@@ -62,6 +67,7 @@ def detail(request, slug):
 
     context = {
         'post': post,
+        'related_posts': related_posts,
         'categories': categories,
         'comment_form': comment_form,
         'new_comment': new_comment,

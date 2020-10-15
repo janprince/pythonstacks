@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends "blog/base.html" %}
 
-</body>
-</html>
+{% block title %}
+  <title>About - PythonStacks</title>
+{% endblock title%}
+
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h2 class="my-4">PythonStacks</h2>
+        <hr>
+        <h5>
+          <p>
+            Pythonstacks is an initiative aiming to provide simple and concise python tutorials
+            and articles which covers all aspects of the python language and  frameworks like django.
+          </p>
+          <p>
+            Our objective is to offer python lessons in the most modern and simplest way possible for
+            anyone anywhere to have a stable understanding of his/her subject of study.
+          </p>
+          <p>
+            Subscribe to our newsletters to get notified of new python tutorials, tips, tricks, and well-structured lessons.
+          </p>
+        </h5>
+
+      </div>
+
+      {% include 'blog/sidebar.html'%}
+
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+{% endblock content%}

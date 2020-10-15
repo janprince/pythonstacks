@@ -2,6 +2,7 @@
 
 {% load crispy_forms_tags %}
 
+{% load static %}
 
 {% block title %}
   <title>{{ post.title }} - PythonStacks</title>
@@ -26,8 +27,12 @@
         <!-- Author and Date/Time -->
         <p><i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y" }}
           <span> by
-            <i class="fa fa-user ml-4 mr-2"></i><a href="#">{{ post.author }}</a>
+            <i class="fa fa-user ml-4 mr-2"></i><a href="{% url 'blog:about' %}">{{ post.author }}</a>
           </span>
+          <i class="fa fa-tag ml-5 mr-2"></i>
+            {% for cat in post.categories.all %}
+              <a class="mr-2" href="{% url 'blog:category' cat.tag %}">{{cat}}</a>
+            {% endfor %}
         </p>
 
         <hr>
@@ -40,36 +45,56 @@
         <hr>
 
         <!-- Post Content -->
-        {{ post.content | safe}}
+        <div>
+          {{ post.content | safe}}
+        </div>
+
         <hr>
 
       </div>
 
       {% include "blog/sidebar.html" %}
 
+      <!-- Related Posts -->
+      {% if related_posts %}
+        <div class="col-md-8 my-3">
+          <h3>Related Posts:</h3>
+
+            {% for post in related_posts %}
+              <h4 class="mb-3"><a href="{% url 'blog:detail' post.slug %}">{{ post.title }}</a></h4>
+            {% endfor %}
+
+            <hr class="mb-4">
+
+        </div>
+      {% endif %}
 
       <!-- Comments -->
-        <div class="col-md-8 card my-4">
-          <div class="card-body">
+        <div class="col-md-8 my-4">
+
             <!-- Comments -->
-            <h3>{{ comments.count }} Comments</h3>
+            <h3 class="mb-5">{{ comments.count }} Comments</h3>
 
             {% for comment in comments%}
-            <div class="comments" style="padding: 10px;">
-              <p class="font-weight-bold">
-                {{ comment.name }}
-                <span class=" text-muted font-weight-normal">
-                 . {{ comment.created_on | date:"F d, Y" }}
-                </span>
-              </p>
-              {{ comment.content | linebreaks }}
+            <div class="media mb-4">
+              <img class="d-flex mr-3 rounded-circle" width="40" src="{% static 'blog/images/avatar.png' %}" alt="">
+              <div class="media-body">
+                <p class="mt-0">
+                  <span class="text-info lead">{{ comment.name }}</span>
+                  <span class="float-right text-muted font-weight-normal">
+                     {{ comment.created_on | date:"F d, Y" }}
+                  </span>
+                </p>
+                {{ comment.comment | linebreaks }}
+                <hr>
+              </div>
             </div>
             {% endfor %}
-          </div>
+
         </div>
 
 
-        <!-- Comments Form -->
+      <!-- Comments Form -->
         <div class="col-md-8 card my-4">
           <div class="card-body">
             {% if new_comment %} <!-- If a new comment has been submitted -->
@@ -89,6 +114,7 @@
 
 
     </div>
+
 </div>
 
 {% endblock content%}

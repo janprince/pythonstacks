@@ -27,8 +27,8 @@ class Post(models.Model):
     slug = models.SlugField(unique=True)
     overview = models.TextField()
     content = RichTextUploadingField()
-    pub_date = models.DateTimeField(auto_now_add=True)
-    categories = models.ManyToManyField(Category, related_name='posts')
+    pub_date = models.DateTimeField(auto_now_add=True)      # default=timezone.now - from django.utils import tim...
+    categories = models.ManyToManyField(Category, blank=False, related_name='posts')
     featured = models.BooleanField(default=False)
 
     class Meta:
@@ -37,13 +37,16 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('blog:detail', args=[str(self.slug)])
+
 
 # Comment model
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     name = models.CharField(max_length=99)
-    email = models.EmailField()
-    content = models.TextField()
+    comment = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 

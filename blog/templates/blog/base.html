@@ -43,6 +43,7 @@
       color: #3498db;
     }
 
+
     
   </style>
 </head>
@@ -76,7 +77,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>About Us</strong></a>
+            <a class="nav-link lead" href="{% url 'blog:about' %}"><strong>About Us</strong></a>
           </li>
 
           <li class="nav-item">
@@ -142,23 +143,22 @@
         </div>
 
         <div class="col-6 col-md-2">
-          <h5 class="text-white">Features</h5>
+          <h5 class="text-white mb-4">Pages</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted text-white" href="#">Blog</a></li>
-            <li><a class="text-muted text-white" href="#">Tutorials</a></li>
-            <li><a class="text-muted text-white" href="#">Categories</a></li>
-            <li><a class="text-muted text-white" href="#">Cool Stuff</a></li>
-            <li><a class="text-muted text-white" href="#">Cool Stuff</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="#">Blog</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="#">Stacks</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:about' %}">About Us</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:contact' %}">Contact US</a></li>
           </ul>
         </div>
 
         <div class="col-6 col-md-2">
-          <h5 class="text-white">About</h5>
+          <h5 class="text-white mb-4">Categories</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted text-white" href="#">About Us</a></li>
-            <li><a class="text-muted text-white" href="{% url 'blog:contact' %}">Contact</a></li>
-            <li><a class="text-muted text-white" href="#">Terms</a></li>
-            <li><a class="text-muted text-white" href="#">Privacy</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:about' %}">Python Essentials</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:contact' %}">Django</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="#">Terms</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="#">Privacy</a></li>
           </ul>
         </div>
 

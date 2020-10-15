@@ -1,18 +1,18 @@
 
 TODO:
-    * Paginate The Category and Search View
     * Navbar:
         - Add topics dropdown
         - Add Stacks(python tutorials)
     * Implement the stacks app
 
-    * Add mailing System
     * Implement actual footer :
         - add buy me coffee
         - add social media icons
+
+    *
     * Add Sitemaps
 
-    * Create a PythonStacks email, github, reddit and twitter
+    * Create a PythonStacks email, github, reddit and twitter, facebook
 
     * Create a bunch of content
 
@@ -27,13 +27,17 @@ TODO:
 When Creating Contents:
 
 blog:
-    * Main post images should have certain 750 x 300
+    * Main post images should have 750 x 300 pixels
     * In ckeditor, required font size for content is 18 px and h3 for content headings
     * In ckeditor, images uploaded should be given a class of 'img-fluid'.
     * In ckeditor, double click on code snippets to give them a language
 
 
 
+
+Tools to help in writing good posts
+powerthesaurus.org
+grammaly
 
 
 Topics :
@@ -73,6 +77,8 @@ Topics :
     What is pip: A beginners guide
     Python Lambda functions
     python for downloading youtube videos
+
+
 
     Introduction Aritificial Intelligence in Python
 
