@@ -1,5 +1,5 @@
-**/media
+media/
 
-static/ckeditor/
+**/static
 
 db.sqlite3
