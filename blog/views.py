@@ -109,6 +109,7 @@ def category(request, category_tag):
 def search(request):
     if request.GET.get('q'):
         query = request.GET.get('q')
+        print(query.split())# Todo
         query_list = Post.objects.filter(Q(title__icontains=query), featured=True) # Note: two underscores
 
         context = {
