@@ -53,15 +53,16 @@
 
       </div>
 
+
       {% include "blog/sidebar.html" %}
 
       <!-- Related Posts -->
       {% if related_posts %}
         <div class="col-md-8 my-3">
-          <h3>Related Posts:</h3>
+          <h4 class="mb-2">Related Posts:</h4>
 
             {% for post in related_posts %}
-              <h4 class="mb-3"><a href="{% url 'blog:detail' post.slug %}">{{ post.title }}</a></h4>
+              <h5 class="mb-3"><a href="{% url 'blog:detail' post.slug %}">{{ post.title }}</a></h5>
             {% endfor %}
 
             <hr class="mb-4">
@@ -106,6 +107,7 @@
               <form method="post" class="form">
                 {% csrf_token %}
                 {{ comment_form | crispy }}
+                <p><small>* Email would not published </small></p>
                 <button type="submit" class="btn btn-primary btn-lg px-4">Submit</button>
               </form>
             {%  endif %}

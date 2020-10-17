@@ -1,41 +1,58 @@
 {% extends "blog/base.html" %}
 
+{% load static %}
+
 {% block title %}
   <title>About - PythonStacks</title>
 {% endblock title%}
 
 {% block content %}
 
-  <div class="container">
+  <div class="container my-3">
 
     <div class="row">
 
-      <!-- Blog Entries Column -->
-      <div class="col-md-8">
-
-        <h2 class="my-4">PythonStacks</h2>
+        <h2 class="my-4 display-4">PythonStacks</h2>
         <hr>
         <h5>
-          <p>
-            Pythonstacks is an initiative aiming to provide simple and concise python tutorials
+          <p class="lead px-5">
+
+            Pythonstacks is an initiative aiming to provide simple, concise and free python tutorials
             and articles which covers all aspects of the python language and  frameworks like django.
+
           </p>
-          <p>
+          <p class="lead px-5">
             Our objective is to offer python lessons in the most modern and simplest way possible for
             anyone anywhere to have a stable understanding of his/her subject of study.
           </p>
-          <p>
-            Subscribe to our newsletters to get notified of new python tutorials, tips, tricks, and well-structured lessons.
-          </p>
+
         </h5>
-
-      </div>
-
-      {% include 'blog/sidebar.html'%}
-
 
     </div>
     <!-- /.row -->
+
+    <div class="row  mt-4">
+
+      <div class="col-md-6">
+        <img class="img-fluid" src="{% static 'blog/images/motivation.png' %}">
+      </div>
+
+      <div class="col-md-6">
+        <h2 class="mt-4 display-4 text-center">Support This Blog</h2>
+        <p class="lead my-3 px-4">
+          Support us to create more python contents, maintain and upgrade this site
+          to include a broader aspect of the python language.
+        </p>
+
+        <a href="#" class="btn btn-info mt-5 float-right">Become a Patron</a>
+      </div>
+
+    </div>
+
+    <div class="row mt-5">
+      <a href="{% url 'blog:contact' %}" class="btn btn-info my-5"><span class="lead">Contact Us</span></a>
+    </div>
+
 
   </div>
   <!-- /.container -->

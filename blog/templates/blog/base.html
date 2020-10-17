@@ -11,9 +11,9 @@
   <meta name="author" content="">
 
   {% block title %}
-    <title> PythonStacks - Python Tutorials </title>
+    <title> PythonStacks | Python Tutorials  </title>
   {% endblock title%}
-  <link rel="shortcut icon" href="{% static 'blog/images/stack2.ico' %} " type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'blog/images/stack2.ico' %}  " type="image/x-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">
@@ -43,6 +43,11 @@
       color: #3498db;
     }
 
+    .navbar-nav .nav-item .dropdown-menu a:hover{
+      background-color: #619ccd;
+    }
+
+
 
     
   </style>
@@ -69,15 +74,24 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Stacks</strong></a>
+            <a class="nav-link lead" href="{% url 'blog:category' 'Django' %}"><strong>Django</strong></a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link lead mr-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <strong>Topics</strong>
+            </a>
+            <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+              {% for cat in categories %}
+                <a class="dropdown-item lead text-white" href="{% url 'blog:category' cat.tag %}">
+                  {{ cat }}
+                </a>
+              {% endfor %}
+            </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Topics</strong></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link lead" href="{% url 'blog:about' %}"><strong>About Us</strong></a>
+            <a class="nav-link lead" href="{% url 'blog:about' %}"><strong>Support</strong></a>
           </li>
 
           <li class="nav-item">
@@ -163,7 +177,15 @@
         </div>
 
         <div class="col-md-4">
-          <p class="text-white">Buy me a cup of coffe</p>
+          <div class="row">
+            <a href=""><h3><i class="fa fa-github ml-5"></i></h3></a>
+            <a href=""><h3><i class="fa fa-reddit ml-4" style="color: white;"></i></h3></a>
+            <a href=""><h3 class="text-info"><i class="fa fa-twitter ml-4"></i></h3></a>
+          </div>
+
+          <div class="mt-5">
+            <a href="#" class="btn btn-info ml-5">Support Us <i class="fa fa-heart"></i></a>
+          </div>
         </div>
 
       </div>

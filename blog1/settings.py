@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
@@ -82,10 +83,21 @@ WSGI_APPLICATION = 'blog1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pythonstacks',
+        'USER': 'postgres',
+        'PASSWORD': 'prince',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+DATABASE_ENGINE = ''
+DATABASE_NAME = ''
+DATABASE_USER = ''
+DATABASE_PASSWORD = ''
+DATABASE_HOST = ''
+DATABASE_PORT = ''
 
 
 # Password validation

@@ -1,3 +1,5 @@
 **/media
 
 static/ckeditor/
+
+db.sqlite3
