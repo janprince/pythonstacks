@@ -120,4 +120,5 @@ Topics :
     - pillow
     - crispy forms
     - django ckeditor
+    - mysqlclient
 
