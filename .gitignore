@@ -1,6 +1,6 @@
 media/
 
-**/static
+static/
 
 db.sqlite3
 
