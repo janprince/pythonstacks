@@ -2,6 +2,8 @@ media/
 
 static/
 
+!blog/static/
+
 db.sqlite3
 
 *.env
