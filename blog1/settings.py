@@ -34,7 +34,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = True if os.environ["DEBUG"] == 'True' else False
 
 
-ALLOWED_HOSTS = [] if DEBUG else ['pythonstacks.pythonanywhere.com']
+ALLOWED_HOSTS = [] if DEBUG else [ "www.pythonstacks.com", "pythonstacks.com", 'pythonstacks.pythonanywhere.com']
 
 
 

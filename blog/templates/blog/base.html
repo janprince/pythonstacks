@@ -89,7 +89,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link lead" href="{% url 'blog:about' %}"><strong>Support</strong></a>
+            <a class="nav-link lead" href="{% url 'blog:about' %}"><strong>About</strong></a>
           </li>
 
           <li class="nav-item">
@@ -157,8 +157,8 @@
         <div class="col-6 col-md-2">
           <h5 class="text-white mb-4">Pages</h5>
           <ul class="list-unstyled text-small">
-            <li class="mb-2"><a class="text-muted text-white" href="#">Blog</a></li>
-            <li class="mb-2"><a class="text-muted text-white" href="#">Stacks</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:index' %}">Blog</a></li>
+<!--            <li class="mb-2"><a class="text-muted text-white" href="#">Stacks</a></li>-->
             <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:about' %}">About Us</a></li>
             <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:contact' %}">Contact US</a></li>
           </ul>
@@ -167,23 +167,23 @@
         <div class="col-6 col-md-2">
           <h5 class="text-white mb-4">Categories</h5>
           <ul class="list-unstyled text-small">
-            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:about' %}">Python Essentials</a></li>
-            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:contact' %}">Django</a></li>
-            <li class="mb-2"><a class="text-muted text-white" href="#">Terms</a></li>
-            <li class="mb-2"><a class="text-muted text-white" href="#">Privacy</a></li>
+            <li class="mb-2"><a class="text-muted text-white disabled" href="#">Artificial Intelligence</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:category' 'Essentials' %}">Python Essentials</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="{% url 'blog:category' 'Django' %}">Django</a></li>
+            <li class="mb-2"><a class="text-muted text-white" href="#">Advanced</a></li>
           </ul>
         </div>
 
         <div class="col-md-4">
           <div class="row">
-            <a href=""><h3><i class="fa fa-github ml-5"></i></h3></a>
-            <a href=""><h3><i class="fa fa-reddit ml-4" style="color: white;"></i></h3></a>
-            <a href=""><h3 class="text-info"><i class="fa fa-twitter ml-4"></i></h3></a>
+            <a href=""><h3><i class="fa fa-github m-4"></i></h3></a>
+            <a href=""><h3><i class="fa fa-reddit m-4" style="color: white;"></i></h3></a>
+            <a href=""><h3 class="text-info"><i class="fa fa-twitter m-4"></i></h3></a>
           </div>
 
-          <div class="mt-5">
-            <a href="#" class="btn btn-info ml-5">Support Us <i class="fa fa-heart"></i></a>
-          </div>
+<!--          <div class="mt-5">-->
+<!--            <a href="#" class="btn btn-info ml-5">Support Us <i class="fa fa-heart"></i></a>-->
+<!--          </div>-->
         </div>
 
       </div>
