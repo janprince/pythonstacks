@@ -1,5 +1,19 @@
 from django.contrib.sitemaps import Sitemap
 from .models import Post
+from django.urls import reverse
+
+
+class StaticViewSitemap(Sitemap):
+    priority = 0.9
+    changefreq = 'daily'
+
+    def items(self):
+        return ["blog:index", "blog:about"]
+
+    def location(self, obj):
+        return reverse(obj)
+
+
 
 
 class BlogSitemap(Sitemap):
@@ -11,3 +25,4 @@ class BlogSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.pub_date
+
