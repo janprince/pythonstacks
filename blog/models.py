@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils import timezone
 
 
 # Author model
@@ -27,7 +28,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True)
     overview = models.TextField()
     content = RichTextUploadingField()
-    pub_date = models.DateTimeField(auto_now_add=True)      # default=timezone.now - from django.utils import tim...
+    pub_date = models.DateTimeField(default=timezone.now)      # default=timezone.now - from django.utils import tim...
     categories = models.ManyToManyField(Category, blank=False, related_name='posts')
     featured = models.BooleanField(default=False)
 

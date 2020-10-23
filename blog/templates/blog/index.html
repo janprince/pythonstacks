@@ -2,6 +2,13 @@
 
 {% load static %}
 
+
+{% block meta %}
+  <meta name="description"
+        content="Learn Python Online. Simple and organized python tutorials for programmers of all levels. Python library updates, news, articles and more. Free! ">
+{% endblock meta %}
+
+
 {% block content %}
 
   <div class="container">
@@ -44,7 +51,7 @@
           <div class="card-footer text-muted">
             <i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y"}}
             <i class="fa fa-user ml-4 mr-2"></i> <a href="{% url 'blog:about' %}">{{ post.author }}</a>
-            <i class="fa fa-tag ml-5 mr-2"></i>
+            <i class="fa fa-tag ml-5"></i>
             {% for cat in post.categories.all %}
               <a class="mr-2" href="{% url 'blog:category' cat.tag %}">{{cat}}</a>
             {% endfor %}

@@ -4,11 +4,13 @@
 <html lang="en">
 
 <head>
-
+  <meta name="robots" content="index, follow">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  {% block meta%}
+    <meta name="description"
+        content="Learn Python Online. Simple and organized python tutorials for programmers of all levels. Python library updates, news, articles and more. Free! ">
+  {% endblock meta %}
 
   {% block title %}
     <title> PythonStacks | Python Tutorials  </title>
@@ -26,8 +28,6 @@
 
   <!-- Font Awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  
 
   <style>
     body {

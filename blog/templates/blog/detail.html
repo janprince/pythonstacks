@@ -4,6 +4,10 @@
 
 {% load static %}
 
+{% block meta %}
+  <meta name="description" content="{{ post.overview }}">
+{% endblock meta %}
+
 {% block title %}
   <title>{{ post.title }} - PythonStacks</title>
 {% endblock title %}
