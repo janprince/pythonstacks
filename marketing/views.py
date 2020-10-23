@@ -40,6 +40,7 @@ def subscribe(email):
         print("An exception occurred: {}".format(error.text))
 
 
+
 # Subscription View
 def email_signup(request):
     if request.method == "POST":
@@ -47,8 +48,7 @@ def email_signup(request):
         if form.is_valid():
             email_q = EmailSubscription.objects.filter(email=form.instance.email)
             if email_q.exists():
-                print(True)
-                messages.info(request, "You Are Already Subscribed. Thank You ! ")  #Todo - This message not showing
+                messages.info(request, "You Are Already Subscribed. Thank You ! ")
             else:
                 subscribe(form.instance.email)
                 form.save()
