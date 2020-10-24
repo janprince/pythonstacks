@@ -47,7 +47,7 @@ def detail(request, slug):
 
     # Related Posts
     post_cat = post.categories.all().first()  # only generating related posts via just one of the post's category
-    related_posts = post_cat.posts.all().exclude(slug=post.slug)[:4]  # only 3 of related posts, excluding current post
+    related_posts = post_cat.posts.all().exclude(slug=post.slug)[:5]  # only 4 of related posts, excluding current post
 
 
     # Comment posted
