@@ -1,5 +1,11 @@
 {% extends "blog/base.html" %}
 
+{% block meta%}
+  <meta name="description"
+      content="Learn {{ cat_name }} Online. Simple and organized {{ cat_name }} tutorials for programmers of all levels. Python library updates, news, articles and more. Free! ">
+{% endblock meta %}
+
+
 {% block title %}
   <title>{{ cat_name }} Tutorials - PythonStacks</title>
 {% endblock title%}
