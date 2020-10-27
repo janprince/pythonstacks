@@ -10,3 +10,5 @@ db.sqlite3
 
 
 blog/templates/blog/googleanalytics.html
+
+*.sql
