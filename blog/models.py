@@ -15,6 +15,7 @@ class Author(models.Model):
 # Category model
 class Category(models.Model):
     tag = models.CharField(max_length=50, unique=True)
+    important = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.tag}'

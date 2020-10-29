@@ -55,12 +55,7 @@
 
         <hr>
 
-      </div>
-
-
-      {% include "blog/sidebar.html" %}
-
-      <!-- Related Posts -->
+              <!-- Related Posts -->
       {% if related_posts %}
         <div class="col-md-8 my-3">
           <h4 class="mb-2">Related Posts:</h4>
@@ -74,11 +69,17 @@
         </div>
       {% endif %}
 
+      </div>
+
+
+      {% include "blog/sidebar.html" %}
+
+
       <!-- Comments -->
         <div class="col-md-8 my-4">
 
             <!-- Comments -->
-            <h3 class="mb-5">{{ comments.count }} Comments</h3>
+            <h3>{{ comments.count }} Comments</h3>
 
             {% for comment in comments%}
             <div class="media mb-4">

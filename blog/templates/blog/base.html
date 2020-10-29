@@ -93,9 +93,11 @@
             </a>
             <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
               {% for cat in categories %}
+                {% if cat.important is True%}
                 <a class="dropdown-item lead text-white" href="{% url 'blog:category' cat.tag %}">
                   {{ cat }}
                 </a>
+                {% endif %}
               {% endfor %}
             </div>
           </li>

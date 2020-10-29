@@ -16,7 +16,12 @@ class PostAdmin(admin.ModelAdmin):
 
 # Category
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'tag']
+    list_display = ['id', 'tag', 'important']
+    actions = ['make_key']
+
+
+    def make_key(self, request, queryset):
+        queryset.update(important=True)
 
 
 # Comment
