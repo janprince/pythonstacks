@@ -18,7 +18,7 @@ def index(request):
 
 
     # Pagination
-    paginator = Paginator(posts, 13)
+    paginator = Paginator(posts, 11)
     page = request.GET.get('page')
     try:
         post_list = paginator.page(page)
@@ -84,7 +84,7 @@ def category(request, category_tag):
     posts = cat.posts.all()
 
     # Pagination
-    paginator = Paginator(posts, 13)
+    paginator = Paginator(posts, 11)
     page = request.GET.get('page')
     try:
         post_list = paginator.page(page)
