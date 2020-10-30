@@ -37,7 +37,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'email', 'message']
+    list_display = ['id', 'name', 'email', 'date', 'message']
 
 
 # Registering models
