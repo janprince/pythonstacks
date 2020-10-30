@@ -8,6 +8,8 @@
 {% include "blog/googleanalytics.html" %}
 
 <head>
+    {% include "blog/googleadsense.html" %}
+
   <meta name="robots" content="index, follow">
   <meta charset="utf-8">
   <meta name="google-site-verification" content="suUCoQSHwLG29r7uwg_92qYI2avyx_MdYzJ_M5TBi54" />
@@ -21,9 +23,6 @@
     <title> PythonStacks | Python Tutorial Hub for Beginners and Enthusiasts </title>
   {% endblock title%}
   <link rel="shortcut icon" href="{% static 'blog/images/stack2.ico' %}  " type="image/x-icon">
-
-
-  {% include "blog/googleadsense.html" %}
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">
