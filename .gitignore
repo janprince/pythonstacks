@@ -12,3 +12,5 @@ db.sqlite3
 blog/templates/blog/googleanalytics.html
 
 *.sql
+
+blog/templates/blog/googleadsense.html
