@@ -57,7 +57,7 @@ class Comment(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return f"Comment: {self.content[:20]}... by {self.name}"
+        return f"Comment: {self.comment[:20]}... by {self.name}"
 
 
 class Contact(models.Model):
