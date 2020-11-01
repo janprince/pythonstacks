@@ -32,6 +32,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField(default=timezone.now)      # default=timezone.now - from django.utils import tim...
     categories = models.ManyToManyField(Category, blank=False, related_name='posts')
     featured = models.BooleanField(default=False)
+    mostly_viewed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-pub_date']

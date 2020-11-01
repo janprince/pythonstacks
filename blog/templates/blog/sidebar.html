@@ -1,23 +1,6 @@
 <div class="col-md-12 col-lg-4">
 
-        <!-- Search Widget -->
-<!--        <div class="card my-4">-->
-<!--          <h5 class="card-header">Search This Blog</h5>-->
-<!--          <div class="card-body">-->
-<!--            <form method="get" action="{% url 'blog:search' %}">-->
-<!--            <div class="input-group">-->
-<!--              <input type="text" class="form-control" name="q" placeholder="Search Python keywords...">-->
-<!--              <span class="input-group-append">-->
-<!--                <button class="btn btn-secondary" type="submit">Go!</button>-->
-<!--              </span>-->
-<!--            </div>-->
-<!--            </form>-->
-<!--          </div>-->
-<!--        </div>-->
-
-        <!-- Subscribe Widget -->
         <div class="card my-4 shadow-lg">
-<!--          <h5 class="card-header">Search This Blog</h5>-->
           <div class="card-body">
             <h4><i class="fa fa-envelope mr-2 text-info"></i>Get Our Free Newsletters</h4>
             <p class="mt-3">Join our mailing list to be notified about new tutorials </p>
@@ -34,7 +17,7 @@
 
         <!-- Most Recent Posts -->
         <div class="card my-4">
-          <h5 class="card-header">Most Recent Posts</h5>
+          <h5 class="card-header">Most Viewed Posts</h5>
           <div class="card-body">
             {% for recent in recent_posts %}
             <p ><a class="text-dark" href="{% url 'blog:detail' recent.slug %}">&rarr; {{ recent.title }}</a></p>
