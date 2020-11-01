@@ -9,7 +9,7 @@ from django.conf import settings  # import some variables from settings
 
 # global variables
 categories = Category.objects.all()
-recent_posts = Post.objects.filter(mostly_viewed=True)[:6]   # 6 most_viewed posts
+recent_posts = Post.objects.filter(mostly_viewed=True)[:6]       # 6 most_viewed posts
 
 
 # Index view
