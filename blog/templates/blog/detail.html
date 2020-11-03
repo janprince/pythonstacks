@@ -25,11 +25,16 @@
         <!-- Title -->
         <h1 class="mt-5">{{ post.title }}</h1>
 
-
         <hr>
 
+        <!-- Preview Image -->
+        {% if post.image %}
+        <img class="img-fluid rounded my-2" src="{{ post.image.url }}" alt="">
+        {% endif %}
+
+
         <!-- Author and Date/Time -->
-        <p><i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y" }}
+        <p class="mt-4 ml-2"><i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y" }}
           <span> by
             <i class="fa fa-user ml-4 mr-2"></i><a href="{% url 'blog:about' %}">{{ post.author }}</a>
           </span>
@@ -39,14 +44,9 @@
             {% endfor %}
         </p>
 
-        <hr>
 
-        <!-- Preview Image -->
-        {% if post.image %}
-        <img class="img-fluid rounded" src="{{ post.image.url }}" alt="">
-        {% endif %}
 
-        <hr>
+        <hr class="mb-4">
 
         <!-- Post Content -->
         <div class="mb-5">

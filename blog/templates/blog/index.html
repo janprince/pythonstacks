@@ -13,9 +13,9 @@
 
   <div class="container">
 
-    
+
     <div class="row">
-      
+
       <!-- Blog Entries Column -->
       <div class="col-md-8 mt-4">
 
@@ -36,7 +36,7 @@
 
         <!-- Blog Post -->
       {% for post in posts %}
-        <div class="card mb-4">
+        <div class="card mb-4 shadow-sm">
 
         {% if post.image %}
           <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
@@ -44,7 +44,7 @@
 
           <div class="card-body">
             <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary">{{ post.title }}</h2></a>
-            <p class="card-text" style="font-size: 16px;">{{ post.overview | safe | slice:":250" }}...</p>
+            {% if not post.image %}<p class="card-text" style="font-size: 16px;">{{ post.overview | safe | slice:":250" }}...</p>{% endif %}
             <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
             <!-- Could Use {{ post.get_absolute_url }}-->
           </div>
