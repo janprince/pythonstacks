@@ -14,3 +14,8 @@ blog/templates/blog/googleanalytics.html
 *.sql
 
 blog/templates/blog/googleadsense.html
+
+blog/templates/blog/infolinks.html
+
+
+ads.txt
