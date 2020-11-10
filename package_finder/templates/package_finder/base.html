@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "blog/googleanalytics.html" %}
+
+<head>
+
+  {% include "blog/googleadsense.html" %}
+
+  <meta name="robots" content="index, follow">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="suUCoQSHwLG29r7uwg_92qYI2avyx_MdYzJ_M5TBi54" /> <!--Google Search Console-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% block meta%}
+    <meta name="description"
+        content="Find Python Packages for your projects. Python library updates and learning resources">
+  {% endblock meta %}
+
+  {% block title %}
+    <title> PythonStacks | Python Packages </title>
+  {% endblock title%}
+
+  <!-- shortcut icon -->
+  <link rel="shortcut icon" href="{% static 'blog/images/stack2.ico' %}  " type="image/x-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'package_finder/css/custom.css' %}" rel="stylesheet">
+
+  <!-- Prism CSS -->
+  <link rel="stylesheet" href="{% static 'package_finder/prism/prism.css' %}">
+
+  <!-- Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Spartan:wght@400;500&display=swap" rel="stylesheet">
+
+<!--   Custom javascript-->
+  <script src="{% static 'package_finder/js/custom.js' %}"></script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'packages:index' %}"><img class="mr-2" height="45" src="{% static 'blog/images/logo5.png' %}"></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto mr-5">
+
+          <li class="nav-item mr-3">
+            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Blog</strong>
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link lead" href="{% url 'blog:category' 'Django' %}"><strong></strong></a>-->
+<!--          </li>-->
+
+          <li class="nav-item dropdown">
+            <a class="nav-link lead mr-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <strong>Top Libraries</strong>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                <a class="dropdown-item lead" href="#">
+                  Hello
+                </a>
+
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link lead" href="{% url 'packages:contact' %}"><strong>Contact</strong></a>
+          </li>
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  {% block content %}
+
+  {% endblock %}
+
+  <!-- Footer -->
+  {% include 'package_finder/footer.html' %}
+
+  <!-- Prism JS -->
+  <script src="{% static 'package_finder/prism/prism.js' %}"></script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

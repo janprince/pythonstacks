@@ -1,0 +1,74 @@
+  {% load static %}
+
+  <footer class="py-5 navbar-default">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4 mb-2">
+          <a href="{% url 'blog:index' %}"><img height="45" src="{% static 'blog/images/logo5.png' %}"></a>
+
+          <!-- Subscribe Widget -->
+          <div class="my-4 ml-3 mr-5 pr-5">
+            <p class="mt-3 text-white">Join our mailing list to get notified of library and tutorial updates. </p>
+            <form method="post" action="{% url 'marketing:subscription' %}">
+              {% csrf_token %}
+              <div class="input-group">
+                <input type="text" class="form-control" name="email" placeholder="Enter Email...">
+                <span class="input-group-append">
+                  <button class="btn btn-info" type="submit">Join</button>
+                </span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="col-6 col-md-2">
+          <h5 class="text-white mb-4">Pages</h5>
+          <ul class="list-unstyled text-small">
+            <li class="mb-2"><a class="text-white" href="{% url 'blog:index' %}">Blog</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'packages:index' %}">Packages</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'packages:contact' %}">Contact Us</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'packages:about' %}">About Us</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'packages:about' %}">Privacy Policy</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'packages:about' %}">Terms</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <h5 class="text-white mb-4">Tutorials</h5>
+          <ul class="list-unstyled text-small">
+            <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'Essentials' %}">Python Essentials</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'Django' %}">Django Tutorials</a></li>
+            <li class="mb-2"><a class="text-white" href="#">Advanced Python</a></li>
+            <li class="mb-2"><a class="text-white" href="#">Artificial Intelligence</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <div class="row">
+            <a href="https://github.com/PythonStacks"><h3 class="text-white"><i class="fa fa-github m-4"></i></h3></a>
+            <a href=""><h3><i class="fa fa-reddit m-4" style="color: white;"></i></h3></a>
+            <a href="https://twitter.com/PythonStacks"><h3 class="text-white"><i class="fa fa-twitter m-4"></i></h3></a>
+          </div>
+
+<!--          <div class="mt-5">-->
+<!--            <a href="#" class="btn btn-info ml-5">Support Us <i class="fa fa-heart"></i></a>-->
+<!--          </div>-->
+        </div>
+
+      </div>
+
+      <hr class="my-2">
+      <div class="mt-1">
+        <p class="m-0 text-center text-white">
+          <span class="mt-5 ml-5 text-white mr-3">Copyright &copy; 2020</span>
+          Made with &hearts;
+        </p>
+      </div>
+
+    </div>
+    <!-- /.container -->
+  </footer>

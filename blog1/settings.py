@@ -41,6 +41,7 @@ ALLOWED_HOSTS = [] if DEBUG else [ "www.pythonstacks.com", "pythonstacks.com", '
 # Application definition
 
 INSTALLED_APPS = [
+    'package_finder',
     'blog',
     'marketing',
     'django.contrib.admin',
@@ -53,7 +54,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
-
 ]
 
 MIDDLEWARE = [

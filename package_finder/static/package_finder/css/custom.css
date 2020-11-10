@@ -1,0 +1,81 @@
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2, h3, h4, h5 {
+  font-family: 'Spartan', sans-serif;
+}
+
+.navbar-default{
+  background-color: #0073b7;
+  border-color: #E7E7E7;
+}
+
+.package_card a{
+  text-decoration: none;
+  color: black;
+}
+
+.package_card a:hover {
+  color: black;
+  background-color: lightblue;
+}
+
+.package_name {
+  font-size: 20px;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    text-decoration: underline;
+    color: white;
+}
+
+.navbar-nav .nav-item .dropdown-menu a:hover{
+  background-color: #3498db;
+
+}
+
+.dropdown-item{
+  color: black;
+}
+
+.code{
+  font-size: 25px;
+  background-color: #0073b7;
+}
+
+a {
+  color: #0073b7;
+}
+
+
+@keyframes notice{
+
+  0% {
+    color: black;
+  }
+  25% {
+    color: #3498db;
+  }
+  50% {
+    color: black;
+  }
+  75% {
+    color: #3498db;
+  }
+  100%{
+    color: black;
+  }
+}
+
+.cat_head{
+  animation-name: notice;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  animation-iteration-count: infinite;
+}
+
+
+

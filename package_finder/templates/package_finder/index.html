@@ -1,0 +1,75 @@
+{% extends 'package_finder/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <!--Jumbotron-->
+  <div class="jumbotron bg-info">
+    <h3 class="font-weight-bold text-white text-center">Discover the right python library for <br>your projects.</h3>
+
+    <div class="row mt-5">
+
+      <div class="col-md-3">
+        <h3 class="font-weight-bold mt-5 text-light">Using Python for: </h3>
+      </div>
+
+      <div class="col-md-9" id="cat_buttons">
+        {% for category in categories %}
+          <a href="#{{ category.id }}" class="btn mt-2 mx-1 cat_btn btn-light">{{ category.tag }}</a>
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Can place ad here -->
+
+  <!-- Main Section -->
+  <section class="container-fluid">
+
+    <div class="row">
+
+      {% for category in categories %}
+
+        <div class="col-md-6 mb-4" id="{{ category.id }}">
+
+          <h4 class="mb-2 cat_head">{{ category.tag }}</h4>
+          <hr>
+
+          <div class="row">
+
+            {% for package in category.packages.all %}
+              <div class="card px-0 package_card col-5 ml-3 shadow mb-4 ">
+                <a class="py-3 pl-4" href="{% url 'packages:detail' package.name %}">
+
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      {% if package.image %}
+                        <img class="img-fluid" src="{{ package.image.url }}" width="40">
+                      {% else %}
+                        <img class="img-fluid" src="{% static 'package_finder/images/box.png' %}" width="40">
+                      {% endif %}
+                    </div>
+
+                    <div class="col-md-8">
+                     <span class="package_name" style="font-size: 20px;">{{ package.name }}</span>
+                    </div>
+
+                  </div>
+
+                </a>
+              </div>
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </section>
+
+{% endblock content %}

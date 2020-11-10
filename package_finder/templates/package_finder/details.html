@@ -1,0 +1,80 @@
+{% extends 'package_finder/base.html' %}
+{% load static %}
+
+  {% block meta%}
+    <meta name="description"
+        content="Learn {{ name }}. Get learning resources and tutorials on {{ name }}">
+  {% endblock meta %}
+
+  {% block title %}
+    <title> {{ name }} | PythonStacks </title>
+  {% endblock title%}
+
+
+{% block content %}
+
+  <!-- Jumbotron -->
+  <div class="jumbotron bg-info text-white">
+      <div class="container">
+        <h3 class="mb-4 font-weight-bold">{{ name }} {{version}}</h3>
+        <pre><span class="code text-white py-1 px-4 font-weight-bold">pip install {{ name }}</span></pre>
+        <h4 class="mt-5">{{ summary }}.</h4>
+        <!-- can place ad in jumbotron -->
+      </div>
+  </div>
+
+  <!-- Main Info -->
+  <div class="container">
+      <div class="row">
+
+        <div class="col-md-7">
+
+            <div class="mb-4">
+                <h4>Project on PyPI:</h4>
+                <a href="{{ project_url }}" class="lead ml-4" target="_blank">{{ project_url }}</a>
+            </div>
+
+            <div class="mb-4">
+                <h4>Project Homepage:</h4>
+                <a href="{{ homepage }}" class="lead ml-4" target="_blank">{{ homepage }}</a>
+            </div>
+
+<!--            <div class="mb-4">-->
+<!--                <h4 class="font-weight-bold">Project Description:</h4>-->
+<!--                <p>{% autoescape on %}{{ description }}{% endautoescape %}</p>-->
+<!--            </div>-->
+
+            <div class="mb-4">
+                <h4 class="font-weight-bold">Project Summary:</h4>
+                <p class="lead ml-4" >{{ summary }}</p>
+            </div>
+
+
+            <div class="mb-4">
+                <h4>Documentation:</h4>
+                <a href="{{ documentation }}" class="lead ml-4" target="_blank">{{ documentation }}</a>
+            </div>
+
+
+
+        </div>
+
+        <div class="col-md-5">
+            <!-- Ad here -->
+            <div class="card">
+                <div class="card-header">Learning Resources for {{ package.name }}</div>
+              <div class="card-body">
+                <ul>
+                {% for r in package.resources.all %}
+                  <li><p class="lead"><a href="{{ r.link }}">{{ r.title }}</a></p></li>
+                {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <!-- or Ad here -->
+        </div>
+
+      </div>
+  </div>
+
+{% endblock content %}

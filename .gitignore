@@ -3,6 +3,7 @@ media/
 static/
 
 !blog/static/
+!package_finder/static
 
 db.sqlite3
 
@@ -15,7 +16,10 @@ blog/templates/blog/googleanalytics.html
 
 blog/templates/blog/googleadsense.html
 
-blog/templates/blog/infolinks.html
+package_finder/templates/package_finder/googleadsense.html
+package_finder/templates/package_finder/googleanalytics.html
+
+
 
 
 ads.txt
