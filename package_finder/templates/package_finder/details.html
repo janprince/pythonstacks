@@ -63,7 +63,7 @@
           {% if package.description %}
           <div class="mb-5">
             <h4 class="font-weight-bold">Project Description:</h4>
-            <p class="ml-4 lead">{% autoescape off %}{{ package.description }}{% endautoescape %}</p>
+            <div class="ml-4">{% autoescape off %}{{ package.description }}{% endautoescape %}</div>
           </div>
           {% else %}
           <div class="mb-5">

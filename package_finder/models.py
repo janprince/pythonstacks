@@ -5,14 +5,14 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Category(models.Model):
-    tag = models.CharField(max_length=250)
+    tag = models.CharField(max_length=250, unique=True)
 
     def __str__(self):
         return self.tag
 
 
 class Package(models.Model):
-    name = models.CharField(max_length=120)
+    name = models.CharField(max_length=120, unique=True)
     project_name = models.CharField(max_length=200, blank=False)
     category = models.ManyToManyField(Category, related_name='packages')
     image = models.ImageField(blank=True, upload_to='package_images')
