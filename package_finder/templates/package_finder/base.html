@@ -24,7 +24,7 @@
   {% endblock title%}
 
   <!-- shortcut icon -->
-  <link rel="shortcut icon" href="{% static 'blog/images/stack2.ico' %}  " type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'blog/images/favicon0.ico' %}  " type="image/x-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">
@@ -75,10 +75,11 @@
               <strong>Top Libraries</strong>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                <a class="dropdown-item lead" href="#">
-                  Hello
+                {% for lib in top_libraries %}
+                <a class="dropdown-item lead" href="{% url 'packages:detail' lib.project_name %}">
+                  {{ lib }}
                 </a>
+                {% endfor %}
 
             </div>
           </li>
@@ -105,7 +106,7 @@
   {% include 'package_finder/footer.html' %}
 
   <!-- Prism JS -->
-  <script src="{% static 'package_finder/prism/prism.js' %}"></script>
+<!--  <script src="{% static 'package_finder/prism/prism.js' %}"></script>-->
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

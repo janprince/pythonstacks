@@ -15,13 +15,16 @@ body {
       background-color: #619ccd;
     }
 
+    h1{
+      font-family: 'Spartan', sans-serif;
+    }
+
     nav{
       font-family: 'Roboto', sans-serif;
     }
 
     .note{
       border-left: 6px solid #4bae76;
-      border-radius: 7px;
       padding-left: 13px;
       color: #8f8c9a;
     }

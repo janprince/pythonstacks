@@ -8,13 +8,19 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PackageAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name',]
+    list_display = ['id', 'name', 'project_name', 'top_library']
+    prepopulated_fields = {'project_name': ('name',)}
+    search_fields = ['name']
+    actions = ["make_top_library"]
+
+    def make_top_library(self, request, queryset):
+        queryset.update(top_library=True)
 
 
 class ResourceAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'package']
 
 
-admin.site.register(Category)
-admin.site.register(Package)
-admin.site.register(Resource)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Package, PackageAdmin)
+admin.site.register(Resource, ResourceAdmin)

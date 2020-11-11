@@ -26,7 +26,7 @@ from blog import views
 sitemaps = {
     'static': StaticViewSitemap,
     'blog' : BlogSitemap,
-    'packages': PackageSitemap,
+    'package_finder': PackageSitemap,
 }
 
 

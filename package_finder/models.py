@@ -12,8 +12,11 @@ class Category(models.Model):
 
 class Package(models.Model):
     name = models.CharField(max_length=120)
+    project_name = models.CharField(max_length=200, blank=False)
     category = models.ManyToManyField(Category, related_name='packages')
     image = models.ImageField(blank=True, upload_to='package_images')
+    description = models.TextField(blank=True)
+    top_library = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -25,7 +28,7 @@ class Package(models.Model):
 
 class Resource(models.Model):
     title = models.CharField(max_length=500)
-    link = models.URLField()
+    link = models.URLField(unique=True)
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='resources')
 
     def __str__(self):

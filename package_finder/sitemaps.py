@@ -1,7 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from .models import *
 from django.urls import reverse
-import datetime
+from datetime import datetime
 
 
 class PackageSitemap(Sitemap):
@@ -10,6 +10,3 @@ class PackageSitemap(Sitemap):
 
     def items(self):
         return Package.objects.all()
-
-    def lastmod(self, obj):
-        return '45'

@@ -41,7 +41,7 @@
 
             {% for package in category.packages.all %}
               <div class="card px-0 package_card col-5 ml-3 shadow mb-4 ">
-                <a class="py-3 pl-4" href="{% url 'packages:detail' package.name %}">
+                <a class="py-3 pl-4" href="{% url 'packages:detail' package.project_name %}">
 
                   <div class="row no-gutters">
                     <div class="col-md-4">

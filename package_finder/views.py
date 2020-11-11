@@ -2,10 +2,13 @@ from django.shortcuts import render, get_object_or_404
 import requests
 from .models import *
 
+top_packages = Package.objects.filter(top_library=True)
+
 
 def index(request):
     context = {
         'categories' : Category.objects.all(),
+        'top_libraries': top_packages,
     }
 
     return render(request, "package_finder/index.html", context)
@@ -27,7 +30,6 @@ def pypi_api(project_name):
     author = info['author']
     version = info['version']
     summary = info['summary']
-    description = info['description']
     project_url = info['project_url']
     try:
         documentation = info['project_urls']['Documentation']
@@ -39,24 +41,23 @@ def pypi_api(project_name):
             'author': author,
             'version' : version,
             'summary' : summary,
-            'description' : description,
             'project_url' : project_url,
             'documentation' : documentation,
             'homepage' : homepage
             }
 
 
-def details(request, package_name):
-    data = pypi_api(package_name)
+def details(request, project_name):
+    data = pypi_api(project_name)
     context = {
         'name': data['name'],
         'version': data['version'],
         'summary': data['summary'],
-        'description': data['description'],
         'project_url': data['project_url'],
         'documentation': data['documentation'],
         'author': data['author'],
         'homepage': data['homepage'],
-        'package': get_object_or_404(Package, name=package_name),
+        'package': get_object_or_404(Package, project_name=project_name),
+        'top_libraries': top_packages,
     }
     return render(request, "package_finder/details.html", context)

@@ -15,6 +15,11 @@
 
 {% block content %}
 
+<!-- Title -->
+<div class="jumbotron">
+  <h1 class="text-center my-5 text-primary " style="font-family: 'Spartan', sans-serif;">{{ post.title }}</h1>
+</div>
+
 <div class="container">
 
     <div class="row">
@@ -22,8 +27,6 @@
       <!-- Post Content Column -->
       <div class="col-lg-8">
 
-        <!-- Title -->
-        <h1 class="mt-5">{{ post.title }}</h1>
 
         <hr>
 
@@ -38,15 +41,14 @@
           <span> by
             <i class="fa fa-user ml-4 mr-2"></i><a href="{% url 'packages:about' %}">{{ post.author }}</a>
           </span>
-          <i class="fa fa-tag ml-5 mr-2"></i>
-            {% for cat in post.categories.all %}
-              <a class="mr-2" href="{% url 'blog:category' cat.tag %}">{{cat}}</a>
-            {% endfor %}
+<!--          <i class="fa fa-tag ml-5 mr-2"></i>-->
+<!--            {% for cat in post.categories.all %}-->
+<!--              <a class="mr-2" href="{% url 'blog:category' cat.tag %}">{{cat}}</a>-->
+<!--            {% endfor %}-->
         </p>
 
-
-
         <hr class="mb-4">
+
 
         <!-- Post Content -->
         <div class="mb-5">
