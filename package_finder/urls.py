@@ -8,4 +8,6 @@ urlpatterns = [
     path("package/<str:project_name>/", views.details, name='detail'),
     path("about/", blog_views.about, name='about'),
     path("contact/", blog_views.contact, name="contact"),
+    path("privacy-policy/", views.policy, name="policy"),
+    path("terms/", views.terms, name="terms"),
 ]

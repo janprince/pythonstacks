@@ -61,3 +61,11 @@ def details(request, project_name):
         'top_libraries': top_packages,
     }
     return render(request, "package_finder/details.html", context)
+
+
+def policy(request):
+    return render(request, "package_finder/policy.html", {'top_libraries': top_packages})
+
+
+def terms(request):
+    return render(request, "package_finder/terms.html", {'top_libraries': top_packages})
