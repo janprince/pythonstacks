@@ -16,7 +16,7 @@ class Package(models.Model):
     project_name = models.CharField(max_length=200, blank=False)
     category = models.ManyToManyField(Category, related_name='packages')
     image = models.ImageField(blank=True, upload_to='package_images')
-    description = RichTextField()
+    description = RichTextField(blank=True)
     top_library = models.BooleanField(default=False)
 
     def __str__(self):
