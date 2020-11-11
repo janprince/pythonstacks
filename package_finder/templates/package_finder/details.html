@@ -65,6 +65,11 @@
             <h4 class="font-weight-bold">Project Description:</h4>
             <p class="ml-4 lead">{% autoescape off %}{{ package.description }}{% endautoescape %}</p>
           </div>
+          {% else %}
+          <div class="mb-5">
+            <h4 class="font-weight-bold mb-4">Project Description:</h4>
+            <div class="ml-4 lead">{% autoescape off %}{{ description }}{% endautoescape %}</div>
+          </div>
           {% endif %}
 
 

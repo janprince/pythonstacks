@@ -86,4 +86,11 @@ a {
     font-size: 15px;
 }
 
+.package_description{
+    font-size: 10px;
+}
+.package_description h1, .package_description h2, .package_description h3{
+    font-size: 20px;
+}
+
 

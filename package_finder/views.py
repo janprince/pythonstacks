@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 import requests
 from .models import *
-# import markdown
+import markdown
 
 top_packages = Package.objects.filter(top_library=True)
 
@@ -30,7 +30,7 @@ def pypi_api(project_name):
     name = info['name']
     author = info['author']
     version = info['version']
-    # description = info['description']
+    description = info['description']
     summary = info['summary']
     project_url = info['project_url']
     try:
@@ -42,7 +42,7 @@ def pypi_api(project_name):
     return {'name' : name,
             'author': author,
             'version' : version,
-            # 'description': description,
+            'description': description,
             'summary' : summary,
             'project_url' : project_url,
             'documentation' : documentation,
@@ -56,7 +56,7 @@ def details(request, project_name):
         'name': data['name'],
         'version': data['version'],
         'summary': data['summary'],
-        # 'description': markdown.markdown(data['description']),
+        'description': markdown.markdown(data['description']),
         'project_url': data['project_url'],
         'documentation': data['documentation'],
         'author': data['author'],
