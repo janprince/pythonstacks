@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -15,7 +16,7 @@ class Package(models.Model):
     project_name = models.CharField(max_length=200, blank=False)
     category = models.ManyToManyField(Category, related_name='packages')
     image = models.ImageField(blank=True, upload_to='package_images')
-    description = models.TextField(blank=True)
+    description = RichTextField()
     top_library = models.BooleanField(default=False)
 
     def __str__(self):
