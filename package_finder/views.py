@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 import requests
 from .models import *
 
@@ -22,15 +22,21 @@ def pypi_api(project_name):
     data = r.json()
     info = data['info']
 
+
     name = info['name']
+    author = info['author']
     version = info['version']
     summary = info['summary']
     description = info['description']
     project_url = info['project_url']
-    documentation = info['project_urls']['Documentation']
+    try:
+        documentation = info['project_urls']['Documentation']
+    except KeyError:
+        documentation = "N/A"
     homepage = info['home_page']
 
     return {'name' : name,
+            'author': author,
             'version' : version,
             'summary' : summary,
             'description' : description,
@@ -49,7 +55,8 @@ def details(request, package_name):
         'description': data['description'],
         'project_url': data['project_url'],
         'documentation': data['documentation'],
+        'author': data['author'],
         'homepage': data['homepage'],
-        'package': Package.objects.get(name=package_name),
+        'package': get_object_or_404(Package, name=package_name),
     }
     return render(request, "package_finder/details.html", context)
