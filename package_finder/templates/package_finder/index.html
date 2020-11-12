@@ -1,11 +1,19 @@
 {% extends 'package_finder/base.html' %}
 {% load static %}
 
+{% block meta%}
+  <meta name="description"
+      content="Python Packages for your projects. Use Python for {% for cat in categories %}{{ cat }}, {% endfor %}">
+{% endblock meta %}
+
+
 {% block content %}
 
   <!--Jumbotron-->
   <div class="jumbotron bg-info">
-    <h3 class="font-weight-bold text-white text-center">Discover the right python library for <br>your projects.</h3>
+
+    <!--    <h3 class="font-weight-bold text-white text-center">Discover the best python libraries for <br>your projects.</h3> &lt;!&ndash;Or&ndash;&gt;-->
+    <h1 style="font-size: 32px; font-family: 'Spartan', sans-serif;" class="font-weight-bold text-white text-center">Discover the best python libraries for <br>your projects.</h1>
 
     <div class="row mt-5">
 
@@ -38,7 +46,9 @@
 
         <div class="col-md-6 mb-4" id="{{ category.id }}">
 
-          <h4 class="mb-2 cat_head">{{ category.tag }}</h4>
+<!--          <h4 class="mb-3 cat_head">{{ category.tag }}</h4>  &lt;!&ndash;Or&ndash;&gt;-->
+          <h2 class="mb-3 cat_head" style="font-size: 22.5px; font-family: 'Spartan', sans-serif;">{{ category.tag }}</h2>
+
           <hr>
 
           <div class="row">
@@ -50,9 +60,9 @@
                   <div class="row no-gutters">
                     <div class="col-md-4">
                       {% if package.image %}
-                        <img class="img-fluid" src="{{ package.image.url }}" width="40">
+                        <img class="img-fluid" alt="Icon" src="{{ package.image.url }}" width="40">
                       {% else %}
-                        <img class="img-fluid" src="{% static 'package_finder/images/box.png' %}" width="40">
+                        <img class="img-fluid" alt="Icon" src="{% static 'package_finder/images/box.png' %}" width="40">
                       {% endif %}
                     </div>
 

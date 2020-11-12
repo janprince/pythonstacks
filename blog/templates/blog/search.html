@@ -1,7 +1,12 @@
 {% extends "blog/base.html" %}
 
+{% block meta%}
+  <meta name="description"
+      content="Search results for {{ q }}">
+{% endblock meta %}
+
 {% block title %}
-  <title>Search Results - PythonStacks</title>
+  <title>Search Results for {{ q }} - PythonStacks</title>
 {% endblock title%}
 
 

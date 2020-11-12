@@ -81,7 +81,7 @@ def detail(request, slug):
 # Category view
 def category(request, category_tag):
     cat = Category.objects.get(tag=category_tag)
-    posts = cat.posts.all()
+    posts = cat.posts.filter(featured=True)
 
     # Pagination
     paginator = Paginator(posts, 11)

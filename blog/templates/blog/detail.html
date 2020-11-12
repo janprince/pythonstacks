@@ -5,7 +5,7 @@
 {% load static %}
 
 {% block meta %}
-  <meta name="description" content="{{ post.overview }}">
+  <meta name="description" content="{{ post.title }}">
 {% endblock meta %}
 
 {% block title %}
@@ -17,7 +17,7 @@
 
 <!-- Title -->
 <div class="jumbotron">
-  <h1 class="text-center my-5 text-primary " style="font-family: 'Spartan', sans-serif;">{{ post.title }}</h1>
+  <h1 class="text-center my-5 text-primary " style="font-family: 'Spartan', sans-serif; font-size: 40px;">{{ post.title }}</h1>
 </div>
 
 <div class="container">

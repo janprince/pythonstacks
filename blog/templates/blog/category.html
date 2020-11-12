@@ -2,7 +2,7 @@
 
 {% block meta%}
   <meta name="description"
-      content="Learn {{ cat_name }} Online. Simple and organized {{ cat_name }} tutorials for programmers of all levels. Python library updates, news, articles and more. Free! ">
+      content="{{ cat.name }} tutorials. {{ cat_name }} tutorials for beginners and python enthusiasts. ">
 {% endblock meta %}
 
 
@@ -20,7 +20,7 @@
       <div class="col-md-8">
 
         <div class="my-5 py-2">
-          <h3>Category: <span class="text-info font-weight-bold">{{ cat_name }}</span></h3>
+          <h1 style="font-size: 25px;"><span class="text-info font-weight-bold">{{ cat_name }}</span> Tutorials</h1>
         </div>
 
         <!-- Blog Post -->
