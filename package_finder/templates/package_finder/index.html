@@ -3,7 +3,7 @@
 
 {% block meta%}
   <meta name="description"
-      content="Python Packages for your projects. Use Python for {% for cat in categories %}{{ cat }}, {% endfor %}">
+      content='Python Packages for your projects. Use Python for {% for cat in categories|slice:":10" %}{{ cat }}, {% endfor %}.'>
 {% endblock meta %}
 
 
@@ -12,8 +12,7 @@
   <!--Jumbotron-->
   <div class="jumbotron bg-info">
 
-    <!--    <h3 class="font-weight-bold text-white text-center">Discover the best python libraries for <br>your projects.</h3> &lt;!&ndash;Or&ndash;&gt;-->
-    <h1 style="font-size: 32px; font-family: 'Spartan', sans-serif;" class="font-weight-bold text-white text-center">Discover the best python libraries for <br>your projects.</h1>
+    <h1 class="font-weight-bold text-white text-center jumbo-head">Discover the best python libraries for <br>your projects.</h1> <!--h3-->
 
     <div class="row mt-5">
 
@@ -46,8 +45,7 @@
 
         <div class="col-md-6 mb-4" id="{{ category.id }}">
 
-<!--          <h4 class="mb-3 cat_head">{{ category.tag }}</h4>  &lt;!&ndash;Or&ndash;&gt;-->
-          <h2 class="mb-3 cat_head" style="font-size: 22.5px; font-family: 'Spartan', sans-serif;">{{ category.tag }}</h2>
+          <h2 class="mb-3 cat_head">{{ category.tag }}</h2>  <!--h4-->
 
           <hr>
 
