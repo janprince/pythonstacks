@@ -4,24 +4,22 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-{% include "blog/googleanalytics.html" %}
-
 <head>
+  {% include "blog/googleanalytics.html" %}
 
   {% include "blog/googleadsense.html" %}
 
   <meta name="robots" content="index, follow">
   <meta charset="utf-8">
-  <meta name="google-site-verification" content="suUCoQSHwLG29r7uwg_92qYI2avyx_MdYzJ_M5TBi54" />
+  <meta name="google-site-verification" content="suUCoQSHwLG29r7uwg_92qYI2avyx_MdYzJ_M5TBi54" /><!--Google Search Console-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {% block meta%}
     <meta name="description"
-        content="Learn Python Online. Python tutorials for beginners and enthusiats. Python library updates, news, articles and more. Free! ">
+        content="Learn Python. Python tutorials for beginners and enthusiats. Python library updates, news, articles and more.">
   {% endblock meta %}
 
   {% block title %}
-    <title> Python tutorials - Pythonstacks</title>
+    <title> Python Tutorials - Pythonstacks</title>
   {% endblock title%}
   <link rel="shortcut icon" href="{% static 'blog/images/favicon0.ico' %}  " type="image/x-icon">
 
