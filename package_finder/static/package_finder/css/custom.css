@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins', sans-serif; /* Roboto */
+  font-family: 'Poppins', sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
@@ -97,6 +97,7 @@ a {
 .jumbo-head{
   font-size: 32px;
 }
+
 .jumbo-subhead {
-    font-size: 22.5px;
+  font-size: 22.5px;
 }
