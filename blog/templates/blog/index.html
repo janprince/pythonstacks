@@ -13,7 +13,7 @@
     <div class="row">
 
       <!-- Blog Entries Column -->
-      <div class="col-md-8 mt-4">
+      <div class="col-md-12 col-lg-8 mt-4">
 
 <!--        &lt;!&ndash; Picture Info &ndash;&gt;-->
 <!--        <div class="row">-->
@@ -39,7 +39,7 @@
         {% endif %}
 
           <div class="card-body">
-            <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary">{{ post.title }}</h2></a>
+            <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary index-post-title">{{ post.title }}</h2></a>
             {% if not post.image %}<p class="card-text" style="font-size: 16px;">{{ post.overview | safe | slice:":250" }}...</p>{% endif %}
             <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
             <!-- Could Use {{ post.get_absolute_url }}-->
