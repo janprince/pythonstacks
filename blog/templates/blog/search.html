@@ -21,9 +21,9 @@
 
     {% if query or query_count != 0 %}
         <div class="my-4 py-1">
-          <h2>
+          <h3>
             <span class="font-weight-bold text-info">{{ query_count }}</span> results for: <span class="text-info">{{ q }}</span>
-          </h2>
+          </h3>
         </div>
 
         <hr class="mb-4">
@@ -38,7 +38,7 @@
 
           <div class="card-body">
             <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary index-post-title">{{ post.title }}</h2></a>
-            <p class="card-text">{{ post.overview | safe | slice:":250" }}</p>
+            <p class="card-text">{{ post.overview | safe | slice:":250" }}...</p>
             <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">

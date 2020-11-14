@@ -19,7 +19,7 @@
       <!-- Blog Entries Column -->
       <div class="col-md-12 col-lg-8 mt-4">
 
-        <div class="my-5 py-2">
+        <div class="my-4">
           <h1 class="category_head">Tutorials on <span class="text-info font-weight-bold">{{ cat_name }}</span></h1>
         </div>
 
@@ -33,7 +33,7 @@
 
           <div class="card-body">
             <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary index-post-title">{{ post.title }}</h2></a>
-            <p class="card-text">{{ post.overview | safe | slice:":250" }}</p>
+            <p class="card-text">{{ post.overview | safe | slice:":250" }}...</p>
             <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
