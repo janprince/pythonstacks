@@ -27,7 +27,7 @@ class Package(models.Model):
 
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse('packages:detail', args=[str(self.name)])
+        return reverse('packages:detail', args=[str(self.project_name)])
 
 
 class Resource(models.Model):

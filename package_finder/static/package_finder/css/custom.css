@@ -87,11 +87,13 @@ a {
 .legaldocs {
     font-size: 17px;
 }
-
 /** detail */
 .jumbo-head{
   font-size: 32px;
 }
 .jumbo-subhead {
   font-size: 22.5px;
+}
+.detail-description p{
+    font-size: 17.5px;
 }
