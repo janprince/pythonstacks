@@ -94,6 +94,10 @@ a {
 .jumbo-subhead {
   font-size: 22.5px;
 }
+
 .detail-description p{
     font-size: 18px;
+}
+.detail-description h3{
+    font-size: 22px;
 }
