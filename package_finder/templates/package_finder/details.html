@@ -4,6 +4,8 @@
   {% block meta%}
     <meta name="description"
         content="Learn {{ name }}, install and use {{ name }} in your projects.">
+
+    <link rel="canonical" href="{{ package.get_absolute_url }}">
   {% endblock meta %}
 
   {% block title %}
