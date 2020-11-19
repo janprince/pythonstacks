@@ -2,38 +2,21 @@
 TODO:
     * Navbar:
 
-    * Implement actual footer :
-        - add patreon support (In footer, in posts)
-        - add social media icons (reddit, twitter, facebook)
-
-
-
-    * Create a PythonStacks email, github, reddit and twitter, facebook
-
-    * Create a bunch of content
+    - add patreon support (In footer, in posts)
 
     * Serve Media files from Amazon S3 bucket
-    * Deploy on linode / PythonAnywhere
     * Google Adsense Ads
-    * Add site to Google - Google Search Console
-    * Other search engines
     * Google Analytics
-
 
 
 When Creating Contents:
 
 blog:
     * Main post images should have 750 x 300 pixels
-    * Remember to add ads
-    * In ckeditor, required font size for content is 18 px and h3 for content headings
+    * Keywords in title should be consistent with content
     * In ckeditor, images uploaded should be given a class of 'img-fluid'.
-    * In ckeditor, double click on code snippets to give them a language
 
 
-
-
-Tools to help in writing good posts
 powerthesaurus.org
 grammaly
 
