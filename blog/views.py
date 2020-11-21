@@ -97,7 +97,7 @@ def category(request, category_tag):
 
 
     context = {
-        'cat_name': category_tag,
+        'category': cat,
         'posts': post_list,
         'categories': categories,
         'recent_posts': recent_posts,

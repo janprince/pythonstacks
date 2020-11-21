@@ -10,14 +10,13 @@ nav form{width: 270px;}
 
 h1, h2, h3{font-family: 'Work Sans', sans-serif;}
 
-
 .note{
   border-left: 6px solid #4bae76;
   padding-left: 13px;
   color: #8f8c9a;
 }
 
-.category_head{font-size: 28px;}
+.category_head{font-size: 35px;}
 
 .detail-head{font-size: 40px;}
 .index-post-title{font-size: 32px;}

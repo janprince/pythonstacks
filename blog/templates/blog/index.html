@@ -1,34 +1,14 @@
 {% extends "blog/base.html" %}
-
 {% load static %}
-
-
-
 
 {% block content %}
 
   <div class="container">
 
-
     <div class="row">
 
       <!-- Blog Entries Column -->
       <div class="col-md-12 col-lg-8 mt-4">
-
-<!--        &lt;!&ndash; Picture Info &ndash;&gt;-->
-<!--        <div class="row">-->
-<!--          <div class="col-md-8">-->
-<!--            <img class="img-fluid" width="500" height="260" src="{% static 'blog/images/empty.png' %}">-->
-<!--          </div>-->
-
-<!--          <div class="col-md-4 my-5">-->
-<!--            <h2>Exclusive Python Tutorials</h2>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <h1 class="my-4">Page Heading-->
-<!--          <small>Secondary Text</small>-->
-<!--        </h1>-->
 
         <!-- Blog Post -->
       {% for post in posts %}
@@ -78,12 +58,10 @@
 
       {% include 'blog/sidebar.html'%}
 
-
     </div>
     <!-- /.row -->
 
   </div>
   <!-- /.container -->
-
 
 {% endblock content%}

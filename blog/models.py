@@ -15,6 +15,8 @@ class Author(models.Model):
 # Category model
 class Category(models.Model):
     tag = models.CharField(max_length=50, unique=True)
+    title_representation = models.CharField(max_length=250, blank=False)
+    meta_description = models.CharField(max_length=155, blank=False)
     important = models.BooleanField(default=False)
 
     def __str__(self):

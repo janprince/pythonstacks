@@ -2,12 +2,12 @@
 
 {% block meta%}
   <meta name="description"
-      content="{{ cat.name }} tutorials. {{ cat_name }} tutorials for beginners and python enthusiasts. ">
+      content="{{ category.meta_description }}">
 {% endblock meta %}
 
 
 {% block title %}
-  <title>{{ cat_name|capfirst }} Tutorials - PythonStacks</title>
+  <title>{{ category.title_representation }} - PythonStacks</title>
 {% endblock title%}
 
 {% block content %}
@@ -20,7 +20,7 @@
       <div class="col-md-12 col-lg-8 mt-4">
 
         <div class="my-4">
-          <h1 class="category_head">Tutorials on <span class="text-info font-weight-bold">{{ cat_name }}</span></h1>
+          <h1 class="ml-3 mb-5 category_head font-weight-bold">{{ category.title_representation }}</span></h1>
         </div>
 
         <!-- Blog Post -->
