@@ -23,7 +23,7 @@ class Category(models.Model):
 
 # Post model
 class Post(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='post_images', blank=True)
     slug = models.SlugField(unique=True)

@@ -5,7 +5,7 @@
 {% load static %}
 
 {% block meta %}
-  <meta name="description" content="{{ post.title }}"> <!--Should be the post.overview--->
+  <meta name="description" content="{{ post.overview|slice:':157' }}"> <!--Should be the post.overview--->
 {% endblock meta %}
 
 {% block title %}

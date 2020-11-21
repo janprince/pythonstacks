@@ -2,8 +2,13 @@
 {% load static %}
 
   {% block meta%}
-    <meta name="description"
-        content="Learn {{ name }}, install and use {{ name }} in your projects.">
+    {% if package.description %}
+      <meta name="description"
+          content="{{ package.description|slice:':157' }}">
+    {% else %}
+      <meta name="description"
+          content="{{ summary|slice:':157' }}">
+    {% endif %}
 
     <link rel="canonical" href="https://www.pythonstacks.com{{ package.get_absolute_url }}">
   {% endblock meta %}
