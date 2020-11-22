@@ -4,7 +4,7 @@
   {% block meta%}
     {% if package.description %}
       <meta name="description"
-          content="{% autoescape off %}{{ package.description|striptags|slice:':157' }}{% endautoescape %}">
+          content="{% autoescape off %}{{ package.description|striptags|slice:':157' }}{% endautoescape %}...">
     {% else %}
       <meta name="description"
           content="{{ summary|slice:':157' }}">
