@@ -43,12 +43,12 @@
 
           <div class="mb-5">
             <h4>Project Homepage:</h4>
-            <a href="{{ homepage }}" class="lead ml-3" target="_blank">{{ homepage }}</a>
+            <p><a href="{{ homepage }}" class="lead ml-3" target="_blank">{{ homepage }}</a></p>
           </div>
 
           <div class="mb-5">
             <h4>Project on PyPI:</h4>
-            <a href="{{ project_url }}" class="lead ml-4" target="_blank">{{ project_url }}</a>
+            <p><a href="{{ project_url }}" class="lead ml-4" target="_blank">{{ project_url }}</a></p>
           </div>
 
           {% if documentation != "N/A" %}
@@ -84,11 +84,11 @@
                 <div class="card-header">Learning Resources for {{ package.name }}</div>
               <div class="card-body">
                 <ul>
-                {% if package.resources.all %}
+                {% if package.resources.all %} <!--if package has resources -->
                   {% for r in package.resources.all %}
                     <li><p class="lead"><a href="{{ r.link }}" target="_blank">{{ r.title }}</a></p></li>
                   {% endfor %}
-                {% else %}
+                {% else %} <!--if package has no resources-->
                   <li><p class="lead">N/A</p></li>
                 {% endif %}
                 </ul>

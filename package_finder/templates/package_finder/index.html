@@ -9,23 +9,20 @@
 
 {% block content %}
 
-  <!--Jumbotron-->
+    <!--Jumbotron-->
   <div class="jumbotron bg-info">
-
     <h1 class="font-weight-bold text-white text-center jumbo-head">Discover the best python libraries for <br>your projects.</h1> <!--h3-->
 
+    <!--Using Python for -->
     <div class="row mt-5">
-
       <div class="col-md-3">
         <h3 class="font-weight-bold mt-5 text-light">Using Python for: </h3>
       </div>
-
       <div class="col-md-9" id="cat_buttons">
         {% for category in categories %}
           <a href="#{{ category.id }}" class="btn mt-2 mx-1 cat_btn btn-light">{{ category.tag }}</a>
         {% endfor %}
       </div>
-
     </div>
 
     <div class="mt-4 mb-0">
@@ -34,17 +31,13 @@
 
   </div>
 
-  <!-- Can place ad here -->
-
   <!-- Main Section -->
   <section class="container-fluid">
 
     <div class="row">
 
       {% for category in categories %}
-
         <div class="col-md-6 mb-4" id="{{ category.id }}">
-
           <h2 class="mb-3 cat_head">{{ category.tag }}</h2>  <!--h4-->
 
           <hr>
@@ -77,7 +70,6 @@
           </div>
 
         </div>
-
       {% endfor %}
 
     </div>
