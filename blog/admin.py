@@ -38,6 +38,9 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(active=True)
 
 
+class ReplyCommentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'reply_message', 'comment']
+
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'email', 'date', 'message']
@@ -49,3 +52,4 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Contact, ContactAdmin)
+admin.site.register(ReplyComment, ReplyCommentAdmin)

@@ -63,12 +63,25 @@ class Comment(models.Model):
         return f"Comment: {self.comment[:20]}... by {self.name}"
 
 
+# Comment Reply
+class ReplyComment(models.Model):
+    name = models.ForeignKey(Author, on_delete=models.CASCADE)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="replies", blank=False)
+    reply_message = models.TextField(blank=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['id']
+
+    def __str__(self):
+        return f"Reply: {self.reply_message}"
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(blank=False)
     message = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return f"Message: {self.name} - {self.message[:150]}..."

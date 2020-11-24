@@ -84,8 +84,8 @@
             <h3>{{ comments.count }} Comments</h3>
 
             {% for comment in comments%}
-            <div class="media mb-4">
-              <img class="d-flex mr-3 rounded-circle" width="40" src="{% static 'blog/images/avatar.png' %}" alt="">
+            <div class="media mb-2">
+              <img class="d-flex mr-3 rounded-circle" width="40" src="{% static 'blog/images/avatar.png' %}" alt="avatar">
               <div class="media-body">
                 <p class="mt-0">
                   <span class="text-info lead">{{ comment.name }}</span>
@@ -97,6 +97,25 @@
                 <hr>
               </div>
             </div>
+
+            {% if comment.replies %}
+              {% for reply in comment.replies.all %}
+                <div class="media ml-5 mt-0 mb-2">
+                  <img class="d-flex mr-3 rounded-circle" width="35" src="{% static 'blog/images/logo.png' %}" alt="avatar">
+                  <div class="media-body">
+                    <p class="mt-0">
+                      <span class="text-info lead">{{ reply.name }}</span>
+                      <span class="float-right text-muted font-weight-normal">
+                         {{ reply.created_on | date:"F d, Y" }}
+                      </span>
+                    </p>
+                    {{ reply.reply_message | linebreaks }}
+                    <hr>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+
             {% endfor %}
 
         </div>
