@@ -16,6 +16,9 @@ blog/templates/blog/googleanalytics.html
 
 blog/templates/blog/googleadsense.html
 
+blog/templates/blog/mediahead.html
+blog/templates/blog/mediabody.html
+
 package_finder/templates/package_finder/googleadsense.html
 package_finder/templates/package_finder/googleanalytics.html
 
