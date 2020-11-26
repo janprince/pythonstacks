@@ -4,6 +4,7 @@ static/
 
 !blog/static/
 !package_finder/static
+!courses/static
 
 db.sqlite3
 
