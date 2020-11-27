@@ -22,8 +22,3 @@ blog/templates/blog/mediabody.html
 
 package_finder/templates/package_finder/googleadsense.html
 package_finder/templates/package_finder/googleanalytics.html
-
-
-
-
-ads.txt
