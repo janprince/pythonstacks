@@ -10,7 +10,7 @@
 
           <!-- Subscribe Widget -->
           <div class="my-4 ml-3 mr-5 pr-5">
-            <p class="mt-3 text-white">Join our mailing list to get notified of library and tutorial updates. </p>
+            <p class="mt-3 text-white">Join our mailing list to be notified of python tutorials and library updates. </p>
             <form method="post" action="{% url 'marketing:subscription' %}">
               {% csrf_token %}
               <div class="input-group">
@@ -24,11 +24,12 @@
 
         </div>
 
-        <div class="col-6 col-md-2">
+        <div class="col-6 col-md-3">
           <h5 class="text-white mb-4">Pages</h5>
           <ul class="list-unstyled text-small">
             <li class="mb-2"><a class="text-white" href="{% url 'blog:index' %}">Blog</a></li>
-            <li class="mb-2"><a class="text-white" href="{% url 'packages:index' %}">Packages</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'packages:index' %}">Library-Index</a></li>
+<!--            <li class="mb-2"><a class="text-white" href="{% url 'courses:index' %}">Courses</a></li>-->
             <li class="mb-2"><a class="text-white" href="{% url 'packages:contact' %}">Contact Us</a></li>
             <li class="mb-2"><a class="text-white" href="{% url 'packages:about' %}">About Us</a></li>
             <li class="mb-2"><a class="text-white" href="{% url 'packages:policy' %}">Privacy Policy</a></li>
@@ -37,23 +38,21 @@
           </ul>
         </div>
 
-        <div class="col-6 col-md-2">
+        <div class="col-6 col-md-3">
           <h5 class="text-white mb-4">Tutorials</h5>
           <ul class="list-unstyled text-small">
             <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'essentials' %}">Python Essentials</a></li>
             <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'django' %}">Django Tutorials</a></li>
-            <li class="mb-2"><a class="text-white" href="#">Advanced Python</a></li>
-            <li class="mb-2"><a class="text-white" href="#">Artificial Intelligence</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'best-practices' %}">Python Best Practices</a></li>
           </ul>
         </div>
 
-        <div class="col-md-4">
-          <div class="row">
+        <div class="col-md-2 text-center">
             <ul class="list-unstyled display-inline">
               <li class="mb-4"><a class="btn btn-info" href="https://github.com/PythonStacks"><i class="fa fa-github fa-lg"></i><span class="text-small"> PythonStacks</span></a></li>
-              <li><a href="https://twitter.com/PythonStacks?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @PythonStacks</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+              <li class="mb-4"><a class="btn btn-info" href="https://twitter.com/PythonStacks"><i class="fa fa-twitter fa-lg"></i><span class="text-small"> PythonStacks</span></a></li>
+              <li class="mb-4"><a class="btn btn-info" href="https://facebook.com/PythonStacks"><i class="fa fa-facebook fa-lg"></i><span class="text-small"> PythonStacks</span></a></li>
             </ul>
-          </div>
 
 <!--          <div class="mt-5">-->
 <!--            <a href="#" class="btn btn-info ml-5">Support Us <i class="fa fa-heart"></i></a>-->

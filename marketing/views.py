@@ -40,16 +40,15 @@ def subscribe(email):
         print("An exception occurred: {}".format(error.text))
 
 
-
 # Subscription View
 def email_signup(request):
     if request.method == "POST":
         form = EmailForm(request.POST or None)
         if form.is_valid():
-            email_q = EmailSubscription.objects.filter(email=form.instance.email)
+            email_q = EmailSubscription.objects.filter(email=form.instance.email)       # From here
             if email_q.exists():
                 messages.info(request, "You Are Already Subscribed. Thank You ! ")
-            else:
+            else:                                                                       # to here, not important
                 subscribe(form.instance.email)
                 form.save()
                 messages.success(request, "Your Email has been submitted. Thank you for joining! ")

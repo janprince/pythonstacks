@@ -73,3 +73,7 @@ def policy(request):
 
 def terms(request):
     return render(request, "package_finder/terms.html", {'top_libraries': top_packages})
+
+
+def robots(request):
+    return render(request, "package_finder/robots.txt", content_type="text/plain")

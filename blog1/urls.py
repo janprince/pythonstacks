@@ -34,6 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('package_finder.urls')),
     path("blog/", include('blog.urls')),
+    path("coursesnotpublishedyet/", include('courses.urls')),
     path('subscribe/', include('marketing.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemaps'),
 

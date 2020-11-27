@@ -10,4 +10,5 @@ urlpatterns = [
     path("contact/", blog_views.contact, name="contact"),
     path("privacy-policy/", views.policy, name="policy"),
     path("terms/", views.terms, name="terms"),
+    path("robots.txt", views.robots, name="robots"),
 ]

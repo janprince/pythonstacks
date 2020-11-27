@@ -14,11 +14,11 @@
 
   {% block meta%}
     <meta name="description"
-        content="Discover the best open-source python libraries and frameworks for your projects.">
+        content="Discover the best Python Courses.">
   {% endblock meta %}
 
   {% block title %}
-    <title>Python libraries for your projects - PythonStacks</title>
+    <title>Best Python Courses - PythonStacks</title>
   {% endblock title%}
 
   <!-- shortcut icon -->
@@ -29,7 +29,7 @@
   <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="{% static 'package_finder/css/custom.css' %}" rel="stylesheet">
+  <link href="{% static 'courses/css/custom.css' %}" rel="stylesheet">
 
   <!-- Font Awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -62,34 +62,16 @@
           </li>
 
           <li class="nav-item mr-2">
-            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Blog</strong>
-              <span class="sr-only">(current)</span>
-            </a>
+            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Blog</strong></a>
           </li>
 
-<!--          <li class="nav-item mr-2">-->
-<!--            <a class="nav-link lead" href="{% url 'courses:index' %}"><strong>Courses</strong></a>-->
-<!--          </li>-->
-
-          <li class="nav-item dropdown">
-            <a class="nav-link lead mr-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>Top-Libraries</strong>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for lib in top_libraries %}
-                <a class="dropdown-item lead" href="{% url 'packages:detail' lib.project_name %}">
-                  {{ lib }}
-                </a>
-                {% endfor %}
-
-            </div>
+          <li class="nav-item mr-2">
+            <a class="nav-link lead" href="{% url 'packages:index'%}"><strong>Library-Index</strong></a>
           </li>
-
 
           <li class="nav-item">
             <a class="nav-link lead" href="{% url 'packages:contact' %}"><strong>Contact</strong></a>
           </li>
-
 
         </ul>
 
