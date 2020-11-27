@@ -19,6 +19,10 @@ blog/templates/blog/googleadsense.html
 
 blog/templates/blog/mediahead.html
 blog/templates/blog/mediabody.html
+blog/templates/blog/cutebox.html
+blog/templates/blog/cutevertical.html
+blog/templates/blog/cutehorizontal.html
+
 
 package_finder/templates/package_finder/googleadsense.html
 package_finder/templates/package_finder/googleanalytics.html
