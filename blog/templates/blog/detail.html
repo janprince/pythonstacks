@@ -38,8 +38,6 @@
 
       <!-- Post Content Column -->
       <div class="col-lg-8">
-        <!-- Ad -->
-        {% include "blog/cutehorizontal.html" %}
 
         <!-- Preview Image -->
         {% if post.image %}
@@ -67,10 +65,10 @@
         <div class="mb-4 text-center">
           <span>
             <p class="lead font-weight-bold">Share This Article</p>
-            <a href="https://twitter.com/intent/tweet?url=https://www.pythonstacks.com{{ post.get_absolute_url }}&text={{post.title}}" class="btn btn-info" target="_blank"><i class="fa fa-twitter text-white"></i>  Tweet</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.pythonstacks.com{{ post.get_absolute_url }}" class="btn btn-info" target="_blank"><i class="fa fa-facebook text-white"></i>  Share</a>
-            <a href="https://www.reddit.com/submit?title={{ post.title }}&url=https://www.pythonstacks.com{{ post.get_absolute_url }}" class="btn btn-info" target="_blank"><i class="fa fa-reddit text-white"></i> Share</a>
-            <a href="https://news.ycombinator.com/submitlink?u=https://www.pythonstacks.com{{ post.get_absolute_url }}&t={{ post.title }}" class="btn btn-info" target="_blank"><i class="fa fa-hacker-news text-white"></i> Share</a>
+            <a href="https://twitter.com/intent/tweet?url=https://www.pythonstacks.com{{ post.get_absolute_url }}&text={{post.title}}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-twitter text-white"></i>  Tweet</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.pythonstacks.com{{ post.get_absolute_url }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-facebook text-white"></i>  Share</a>
+            <a href="https://www.reddit.com/submit?title={{ post.title }}&url=https://www.pythonstacks.com{{ post.get_absolute_url }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-reddit text-white"></i> Share</a>
+            <a href="https://news.ycombinator.com/submitlink?u=https://www.pythonstacks.com{{ post.get_absolute_url }}&t={{ post.title }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-hacker-news text-white"></i> Share</a>
           </span>
         </div>
 
