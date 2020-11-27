@@ -77,3 +77,6 @@ def terms(request):
 
 def robots(request):
     return render(request, "package_finder/robots.txt", content_type="text/plain")
+
+def ads(request):
+    return render(request, "package_finder/ads.txt", content_type="text/plain")

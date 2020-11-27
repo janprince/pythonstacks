@@ -11,4 +11,5 @@ urlpatterns = [
     path("privacy-policy/", views.policy, name="policy"),
     path("terms/", views.terms, name="terms"),
     path("robots.txt", views.robots, name="robots"),
+    path("ads.txt", views.ads, name="ads"),
 ]
