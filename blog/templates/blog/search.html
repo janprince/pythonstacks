@@ -48,7 +48,9 @@
         </div>
 
         {% if forloop.counter == 1 or forloop.counter == 3 or forloop.counter == 6 or forloop.counter == 9 or forloop.counter == 11 %}
-          {% include "blog/ads/libraryads.html" %}
+          <div class="card mb-3 shadow-sm">
+            {% include "blog/ads/blogfeeds.html" %}
+          </div>
         {% endif %}
       {% endfor %}
 
