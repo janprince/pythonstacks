@@ -33,6 +33,9 @@
             {% endfor %}
           </div>
         </div>
+        {% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %}
+          {% inculde "blog/ads/libraryads" %}
+        {% endif %}
       {% endfor %}
 
 

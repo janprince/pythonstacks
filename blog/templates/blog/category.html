@@ -24,12 +24,9 @@
           <p class="lead text-dark">{{ category.meta_description }}</p>
         </div>
 
-        <!-- Ad -->
-        {% include "blog/cutehorizontal.html" %}
-
         <!-- Blog Post -->
         {% for post in posts %}
-        <div class="card mb-4">
+          <div class="card mb-4">
 
           {% if post.image %}
             <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
@@ -45,7 +42,10 @@
               <i class="fa fa-user ml-4 mr-2"></i> <a href="{% url 'packages:about' %}">{{ post.author }}</a>
             </div>
         </div>
-      {% endfor %}
+          {% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %}
+            {% inculde "blog/ads/libraryads" %}
+          {% endif %}
+        {% endfor %}
 
         <!-- Pagination -->
         {% if posts.has_other_pages %}
@@ -65,7 +65,7 @@
         {% endif %}
 
         <!-- Ad -->
-        {% include "blog/cutehorizontal.html" %}
+        {% include "blog/ads/cutehorizontal.html" %}
 
       </div>
 
