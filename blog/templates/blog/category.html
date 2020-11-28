@@ -42,8 +42,8 @@
               <i class="fa fa-user ml-4 mr-2"></i> <a href="{% url 'packages:about' %}">{{ post.author }}</a>
             </div>
         </div>
-          {% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %}
-            {% inculde "blog/ads/libraryads" %}
+          {% if forloop.counter == 1 or forloop.counter == 3 or forloop.counter == 6 or forloop.counter == 9 or forloop.counter == 11 %}
+            {% include "blog/ads/libraryads.html" %}
           {% endif %}
         {% endfor %}
 
