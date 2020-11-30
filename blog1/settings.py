@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'package_finder',
     'blog',
     'marketing',
-    'courses',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
