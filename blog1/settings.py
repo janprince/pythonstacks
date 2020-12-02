@@ -94,6 +94,7 @@ DATABASES = {
     'default': {
         'ENGINE': os.environ['DATABASE_ENGINE'],
         'NAME': os.environ['DATABASE_NAME'],
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", },
         'USER': os.environ['DATABASE_USER'],
         'PASSWORD': os.environ['DATABASE_PASSWORD'],
         'HOST': os.environ['DATABASE_HOST'],
