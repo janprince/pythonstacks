@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import BlogSitemap, StaticViewSitemap
 from package_finder.sitemaps import PackageSitemap
-from blog import views
+
 
 
 sitemaps = {
