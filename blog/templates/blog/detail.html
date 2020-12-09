@@ -5,18 +5,18 @@
 {% load static %}
 
 {% block meta %}
-  <meta name="description" content="{{ post.overview|slice:':157' }}...">
+  <meta name="description" content="{{ post.meta_description }}">
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@PythonStacks" />
   <meta name="twitter:title" content="{{ post.title }}" />
-  <meta name="twitter:description" content="{{ post.overview|slice:':190' }}..." />
+  <meta name="twitter:description" content="{{ post.meta_description }}" />
 <!--  <meta name="twitter:image" content="Image_url" />-->
 
   <meta property="og:url" content="https://www.pythonstacks.com{{ post.get_absolute_url }}" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ post.title }}" />
-  <meta property="og:description" content="{{ post.overview|slice:':90' }}" />
+  <meta property="og:description" content="{{ post.meta_description }}" />
 <!--  <meta property="og:image" content="image_url" />-->
 {% endblock meta %}
 
