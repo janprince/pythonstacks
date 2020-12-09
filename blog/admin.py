@@ -8,13 +8,16 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('featured', 'mostly_viewed')
     search_fields = ['title', 'overview']
-    actions = ['feature_posts', 'make_mostly_viewed']
+    actions = ['feature_posts', 'make_mostly_viewed', 'remove_mostly_viewed']
 
     def feature_posts(self, request, queryset):
         queryset.update(featured=True)
 
     def make_mostly_viewed(self, request, queryset):
         queryset.update(mostly_viewed=True)
+
+    def remove_mostly_viewed(self, request, queryset):
+        queryset.update(mostly_viewed=False)
 
 
 # Category

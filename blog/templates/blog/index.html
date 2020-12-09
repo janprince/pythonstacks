@@ -13,11 +13,6 @@
         <!-- Blog Post -->
       {% for post in posts %}
         <div class="card mb-4 shadow-sm">
-
-        {% if post.image %}
-          <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
-        {% endif %}
-
           <div class="card-body">
             <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary index-post-title">{{ post.title }}</h2></a>
             {% if not post.image %}<p class="card-text" style="font-size: 16px;">{{ post.overview | safe | slice:":250" }}...</p>{% endif %}

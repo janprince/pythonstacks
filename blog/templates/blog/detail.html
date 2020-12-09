@@ -15,13 +15,13 @@
   <meta name="twitter:site" content="@PythonStacks" />
   <meta name="twitter:title" content="{{ post.title }}" />
   <meta name="twitter:description" content="{{ post.overview|slice:':157' }}" />
-<!--  <meta name="twitter:image" content="Image_url" />-->
+  {% if post.image %}<meta name="twitter:image" content="https://www.pythonstacks.com{{ post.image.url }}" />{% endif %}
 
   <meta property="og:url" content="https://www.pythonstacks.com{{ post.get_absolute_url }}" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ post.title }}" />
   <meta property="og:description" content="{{ post.overview|slice:':157' }}" />
-<!--  <meta property="og:image" content="image_url" />-->
+  {% if post.image %}<meta property="og:image" content="https://www.pythonstacks.com{{ post.image.url }}" />{% endif %}
 {% endblock meta %}
 
 {% block title %}
@@ -43,10 +43,10 @@
       <!-- Post Content Column -->
       <div class="col-lg-8">
 
-        <!-- Preview Image -->
-        {% if post.image %}
-        <img class="img-fluid rounded my-2" src="{{ post.image.url }}" alt="post_image">
-        {% endif %}
+<!--        &lt;!&ndash; Preview Image &ndash;&gt;-->
+<!--        {% if post.image %}-->
+<!--        <img class="img-fluid rounded my-2" src="{{ post.image.url }}" alt="post_image">-->
+<!--        {% endif %}-->
 
         <!-- Author and Date/Time -->
         <p class="mt-4 ml-2"><i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y" }}
