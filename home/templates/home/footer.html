@@ -6,7 +6,7 @@
       <div class="row">
 
         <div class="col-md-4 mb-2">
-          <a href="{% url 'blog:index' %}"><img height="45" alt="Logo" src="{% static 'blog/images/logo5.png' %}"></a>
+          <a href="{% url 'home:index' %}"><img height="45" alt="Logo" src="{% static 'blog/images/logo5.png' %}"></a>
 
           <!-- Subscribe Widget -->
           <div class="my-4 ml-3 mr-5 pr-5">
@@ -27,31 +27,29 @@
         <div class="col-6 col-md-3">
           <h5 class="text-white mb-4">Pages</h5>
           <ul class="list-unstyled text-small">
+            <li class="mb-2"><a class="text-white" href="{% url 'home:index' %}">Homepage</a></li>
             <li class="mb-2"><a class="text-white" href="{% url 'blog:index' %}">Blog</a></li>
             <li class="mb-2"><a class="text-white" href="{% url 'packages:index' %}">Library-Index</a></li>
-            <li class="mb-2"><a class="text-white" href="{% url 'packages:contact' %}">Contact Us</a></li>
-            <li class="mb-2"><a class="text-white" href="{% url 'packages:about' %}">About Us</a></li>
-            <li class="mb-2"><a class="text-white" href="{% url 'packages:policy' %}">Privacy Policy</a></li>
-            <li class="mb-2"><a class="text-white" href="{% url 'packages:terms' %}">Terms</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'packages:index' %}">Free Books</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'home:contact' %}">Contact Us</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'home:about' %}">About Us</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'home:policy' %}">Privacy Policy</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'home:terms' %}">Terms</a></li>
 
           </ul>
         </div>
 
         <div class="col-6 col-md-3">
-          <h5 class="text-white mb-4">Tutorials</h5>
+          <h5 class="text-white mb-4">Resources</h5>
           <ul class="list-unstyled text-small">
-            <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'essentials' %}">Python Essentials</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'python' %}">Python Tutorials</a></li>
             <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'django' %}">Django Tutorials</a></li>
-            <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'best-practices' %}">Python Best Practices</a></li>
+            <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'best-practices' %}">Free Python books</a></li>
           </ul>
         </div>
 
         <div class="col-md-2 text-center">
-            <ul class="list-unstyled display-inline">
-              <li class="mb-4"><a class="btn btn-info" href="https://github.com/PythonStacks"><i class="fa fa-github fa-lg"></i><span class="text-small"> PythonStacks</span></a></li>
-              <li class="mb-4"><a class="btn btn-info" href="https://twitter.com/PythonStacks"><i class="fa fa-twitter fa-lg"></i><span class="text-small"> PythonStacks</span></a></li>
-              <li class="mb-4"><a class="btn btn-info" href="https://facebook.com/PythonStacks"><i class="fa fa-facebook fa-lg"></i><span class="text-small"> PythonStacks</span></a></li>
-            </ul>
+            {% include 'home/social.html' %}
 
 <!--          <div class="mt-5">-->
 <!--            <a href="#" class="btn btn-info ml-5">Support Us <i class="fa fa-heart"></i></a>-->

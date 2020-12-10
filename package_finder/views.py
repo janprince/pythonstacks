@@ -65,18 +65,3 @@ def details(request, project_name):
         'top_libraries': top_packages,
     }
     return render(request, "package_finder/details.html", context)
-
-
-def policy(request):
-    return render(request, "package_finder/policy.html", {'top_libraries': top_packages})
-
-
-def terms(request):
-    return render(request, "package_finder/terms.html", {'top_libraries': top_packages})
-
-
-def robots(request):
-    return render(request, "package_finder/robots.txt", content_type="text/plain")
-
-def ads(request):
-    return render(request, "package_finder/ads.txt", content_type="text/plain")
