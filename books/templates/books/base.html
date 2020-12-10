@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "blog/googleanalytics.html" %}
+
+
+  <meta name="robots" content="index, follow">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="suUCoQSHwLG29r7uwg_92qYI2avyx_MdYzJ_M5TBi54" /><!--Google Search Console-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% block meta %}
+    <meta name="description"
+        content="">
+  {% endblock meta %}
+
+  {% block title %}
+    <title>Python Programming Hub - PythonStacks</title>
+  {% endblock title%}
+
+  <link rel="shortcut icon" href="{% static 'blog/images/favicon0.ico' %}  " type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'blog/images/apple-touch-icon.png' %}">
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!--   Custom stylesheet -->
+  <link href="{% static 'books/css/custom.css' %}" rel="stylesheet">
+
+  <!-- Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Custom javascript -->
+  <script src="{% static 'books/js/custom.js' %}"> </script>
+
+  <style>
+    .book-index {
+      background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("{% static 'books/images/books.jpg' %}") no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      -o-background-size: cover;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home:index' %}"><img class="mr-2" alt="Logo" height="45" src="{% static 'blog/images/logo5.png' %}"></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto mr-5">
+
+          <li class="nav-item mr-2">
+            <a class="nav-link lead" href="{% url 'packages:index' %}"><strong>Library-Index</strong></a>
+          </li>
+
+          <li class="nav-item mr-2">
+            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Blog</strong></a>
+          </li>
+
+          <li class="nav-item mr-2">
+            <a class="nav-link lead" href="{% url 'books:index' %}"><strong>Free Books</strong></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link lead" href="{% url 'home:contact' %}"><strong>Contact</strong></a>
+          </li>
+
+        </ul>
+
+        <form method="get" action="{% url 'blog:search' %}">
+            <div class="input-group">
+              <input type="text" class="form-control" name="q" placeholder="Search the blog...">
+              <span class="input-group-append">
+                <button class="btn btn-info" type="submit">Go!</button>
+              </span>
+            </div>
+        </form>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Alerts/Messages-->
+  <div class="container">
+    {% if messages %}	<!-- referring to django messages-->
+				{% for message in messages %}
+					<div class="mt-5 alert alert-{{ message.tags }}">
+						<h5 class="m-0">
+							&checkmark;  {{ message }}
+						</h5>
+					</div>
+				{% endfor %}
+				{% endif %}
+  </div>
+
+  <!-- Page Content -->
+{% block content %}
+
+{% endblock %}
+
+  <!-- Footer -->
+  {% include 'home/footer.html' %}
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

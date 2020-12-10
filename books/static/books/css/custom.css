@@ -1,0 +1,20 @@
+body {
+  padding-top: 75px;
+   font-family: 'Work Sans', sans-serif;
+}
+a{color: #3498db;}
+
+.navbar-nav .nav-item:hover .nav-link {color: #3498db;}
+.navbar-nav .nav-item .dropdown-menu a:hover{background-color: #619ccd;}
+nav form{width: 270px;}
+
+h1, h2, h3{font-family: 'Work Sans', sans-serif;}
+
+.category-head{font-size: 35px;}
+.index-head{font-size: 35px;}
+.book-title{font-size: 35px;}
+
+.book-image{width: 180px;}
+@media only screen and (max-width: 400px){
+    .book-image{width: 155px;}
+}

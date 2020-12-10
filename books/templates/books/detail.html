@@ -1,0 +1,93 @@
+{% extends 'books/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block meta %}
+<meta name="description"
+      content="" xmlns="http://www.w3.org/1999/html">
+{% endblock meta %}
+
+{% block title %}
+  <title>Python Programming Hub - Real Coder</title>
+{% endblock title%}
+
+{% block content %}
+
+<main class="container mt-5">
+
+  <!-- Book Description -->
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <img class="mb-1 shadow" src="{{ book.image.url }}" alt="hello" width="200">
+    </div>
+
+    <div class="col-md-8">
+      <h1 class="book-title">{{ book.title }}</h1>
+      <p class="lead"><span>Author: </span>{{ book.author }}</p>
+      <p class="lead">{{ book.overview }}</p>
+      <div class="row">
+        <div class="col-6"><p class="lead"><span class="text-muted">Year: </span>{{ book.year}}</p></div>
+        <div class="col-6"><p class="lead"><span class="text-muted">File: pdf, </span>{{ book.size}}mb</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Download button -->
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <button class="btn btn-info mt-3" onclick="window.location.href='{{ book.download_link }}';">
+        <i class="fa fa-download"></i>Download (pdf, {{ book.size }} MB)
+      </button>
+    </div>
+  </div>
+
+  <!-- Similar books-->
+  <div class="related mt-5 pt-5">
+    <h4 class="text-info">Similar Books</h4>
+    <hr class="text-info">
+    {% for related in related_books %}
+      <a href="{% url 'books:detail' related.id %}"><img class="mb-2 mx-1 shadow book-image" src="{{ related.image.url }}"></a>
+    {% endfor %}
+  </div>
+
+  <!-- Reviews -->
+  {% if reviews %}
+    <div class="mt-5">
+
+      <h4 class="text-info">Reviews</h4>
+      <hr>
+      {% for review in reviews %}
+        <div class="bg-white p-3 mb-3">
+          <p>
+            <span class="lead text-info">{{ review.name }}</span>
+            <span class="float-right text-muted">{{ review.date|date:"F d, Y" }}</span>
+          </p>
+          <p>{{ review.feedback }} </p>
+        </div>
+      {% endfor %}
+
+    </div>
+  {% endif %}
+
+  <!-- Review form -->
+  <div class="row mt-4 mb-2">
+    <div class="col-md-8">
+      {% if new_review %}
+        <div class="alert alert-success">Your review is awaiting moderation</div>
+      {% else %}
+      <form method="post" action="{% url 'books:detail' book.id %}">
+        {% csrf_token %}
+        {{ review_form|crispy }}
+        <input class="btn btn-info" type="submit" value="Post a Review">
+      </form>
+      {% endif %}
+    </div>
+
+    <div class="col-md-4 border-left">
+      <p>You can write a book review and share your experiences. Other readers will always be interested in your opinion of the books you've read. Whether you've loved the book or not, if you give your honest and detailed thoughts then people will find new books that are right for them. </p>
+    </div>
+
+  </div>
+
+</main>
+{% endblock content %}
