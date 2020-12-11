@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from blog.models import Post
 
 
 def index(request):
-    return render(request, "home/index.html")
+    mostly_viewed_posts = Post.objects.filter(mostly_viewed=True)
+    return render(request, "home/index.html", {"mostly_viewed": mostly_viewed_posts,})
 
 
 def policy(request):

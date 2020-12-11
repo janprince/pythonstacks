@@ -8,9 +8,16 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ["id", 'title', 'author', 'size']
+    list_display = ["id", 'title', 'author', 'size', 'popular']
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['title']
+    actions = ["make_popular", "remove_popular"]
+
+    def make_popular(self, request, queryset):
+        queryset.update(popular=True)
+
+    def remove_popular(self, request, queryset):
+        queryset.update(popular=False)
 
 
 class ReviewAdmin(admin.ModelAdmin):

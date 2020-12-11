@@ -23,12 +23,12 @@
   {% include "blog/ads/cutebox.html" %}
 
 
-  <!-- Most Recent Posts -->
+  <!-- Most Viewed Posts -->
   <div class="card my-4">
     <h5 class="card-header">Most Viewed Posts</h5>
     <div class="card-body">
       {% for recent in recent_posts %}
-      <p ><a class="text-dark" href="{% url 'blog:detail' recent.slug %}">&rarr; {{ recent.title }}</a></p>
+      <p><a class="text-dark" href="{% url 'blog:detail' recent.slug %}">&rarr; {{ recent.title }}</a></p>
       {% endfor %}
     </div>
   </div>

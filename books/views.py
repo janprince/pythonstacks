@@ -6,6 +6,7 @@ from .models import *
 def index(request):
     context = {
         'categories': Category.objects.all(),
+        'popular_books': Book.objects.filter(popular=True),
     }
     return render(request, "books/index.html", context)
 

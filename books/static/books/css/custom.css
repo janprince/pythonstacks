@@ -1,6 +1,7 @@
 body {
   padding-top: 75px;
    font-family: 'Work Sans', sans-serif;
+   background-color: #f6f6f6;
 }
 a{color: #3498db;}
 
@@ -12,7 +13,7 @@ h1, h2, h3{font-family: 'Work Sans', sans-serif;}
 
 .category-head{font-size: 35px;}
 .index-head{font-size: 35px;}
-.book-title{font-size: 35px;}
+.book-title{font-size: 30px;}
 
 .book-image{width: 180px;}
 @media only screen and (max-width: 400px){

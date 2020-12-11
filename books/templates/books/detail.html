@@ -2,12 +2,23 @@
 {% load crispy_forms_tags %}
 
 {% block meta %}
-<meta name="description"
-      content="" xmlns="http://www.w3.org/1999/html">
+  <meta name="description" content="Download {{ book.title }} by {{ book.author }}. Download free programming books. Programming books by PythonStacks.">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@PythonStacks" />
+  <meta name="twitter:title" content="{{ book.title }}" />
+  <meta name="twitter:description" content="{{ book.overview|slice:':157' }}" />
+  <meta name="twitter:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
+
+  <meta property="og:url" content="https://www.pythonstacks.com{{ book.get_absolute_url }}" />
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="{{ books.title }}" />
+  <meta property="og:description" content="{{ books.overview|slice:':157' }}" />
+  <meta property="og:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
 {% endblock meta %}
 
 {% block title %}
-  <title>Python Programming Hub - Real Coder</title>
+  <title>{{ book.title }} - PythonStacks</title>
 {% endblock title%}
 
 {% block content %}
@@ -17,13 +28,13 @@
   <!-- Book Description -->
   <div class="row">
     <div class="col-md-4 text-center">
-      <img class="mb-1 shadow" src="{{ book.image.url }}" alt="hello" width="200">
+      <img class="mb-3 shadow" src="{{ book.image.url }}" alt="hello" width="200">
     </div>
 
     <div class="col-md-8">
       <h1 class="book-title">{{ book.title }}</h1>
-      <p class="lead"><span>Author: </span>{{ book.author }}</p>
-      <p class="lead">{{ book.overview }}</p>
+      <p><span class="text-muted">Author: </span>{{ book.author }}</p>
+      <p>{{ book.overview }}</p>
       <div class="row">
         <div class="col-6"><p class="lead"><span class="text-muted">Year: </span>{{ book.year}}</p></div>
         <div class="col-6"><p class="lead"><span class="text-muted">File: pdf, </span>{{ book.size}}mb</p></div>
@@ -34,15 +45,27 @@
 
   <!-- Download button -->
   <div class="row">
+
     <div class="col-md-4 text-center">
-      <button class="btn btn-info mt-3" onclick="window.location.href='{{ book.download_link }}';">
-        <i class="fa fa-download"></i>Download (pdf, {{ book.size }} MB)
+      <button class="btn btn-info mt-3 mb-4" onclick="window.location.href='{{ book.download_link }}';">
+        <i class="fa fa-download"></i> Download (pdf, {{ book.size }} MB)
       </button>
     </div>
+
+    <div class="col-md-8 mb-4 mt-3">
+      <p>
+        <span class="lead">Share This Book: </span>
+        <a href="https://twitter.com/intent/tweet?url=https://www.pythonstacks.com{{ book.get_absolute_url }}&text={{book.title}}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-twitter text-white"></i>  Tweet</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.pythonstacks.com{{ book.get_absolute_url }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-facebook text-white"></i>  Share</a>
+        <a href="https://www.reddit.com/submit?title={{ books.title }}&url=https://www.pythonstacks.com{{ book.get_absolute_url }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-reddit text-white"></i> Share</a>
+        <a href="https://news.ycombinator.com/submitlink?u=https://www.pythonstacks.com{{ book.get_absolute_url }}&t={{ book.title }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-hacker-news text-white"></i> Share</a>
+      </p>
+    </div>
+
   </div>
 
   <!-- Similar books-->
-  <div class="related mt-5 pt-5">
+  <div class="related mt-5 mb-5 pt-5">
     <h4 class="text-info">Similar Books</h4>
     <hr class="text-info">
     {% for related in related_books %}
@@ -52,7 +75,7 @@
 
   <!-- Reviews -->
   {% if reviews %}
-    <div class="mt-5">
+    <div class="mt-5 mb-4">
 
       <h4 class="text-info">Reviews</h4>
       <hr>
@@ -70,8 +93,9 @@
   {% endif %}
 
   <!-- Review form -->
-  <div class="row mt-4 mb-2">
+  <div class="row mb-2">
     <div class="col-md-8">
+
       {% if new_review %}
         <div class="alert alert-success">Your review is awaiting moderation</div>
       {% else %}
@@ -80,6 +104,7 @@
         {{ review_form|crispy }}
         <input class="btn btn-info" type="submit" value="Post a Review">
       </form>
+
       {% endif %}
     </div>
 

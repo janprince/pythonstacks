@@ -10,12 +10,11 @@
   <meta name="google-site-verification" content="suUCoQSHwLG29r7uwg_92qYI2avyx_MdYzJ_M5TBi54" /><!--Google Search Console-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {% block meta %}
-    <meta name="description"
-        content="">
+
   {% endblock meta %}
 
   {% block title %}
-    <title>Python Programming Hub - PythonStacks</title>
+
   {% endblock title%}
 
   <link rel="shortcut icon" href="{% static 'blog/images/favicon0.ico' %}  " type="image/x-icon">
@@ -35,11 +34,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Custom javascript -->
-  <script src="{% static 'books/js/custom.js' %}"> </script>
+<!--  <script src="{% static 'books/js/custom.js' %}"> </script>-->
 
   <style>
     .book-index {
-      background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("{% static 'books/images/books.jpg' %}") no-repeat center center fixed;
+      background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("{% static 'books/images/books1.jpg' %}") no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       background-size: cover;
@@ -98,7 +97,7 @@
   <div class="container">
     {% if messages %}	<!-- referring to django messages-->
 				{% for message in messages %}
-					<div class="mt-5 alert alert-{{ message.tags }}">
+					<div class="mt-3 alert alert-{{ message.tags }}">
 						<h5 class="m-0">
 							&checkmark;  {{ message }}
 						</h5>
@@ -115,6 +114,8 @@
   <!-- Footer -->
   {% include 'home/footer.html' %}
 
+  <!-- Modal -->
+  {% include 'books/modal.html' %}
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

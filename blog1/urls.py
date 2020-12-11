@@ -34,7 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
     path("free-books/", include("books.urls")),
-    path("library-index/", include('package_finder.urls')),
+    path("python-packages/", include('package_finder.urls')),
     path("blog/", include('blog.urls')),
     path('subscribe/', include('marketing.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemaps'),

@@ -2,36 +2,42 @@
 
 {% block meta %}
   <meta name="description"
-      content="">
+      content="Download free programming books from PythonStacks. Download free python books, machine learning books, java books, AI books, computer science books, etc.">
 {% endblock meta %}
 
 {% block title %}
-  <title>Python Programming Hub - Real Coder</title>
+  <title>Free Programming Books - PythonStacks</title>
 {% endblock title%}
 
 {% block content %}
 
 <section class="book-index">
-  <div class="container-fluid">
+  <div class="container">
 
-    <div class="row">
+    <div class="row pb-5">
 
       <div class="col-lg-5 text-white">
         <h1 class="mt-5 text-white display-4 index-head font-weight-bold">Free Programming Books</h1>
         <p class="lead">
-          At Real_Coder, you can learn from the best python tutorials online.
-          Our tutorials are beginner-oriented and very much suitable for intermediate and advanced programmers.
+          Find and download the best programming books on PythonStacks. Free books on Machine Learning, Python programming, Java programming, Computer science books, Automation, Hacking, etc all for free.
         </p>
-        <p class="lead">
-            We provide articles on the python language, tips and tricks, guides, python projects using Requests and web development tutorials using frameworks like Django and Flask.
-        </p>
+        <a class="btn btn-primary btn-lg my-4 lead" type="button" data-toggle="modal" data-target="#exampleModalCenter">Subscribe</a>
       </div>
 
       <div class="col-lg-7">
-        <h2 class="text-white mt-5 b-1">Book Categories</h2>
-        {% for cat in categories %}
-          <a class="btn btn-primary my-2 mx-1 border" href="{% url 'books:category' cat.slug %}">{{ cat.tag }}</a>
-        {% endfor %}
+        <div class="ml-3">
+          <h4 class="text-white text-center mt-5 b-1">Book Categories</h4>
+          {% for cat in categories %}
+            <a class="btn btn btn-primary my-2 mx-1 border" href="{% url 'books:category' cat.slug %}">{{ cat.tag }}</a>
+          {% endfor %}
+        </div>
+
+        <div class="ml-3">
+          <h4 class="text-white mt-5 mb-3">Popular Books</h4>
+            {% for book in popular_books %}
+            <p class="lead"><a class="text-white" href="{{ post.get_absolute_url }}"><i class="fa fa-book"></i> {{ book.title }}</a></p>
+            {% endfor %}
+        </div>
       </div>
 
     </div>

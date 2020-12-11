@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function (){
 
+  document.querySelector('footer').classList.remove('bg-primary');
+  document.querySelector('footer').classList.add('navbar-default');
+
   document.querySelectorAll(".cat_btn").forEach(btn => {
     btn.onclick = function () {
       let cat = this.innerHTML
@@ -13,5 +16,5 @@ document.addEventListener("DOMContentLoaded", function (){
         }, 5000)
       })
     }
-  })
+  });
 });

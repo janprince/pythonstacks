@@ -1,7 +1,6 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-
 <section class="home">
   <div class="container">
 
@@ -10,16 +9,31 @@
       <div class="col-lg-6 text-white">
         <h1 class="mt-5 text-white display-4 category_head font-weight-bold">The Hub for Python Programmers</h1>
         <p class="lead">
-          At Real_Coder, you can learn from the best python tutorials online.
-          Our tutorials are beginner-oriented and very much suitable for intermediate and advanced programmers.
+          PythonStacks is a hub for python programmers.
+          Our <a href="{% url 'blog:index' %}">blog</a> provides the best tutorials, guidelines, tips and tricks on various aspects of the python programming language.
         </p>
         <p class="lead">
-            We provide articles on the python language, tips and tricks, guides, python projects using Requests and web development tutorials using frameworks like Django and Flask.
+          PythonStacks has a <a href="{% url 'packages:index' %}">categorized index</a> of python libraries which help you find the best library for your python projects.
         </p>
+        <p class="lead">
+          Find and download free programming and computer science <a href="{% url 'books:index' %}">books on PythonStacks.</a>
+        </p>
+        <a class="btn btn-primary btn-lg my-4 lead" type="button" data-toggle="modal" data-target="#exampleModalCenter">Subscribe</a>
       </div>
 
-      <div class="col-lg-6 pb-4">
-        <h3 class="mt-5 text-white">Browse our Tutorials</h3>
+      <div class="col-lg-6 pb-4 mt-5">
+        <div>
+          <a class="btn btn-lg btn-primary m-2" href="{% url 'blog:index' %}">Visit Python Blog</a>
+          <a class="btn btn-lg btn-primary m-2" href="{% url 'packages:index' %}">Visit Python library index</a>
+          <a class="btn btn-lg btn-primary m-2" href="{% url 'books:index' %}">Free Programming Books</a>
+        </div>
+
+        <div class="ml-2">
+          <h4 class="text-white mt-5 mb-3">Most viewed tutorials</h4>
+            {% for post in mostly_viewed %}
+            <p class="lead"><a class="text-white" href="{{ post.get_absolute_url }}">&rarr; {{ post.title }}</a></p>
+            {% endfor %}
+        </div>
       </div>
 
     </div>

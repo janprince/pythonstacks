@@ -4,7 +4,6 @@ from django.db import models
 class Category(models.Model):
     tag = models.CharField(max_length=120, blank=False, unique=True)
     slug = models.SlugField(unique=True)
-    meta_description = models.CharField(max_length=158)
 
     def __str__(self):
         return self.tag
@@ -20,9 +19,17 @@ class Book(models.Model):
     download_link = models.URLField(unique=True)
     year = models.IntegerField(blank=False)
     size = models.FloatField(blank=True)
+    popular = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-id']
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('books:detail', args=[str(self.id)])
 
 
 class Review(models.Model):
@@ -31,6 +38,9 @@ class Review(models.Model):
     feedback = models.TextField()
     active = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date']
 
     def __str__(self):
         return f"Review by {self.name}"
