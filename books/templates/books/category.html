@@ -1,27 +1,47 @@
 {% extends 'books/base.html' %}
 
 {% block meta %}
-  <meta name="description" content="Download free {{ category }} books now. Find and download the best programming and {{ category }} books for free on PythonStacks.">
+  <meta name="description" content="Download the best {{ category }} books for free. Read and download free programming and {{ category }} books on PythonStacks.">
 {% endblock meta %}
 
 {% block title %}
-  <title>Free {{ category }} Books - PythonStacks</title>
+  <title>Free {{ category }} Books Download - PythonStacks</title>
 {% endblock title%}
 
 {% block content %}
 <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-9 mt-4">
-          <div class="jumbotron bg-white shadow"><h1 class="category-head mb-3 text-primary text-center">Free {{ category.tag }}</h1></div>
+      <div class="row cat-body"> <!-- If problem, just remove cat-body -->
+        <!-- main-->
+        <div class="col-lg-8 mt-4">
+          <div class="jumbotron bg-white shadow"><h1 class="category-head mb-3 text-primary text-center">Free {{ category.tag }} books</h1></div>
 
-          {% for book in category.books.all %}
-          <a href="{% url 'books:detail' book.id %}"><img class="mb-2 mx-1 shadow book-image" src="{{ book.image.url }}"></a>
-          {% endfor %}
+          <div class="row">
+            {% for book in category.books.all %}
+            <div class="col-6 col-sm-4 col-md-6 mb-3">
+              <a class="book-card" href="{% url 'books:detail' book.id %}">
+                <div class="card mb-3 h-100" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img class="mx-1 card-img" src="{{ book.image.url }}" alt="{{ book.title }}">
+                    </div>
+                    <div class="col-md-8 d-none d-md-block">
+                      <div class="card-body">
+                        <h2 class="card-title book-title text-primary">{{ book.title }}</h2>
+                        <p class="card-text"><small class="text-muted">{{ book.author }}</small></p>
+                        <p class="card-text text-primary">PDF</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
 
         </div>
 
         <!-- sidebar -->
-        <div class="col-lg-3">
+        <div class="col-lg-4">
 
           <!-- Social icons-->
           <div class="text-center mt-5">{% include 'home/social.html' %}</div>

@@ -2,18 +2,18 @@
 {% load crispy_forms_tags %}
 
 {% block meta %}
-  <meta name="description" content="Download {{ book.title }} by {{ book.author }}. Download free programming books. Programming books by PythonStacks.">
+  <meta name="description" content="Download {{ book.title }} by {{ book.author }} for free. Find free programming books for on PythonStacks.">
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@PythonStacks" />
   <meta name="twitter:title" content="{{ book.title }}" />
-  <meta name="twitter:description" content="{{ book.overview|slice:':157' }}" />
+  <meta name="twitter:description" content="Download {{ book.title }} by {{ book.author }}. Download free programming books." />
   <meta name="twitter:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
 
   <meta property="og:url" content="https://www.pythonstacks.com{{ book.get_absolute_url }}" />
   <meta property="og:type" content="product" />
   <meta property="og:title" content="{{ books.title }}" />
-  <meta property="og:description" content="{{ books.overview|slice:':157' }}" />
+  <meta property="og:description" content="Download {{ book.title }} by {{ book.author }}. Download free programming books." />
   <meta property="og:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
 {% endblock meta %}
 
@@ -25,16 +25,26 @@
 
 <main class="container mt-5">
 
+  <!-- Breadcrumb -->
+  <div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'books:category' book.categories.first.slug %}">Books</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ book.title }}</li>
+      </ol>
+    </nav>
+  </div>
+
   <!-- Book Description -->
   <div class="row">
     <div class="col-md-4 text-center">
-      <img class="mb-3 shadow" src="{{ book.image.url }}" alt="hello" width="200">
+      <img class="mb-3 shadow" src="{{ book.image.url }}" alt="{{ book.title }}" width="200">
     </div>
 
     <div class="col-md-8">
-      <h1 class="book-title">{{ book.title }}</h1>
+      <h1 class="book-detail-title">{{ book.title }}</h1>
       <p><span class="text-muted">Author: </span>{{ book.author }}</p>
-      <p>{{ book.overview }}</p>
+      {% if book.overview %}<p>{{ book.overview }}</p>{% endif %}
       <div class="row">
         <div class="col-6"><p class="lead"><span class="text-muted">Year: </span>{{ book.year}}</p></div>
         <div class="col-6"><p class="lead"><span class="text-muted">File: pdf, </span>{{ book.size}}mb</p></div>
@@ -46,9 +56,9 @@
   <!-- Download button -->
   <div class="row">
 
-    <div class="col-md-4 text-center">
-      <button class="btn btn-info mt-3 mb-4" onclick="window.location.href='{{ book.download_link }}';">
-        <i class="fa fa-download"></i> Download (pdf, {{ book.size }} MB)
+    <div class="col-md-4 text-center my-4">
+      <button class="btn btn-primary" onclick="window.location.href='{{ book.download_link }}';">
+        <i class="fa fa-download"></i> Download (pdf - {{ book.size }} MB)
       </button>
     </div>
 
@@ -64,13 +74,28 @@
 
   </div>
 
+  <!-- Ad -->
+
   <!-- Similar books-->
   <div class="related mt-5 mb-5 pt-5">
     <h4 class="text-info">Similar Books</h4>
-    <hr class="text-info">
-    {% for related in related_books %}
-      <a href="{% url 'books:detail' related.id %}"><img class="mb-2 mx-1 shadow book-image" src="{{ related.image.url }}"></a>
-    {% endfor %}
+    <hr>
+
+    <div class="row">
+
+      <div class="col-lg-8">
+        <div class="row">
+          {% for related in related_books %}
+            <div class="col-4 col-sm-4 col-md-3">
+                <a href="{% url 'books:detail' related.id %}"><img class="mb-2 mx-1 shadow img-fluid" src="{{ related.image.url }}"></a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-lg-4 my-3">ad</div>
+
+    </div>
   </div>
 
   <!-- Reviews -->
@@ -109,7 +134,7 @@
     </div>
 
     <div class="col-md-4 border-left">
-      <p>You can write a book review and share your experiences. Other readers will always be interested in your opinion of the books you've read. Whether you've loved the book or not, if you give your honest and detailed thoughts then people will find new books that are right for them. </p>
+      <!-- Ad -->
     </div>
 
   </div>

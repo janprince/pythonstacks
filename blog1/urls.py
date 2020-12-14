@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import BlogSitemap, StaticViewSitemap
 from package_finder.sitemaps import PackageSitemap
+from books.sitemaps import BookSitemap, BookCategorySitemap
 
 
 
@@ -27,6 +28,8 @@ sitemaps = {
     'static': StaticViewSitemap,
     'blog' : BlogSitemap,
     'package_finder': PackageSitemap,
+    'book_sitemap': BookSitemap,
+    'book_cat_sitemap': BookCategorySitemap,
 }
 
 

@@ -26,8 +26,8 @@ def detail(request, book_id):
     new_review = None
 
     # related book
-    book_cat = book.categories.all()[0]             # first category
-    related = book_cat.books.all()[:15]               # 15 related book
+    book_cat = book.categories.first()             # first category
+    related = book_cat.books.all().order_by("-id")[:9]               # 15 related book
 
     # Comment posted
     if request.method == 'POST':

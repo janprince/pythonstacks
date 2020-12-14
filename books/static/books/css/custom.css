@@ -3,6 +3,10 @@ body {
    font-family: 'Work Sans', sans-serif;
    background-color: #f6f6f6;
 }
+.cat-body{margin: 0px 70px;}
+@media only screen and (max-width: 1200px){.cat-body{margin: 0px 5px;}}
+@media only screen and (max-width: 992px){.cat-body{margin: 0px 5px;}}
+
 a{color: #3498db;}
 
 .navbar-nav .nav-item:hover .nav-link {color: #3498db;}
@@ -13,9 +17,16 @@ h1, h2, h3{font-family: 'Work Sans', sans-serif;}
 
 .category-head{font-size: 35px;}
 .index-head{font-size: 35px;}
-.book-title{font-size: 30px;}
 
-.book-image{width: 180px;}
-@media only screen and (max-width: 400px){
-    .book-image{width: 155px;}
+.book-card:hover{
+    text-decoration: none;
+    color: #3498db;
+    opacity: 0.8;
+}
+
+.book-title{font-size: 17.5px;}
+
+.book-detail-title{font-size: 25px;}
+@media only screen and (max-width: 992px){
+    .book-detail-title{font-size: 20px;}
 }
