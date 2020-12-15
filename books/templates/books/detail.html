@@ -2,23 +2,23 @@
 {% load crispy_forms_tags %}
 
 {% block meta %}
-  <meta name="description" content="Download {{ book.title }} by {{ book.author }} for free. Find free programming books for on PythonStacks.">
+  <meta name="description" content="Download {{ book.meta_title }} by {{ book.author }} for free. Find and download free programming books on PythonStacks.">
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@PythonStacks" />
   <meta name="twitter:title" content="{{ book.title }}" />
-  <meta name="twitter:description" content="Download {{ book.title }} by {{ book.author }}. Download free programming books." />
+  <meta name="twitter:description" content="Download {{ book.meta_title }} by {{ book.author }}. Download free programming books." />
   <meta name="twitter:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
 
   <meta property="og:url" content="https://www.pythonstacks.com{{ book.get_absolute_url }}" />
   <meta property="og:type" content="product" />
   <meta property="og:title" content="{{ books.title }}" />
-  <meta property="og:description" content="Download {{ book.title }} by {{ book.author }}. Download free programming books." />
+  <meta property="og:description" content="Download {{ book.meta_title }} by {{ book.author }}. Download free programming books." />
   <meta property="og:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
 {% endblock meta %}
 
 {% block title %}
-  <title>{{ book.title }} - PythonStacks</title>
+  <title>{{ book.meta_title }} - PythonStacks</title>
 {% endblock title%}
 
 {% block content %}

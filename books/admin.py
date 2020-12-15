@@ -8,7 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ["id", 'title', 'author', 'size', 'popular']
+    list_display = ["id", 'meta_title', 'author', 'size', 'popular']
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['title']
     actions = ["make_popular", "remove_popular"]
