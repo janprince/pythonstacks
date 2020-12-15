@@ -18,7 +18,7 @@
           <div class="row">
             {% for book in category.books.all %}
             <div class="col-6 col-sm-4 col-md-6 mb-3">
-              <a class="book-card" href="{% url 'books:detail' book.id %}">
+              <a class="book-card" href="{% url 'books:detail' book.slug %}">
                 <div class="card mb-3 h-100" style="max-width: 540px;">
                   <div class="row no-gutters">
                     <div class="col-md-4">

@@ -31,7 +31,7 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse('books:detail', args=[str(self.id)])
+        return reverse('books:detail', args=[str(self.slug)])
 
 
 class Review(models.Model):

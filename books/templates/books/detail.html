@@ -88,7 +88,7 @@
         <div class="row">
           {% for related in related_books %}
             <div class="col-4 col-sm-4 col-md-3">
-                <a href="{% url 'books:detail' related.id %}"><img class="mb-2 mx-1 shadow img-fluid" src="{{ related.image.url }}"></a>
+                <a href="{% url 'books:detail' related.slug %}"><img class="mb-2 mx-1 shadow img-fluid" src="{{ related.image.url }}"></a>
             </div>
           {% endfor %}
         </div>

@@ -12,6 +12,7 @@ class BookAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['title']
     actions = ["make_popular", "remove_popular"]
+    filter_horizontal = ("categories",)
 
     def make_popular(self, request, queryset):
         queryset.update(popular=True)

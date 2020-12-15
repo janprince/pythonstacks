@@ -20,8 +20,8 @@ def category(request, category_slug):
     return render(request, "books/category.html", context)
 
 
-def detail(request, book_id):
-    book = Book.objects.get(id=book_id)    # slug
+def detail(request, book_slug):
+    book = Book.objects.get(slug=book_slug)    # slug
     reviews = book.reviews.filter(active=True)
     new_review = None
 
