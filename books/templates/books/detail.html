@@ -76,6 +76,9 @@
   </div>
 
   <!-- Ad -->
+  <div>
+    {% include "blog/ads/bookshorizontal.html" %}
+  </div>
 
   <!-- Similar books-->
   <div class="related mt-5 mb-5 pt-5">
@@ -94,7 +97,10 @@
         </div>
       </div>
 
-      <div class="col-lg-4 my-3">ad</div>
+      <div class="col-lg-4 my-3">
+        <!-- Ad -->
+        {% include "blog/ads/booksbox.html" %}
+      </div>
 
     </div>
   </div>
@@ -134,8 +140,9 @@
       {% endif %}
     </div>
 
-    <div class="col-md-4 border-left">
+    <div class="col-md-4 border-left my-2">
       <!-- Ad -->
+      {% include "blog/ads/booksbox.html" %}
     </div>
 
   </div>

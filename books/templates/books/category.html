@@ -10,7 +10,7 @@
 
 {% block content %}
 <div class="container-fluid">
-      <div class="row cat-body"> <!-- If problem, just remove cat-body -->
+  <div class="row cat-body"> <!-- If problem, just remove cat-body -->
         <!-- main-->
         <div class="col-lg-8 mt-4">
           <div class="jumbotron bg-white shadow"><h1 class="category-head mb-3 text-primary text-center">Free {{ category.tag }} books</h1></div>
@@ -60,8 +60,19 @@
               {% endfor %}
             </ul>
           </div>
+
+          <!-- Ad -->
+          {% include "blog/ads/booksbox.html" %}
+
+          <!-- Ad -->
+          {% include "blog/ads/booksbox.html" %}
         </div>
 
       </div>
+
+  <!-- Ad -->
+  <div class="my-2">
+    {% include "blog/ads/bookshorizontal.html" %}
+  </div>
 </div>
 {% endblock content %}
