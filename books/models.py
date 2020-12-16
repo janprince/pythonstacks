@@ -21,7 +21,7 @@ class Book(models.Model):
     categories = models.ManyToManyField(Category, related_name="books", blank=False)
     overview = models.TextField(blank=True)
     image = models.ImageField(upload_to="book_images")
-    download_link = models.URLField(unique=True)
+    download_link = models.URLField(max_length=500)
     year = models.IntegerField()
     size = models.FloatField()
     popular = models.BooleanField(default=False)
