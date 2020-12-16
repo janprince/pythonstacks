@@ -11,7 +11,7 @@
   <meta name="twitter:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
 
   <meta property="og:url" content="https://www.pythonstacks.com{{ book.get_absolute_url }}" />
-  <meta property="og:type" content="product" />
+  <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ books.title }}" />
   <meta property="og:description" content="Download {{ book.meta_title }} by {{ book.author }}. Download free programming books." />
   <meta property="og:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
@@ -126,6 +126,7 @@
 
   <!-- Review form -->
   <div class="row mb-2">
+    <h4 class="my-2">Share your opinions</h4>
     <div class="col-md-8">
 
       {% if new_review %}
