@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block meta %}
+{% include "blog/ads/mediahead.html" %}
   <meta name="description" content="Download {{ book.meta_title }} by {{ book.author }} for free. Find and download free programming books on PythonStacks.">
 
   <meta name="twitter:card" content="summary" />
@@ -76,9 +77,10 @@
   </div>
 
   <!-- Ad -->
-<!--  <div>-->
+  <div>
 <!--    {% include "blog/ads/bookshorizontal.html" %}-->
-<!--  </div>-->
+    {% include "blog/ads/mediabody.html" %}
+  </div>
 
   <!-- Similar books-->
   <div class="related mt-5 mb-5 pt-5">
