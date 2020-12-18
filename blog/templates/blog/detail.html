@@ -11,7 +11,6 @@
         <meta name="description" content="{{ post.overview|slice:':157' }}">
   {% endif %}
 
-  {% include "blog/ads/mediahead.html" %}
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@PythonStacks" />
@@ -77,8 +76,6 @@
             <a href="https://news.ycombinator.com/submitlink?u=https://www.pythonstacks.com{{ post.get_absolute_url }}&t={{ post.title }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-hacker-news text-white"></i> Share</a>
           </span>
         </div>
-
-        <div>{% include "blog/ads/mediabody.html" %}</div>
 
         <hr>
 
