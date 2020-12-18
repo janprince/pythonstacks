@@ -17,18 +17,21 @@
 
           <div class="row">
             {% for book in category.books.all %}
-            <div class="col-6 col-sm-4 col-md-6 mb-3">
+            <div class="col-12 col-sm-12 col-md-6 mb-3">
               <a class="book-card" href="{% url 'books:detail' book.slug %}">
-                <div class="card mb-3 h-100" style="max-width: 540px;">
+                <div class="card mb-3 h-100">
                   <div class="row no-gutters">
-                    <div class="col-md-4">
-                      <img class="mx-1 card-img" src="{{ book.image.url }}" alt="{{ book.title }}">
+                    <div class="col-3 col-sm-2 col-lg-4">
+                      <img class="mx-1 card-img img-fluid" src="{{ book.image.url }}" alt="{{ book.title }}">
                     </div>
-                    <div class="col-md-8 d-none d-md-block">
+                    <div class="col-9 col-sm-10 col-lg-8">
                       <div class="card-body">
                         <h2 class="card-title book-title text-primary">{{ book.title }}</h2>
-                        <p class="card-text"><small class="text-muted">{{ book.author }}</small></p>
-                        <p class="card-text text-primary">PDF</p>
+                        <p class="card-text">
+                          <small class="text-muted">{{ book.author }}</small>
+                          <span class="card-text text-primary float-right">PDF</span>
+                        </p>
+
                       </div>
                     </div>
                   </div>

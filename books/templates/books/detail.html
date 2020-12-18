@@ -36,21 +36,23 @@
   </div>
 
   <!-- Book Description -->
-  <div class="row">
-    <div class="col-md-4 text-center">
-      <img class="mb-3 shadow" src="{{ book.image.url }}" alt="{{ book.title }}" width="200">
+  <div class="card p-4 shadow">
+    <div class="row">
+    <div class="col-4 col-sm-3 col-md-4 text-center">
+      <img class="mb-3 shadow img-fluid detail-img" src="{{ book.image.url }}" alt="{{ book.title }}" width="200">
     </div>
 
-    <div class="col-md-8">
+    <div class="col-8 col-sm-9 col-md-8">
       <h1 class="book-detail-title">{{ book.title }}</h1>
-      <p><span class="text-muted">Author: </span>{{ book.author }}</p>
-      {% if book.overview %}<p>{{ book.overview }}</p>{% endif %}
+      <p class="d-none d-sm-block"><span class="text-muted">Author: </span>{{ book.author }}</p>
+      {% if book.overview %}<p class="d-none d-md-block">{{ book.overview }}</p>{% endif %}
       <div class="row">
-        <div class="col-6"><p class="lead"><span class="text-muted">Year: </span>{{ book.year}}</p></div>
-        <div class="col-6"><p class="lead"><span class="text-muted">File: pdf, </span>{{ book.size}}mb</p></div>
+        <div class="col-6"><p class="detail-meta"><span class="text-muted">Year: </span>{{ book.year}}</p></div>
+        <div class="col-6"><p class="detail-meta"><span class="text-muted">File: pdf, </span>{{ book.size}}mb</p></div>
       </div>
     </div>
 
+  </div>
   </div>
 
   <!-- Download button -->
@@ -66,10 +68,10 @@
     <div class="col-md-8 mb-4 mt-3">
       <p>
         <span class="lead">Share This Book: </span>
-        <a href="https://twitter.com/intent/tweet?url=https://www.pythonstacks.com{{ book.get_absolute_url }}&text={{book.title}}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-twitter text-white"></i>  Tweet</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.pythonstacks.com{{ book.get_absolute_url }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-facebook text-white"></i>  Share</a>
-        <a href="https://www.reddit.com/submit?title={{ books.title }}&url=https://www.pythonstacks.com{{ book.get_absolute_url }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-reddit text-white"></i> Share</a>
-        <a href="https://news.ycombinator.com/submitlink?u=https://www.pythonstacks.com{{ book.get_absolute_url }}&t={{ book.title }}" class="btn btn-info mb-1" target="_blank"><i class="fa fa-hacker-news text-white"></i> Share</a>
+        <a href="https://twitter.com/intent/tweet?url=https://www.pythonstacks.com{{ book.get_absolute_url }}&text={{book.title}}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-twitter text-white"></i>  Tweet</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.pythonstacks.com{{ book.get_absolute_url }}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-facebook text-white"></i>  Share</a>
+        <a href="https://www.reddit.com/submit?title={{ books.title }}&url=https://www.pythonstacks.com{{ book.get_absolute_url }}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-reddit text-white"></i> Share</a>
+        <a href="https://news.ycombinator.com/submitlink?u=https://www.pythonstacks.com{{ book.get_absolute_url }}&t={{ book.title }}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-hacker-news text-white"></i> Share</a>
       </p>
     </div>
 
@@ -128,7 +130,7 @@
   <div class="row mb-2">
 
     <div class="col-md-8">
-      <h4 class="my-2">Share your opinions</h4>
+      <h4 class="my-2">Share your opinion</h4>
       {% if new_review %}
         <div class="alert alert-success">Your review is awaiting moderation</div>
       {% else %}

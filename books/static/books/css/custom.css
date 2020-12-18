@@ -4,8 +4,6 @@ body {
    background-color: #f6f6f6;
 }
 .cat-body{margin: 0px 70px;}
-@media only screen and (max-width: 1200px){.cat-body{margin: 0px 5px;}}
-@media only screen and (max-width: 992px){.cat-body{margin: 0px 5px;}}
 
 a{color: #3498db;}
 
@@ -15,18 +13,42 @@ nav form{width: 270px;}
 
 h1, h2, h3{font-family: 'Work Sans', sans-serif;}
 
-.category-head{font-size: 35px;}
+/** index **/
 .index-head{font-size: 35px;}
 
+
+/** category **/
+.category-head{font-size: 33px;}
+.book-title{font-size: 16.5px;}
 .book-card:hover{
     text-decoration: none;
     color: #3498db;
     opacity: 0.8;
 }
 
-.book-title{font-size: 17.5px;}
-
+/** detail **/
 .book-detail-title{font-size: 25px;}
+
+
+
+/** media queries **/
+@media only screen and (max-width: 1200px){.cat-body{margin: 0px 5px;}}
+
 @media only screen and (max-width: 992px){
+    .card-img{width: 90px;}
+    .book-title{font-size: 16px;}
+    .category-head{font-size: 28px;}
+
+    /** detail **/
     .book-detail-title{font-size: 20px;}
 }
+
+@media only screen and (max-width: 576px){
+    .cat-body{margin: 0px 0px;}
+    .book-title{font-size: 14px;}
+    body{margin: 0px;}
+    .category-head{font-size: 20px;}
+
+    .book-detail-title{font-size: 15px;}
+}
+@media only screen and (max-width: 400px){.detail-img{width: 90px;}.book-detail-title{font-size: 14px;}}
