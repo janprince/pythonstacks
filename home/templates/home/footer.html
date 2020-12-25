@@ -5,7 +5,7 @@
 
       <div class="row">
 
-        <div class="col-md-4 mb-2">
+        <div class="col-12 col-lg-4 mb-3">
           <a href="{% url 'home:index' %}"><img height="45" alt="Logo" src="{% static 'blog/images/logo5.png' %}"></a>
 
           <!-- Subscribe Widget -->
@@ -24,7 +24,7 @@
 
         </div>
 
-        <div class="col-6 col-md-3">
+        <div class="col-6 col-md-4 col-lg-3">
           <h5 class="text-white mb-4">Pages</h5>
           <ul class="list-unstyled text-small">
             <li class="mb-2"><a class="text-white" href="{% url 'home:index' %}">Homepage</a></li>
@@ -39,7 +39,7 @@
           </ul>
         </div>
 
-        <div class="col-6 col-md-3">
+        <div class="col-6 col-md-4 col-lg-3">
           <h5 class="text-white mb-4">Resources</h5>
           <ul class="list-unstyled text-small">
             <li class="mb-2"><a class="text-white" href="{% url 'blog:category' 'python' %}">Python Tutorials</a></li>
@@ -53,7 +53,7 @@
           </ul>
         </div>
 
-        <div class="col-md-2 text-center">
+        <div class="col-md-4 col-lg-2 text-center my-4">
             {% include 'home/social.html' %}
 
 <!--          <div class="mt-5">-->

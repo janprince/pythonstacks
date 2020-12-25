@@ -11,6 +11,7 @@
 {% block content %}
 <div class="container-fluid">
   <div class="row cat-body"> <!-- If problem, just remove cat-body -->
+
         <!-- main-->
         <div class="col-lg-8 mt-4">
           <div class="jumbotron bg-white shadow"><h1 class="category-head mb-3 text-primary text-center">Free {{ category.tag }} books</h1></div>
@@ -53,6 +54,9 @@
         <!-- sidebar -->
         <div class="col-lg-4">
 
+          <!-- Ad -->
+          <div class="my-2">{% include "blog/ads/booksbox.html" %}</div>
+
           <!-- Social icons-->
           <div class="text-center mt-5">{% include 'home/social.html' %}</div>
 
@@ -60,22 +64,22 @@
           <div class="card shadow mt-1 pb-4">
             <h4 class="pt-5 mb-5 text-center">Book Categories</h4>
 
-            <ul class="nav flex-column">
+            <div class="row">
               {% for cat in categories %}
-                <li class="nav-item">
+                <div class="col-md-6">
                   <a class="nav-link" href="{% url 'books:category' cat.slug %}">
-                    {{ cat.tag }}
+                    <i class="fa fa-book"></i> {{ cat.tag }}
                   </a>
-                </li>
+                </div>
               {% endfor %}
-            </ul>
+            </div>
           </div>
 
           <!-- Ad -->
           <div class="my-2">{% include "blog/ads/booksbox.html" %}</div>
 
-          <!-- Ad -->
-          <div class="my-2">{% include "blog/ads/booksbox.html" %}</div>
+<!--          &lt;!&ndash; Ad &ndash;&gt;-->
+<!--          <div class="my-2">{% include "blog/ads/booksbox.html" %}</div>-->
         </div>
 
       </div>

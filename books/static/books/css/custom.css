@@ -3,7 +3,6 @@ body {
    font-family: 'Work Sans', sans-serif;
    background-color: #f6f6f6;
 }
-.cat-body{margin: 0px 70px;}
 
 a{color: #3498db;}
 
@@ -29,13 +28,12 @@ h1, h2, h3{font-family: 'Work Sans', sans-serif;}
 /** detail **/
 .book-detail-title{font-size: 25px;}
 
-
-
 /** media queries **/
+@media only screen and (min-width: 1200px){.cat-body{margin: 0px 70px;}}
 @media only screen and (max-width: 1200px){.cat-body{margin: 0px 5px;}}
 
 @media only screen and (max-width: 992px){
-    .card-img{width: 90px;}
+    .card-img{width: 90px;}  /** useless **/
     .book-title{font-size: 16px;}
     .category-head{font-size: 28px;}
 
@@ -44,11 +42,11 @@ h1, h2, h3{font-family: 'Work Sans', sans-serif;}
 }
 
 @media only screen and (max-width: 576px){
-    .cat-body{margin: 0px 0px;}
     .book-title{font-size: 14px;}
-    body{margin: 0px;}
     .category-head{font-size: 20px;}
 
+    /** detail **/
     .book-detail-title{font-size: 15px;}
 }
-@media only screen and (max-width: 400px){.detail-img{width: 90px;}.book-detail-title{font-size: 14px;}}
+
+@media only screen and (max-width: 400px){.book-detail-title{font-size: 14px;}}

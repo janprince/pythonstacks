@@ -1,6 +1,7 @@
 {% extends 'books/base.html' %}
 {% load crispy_forms_tags %}
 
+
 {% block meta %}
   <meta name="description" content="Download {{ book.meta_title }} by {{ book.author }} for free. Find and download free programming books on PythonStacks.">
 
@@ -58,14 +59,39 @@
   <!-- Download button -->
   <div class="row">
 
-    <div class="col-md-4 text-center my-4">
-      <button class="btn btn-primary" onclick="window.location.href='{{ book.download_link }}';">
-        <i class="fa fa-download"></i> Download (pdf - {{ book.size }} MB)
+    <div class="col-md-5 text-center my-4" id="download_div">
+      <button class="btn btn-primary" type="button" disabled>
+        Creating Download Link ...
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       </button>
+<!--      <button class="btn btn-primary" onclick="window.location.href='{{ book.download_link }}';">-->
+<!--        <i class="fa fa-download"></i> Download (pdf - {{ book.size }} MB)-->
+<!--      </button>-->
 <!--      <button class="btn btn-primary" disabled></i>Download unavailable now</button>-->
     </div>
 
-    <div class="col-md-8 mb-4 mt-3">
+    <!--  javascript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function (){
+        // create new element
+        let active_btn = document.createElement('button')
+        active_btn.className = "btn btn-primary"
+        active_btn.innerHTML = "<i class='fa fa-download'></i> Download (pdf - {{ book.size }} MB)"
+        active_btn.onclick = function(){
+            window.location.href ='{{ book.download_link }}'
+        }
+
+        setTimeout(function(){
+          // update the button after 5s
+          download_div = document.querySelector('#download_div')
+          download_div.innerHTML = ""  // clearing innerHTML
+          download_div.appendChild(active_btn) // add new button element
+        }, 5000) // 5s
+
+      });
+    </script>
+
+    <div class="col-md-7 mb-4 mt-3 d-none d-lg-block">
       <p>
         <span class="lead">Share This Book: </span>
         <a href="https://twitter.com/intent/tweet?url=https://www.pythonstacks.com{{ book.get_absolute_url }}&text={{book.title}}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-twitter text-white"></i>  Tweet</a>
@@ -92,9 +118,33 @@
       <div class="col-lg-8">
         <div class="row">
           {% for related in related_books %}
-            <div class="col-4 col-sm-4 col-md-3">
-                <a href="{% url 'books:detail' related.slug %}"><img class="mb-2 mx-1 shadow img-fluid" src="{{ related.image.url }}"></a>
+          <div class="col-12 col-sm-12 col-md-6 mb-3">
+              <a class="book-card" href="{% url 'books:detail' related.slug %}">
+                <div class="card mb-3 h-100">
+                  <div class="row no-gutters">
+                    <div class="col-3 col-sm-2 col-lg-4">
+                      <img class="mx-1 card-img img-fluid" src="{{ related.image.url }}" alt="{{ book.title }}">
+                    </div>
+                    <div class="col-9 col-sm-10 col-lg-8">
+                      <div class="card-body">
+                        <h2 class="card-title book-title text-primary">{{ related.title }}</h2>
+                        <p class="card-text">
+                          <small class="text-muted">{{ related.author }}</small>
+                          <span class="card-text text-primary float-right">PDF</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
+            {% if forloop.counter == 1 or forloop.counter == 3 or forloop.counter == 6%}
+                <div class="col-12 col-sm-12 col-md-6 mb-3">
+                  <div class="card">
+                    {% include 'blog/ads/booksfeeds.html' %}
+                  </div>
+                </div>
+            {% endif %}
           {% endfor %}
         </div>
       </div>

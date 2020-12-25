@@ -27,13 +27,13 @@ def detail(request, book_slug):
 
     # related book
     book_cat = book.categories.first()             # first category
-    related = book_cat.books.all().order_by("-id")[:9]               # 15 related book
+    related = book_cat.books.all().order_by("-id")[:7]               # 7 related book
 
     # Comment posted
     if request.method == 'POST':
         review_form = ReviewForm(request.POST)  # pass in the data received to the CommentForm
         if review_form.is_valid():
-            # Create a revie but don't save to database yet
+            # Create a review but don't save to database yet
             new_review = review_form.save(commit=False)
             # Assign the current post to the review
             new_review.book = book
