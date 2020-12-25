@@ -26,6 +26,11 @@
 
 <main class="container mt-5">
 
+    <!-- Ad -->
+  <div class="my-3">
+    {% include "blog/ads/bookshorizontal.html" %}
+  </div>
+
   <!-- Breadcrumb -->
   <div>
     <nav aria-label="breadcrumb">
@@ -34,11 +39,6 @@
         <li class="breadcrumb-item active" aria-current="page">{{ book.title }}</li>
       </ol>
     </nav>
-  </div>
-
-  <!-- Ad -->
-  <div class="my-3">
-    {% include "blog/ads/bookshorizontal.html" %}
   </div>
 
   <!-- Book Description -->
