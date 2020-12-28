@@ -28,11 +28,13 @@
             {% endfor %}
           </div>
         </div>
-<!--        {% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 9 or forloop.counter == 11 %}-->
-<!--        <div class="card mb-3 p-0 shadow-sm">-->
-<!--          {% include "blog/ads/blogfeeds.html" %}-->
-<!--        </div>-->
-<!--        {% endif %}-->
+        {% comment%}
+        {% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 9 or forloop.counter == 11 %}
+        <div class="card mb-3 p-0 shadow-sm">
+          {% include "blog/ads/blogfeeds.html" %}
+        </div>
+        {% endif %}
+        {% endcomment %}
       {% endfor %}
 
 
