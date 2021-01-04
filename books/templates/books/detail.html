@@ -1,26 +1,14 @@
 {% extends 'books/base.html' %}
 {% load crispy_forms_tags %}
 
-
 {% block meta %}
-  <meta name="description" content="Download {{ book.meta_title }} by {{ book.author }} for free. Find and download free programming books on PythonStacks.">
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@PythonStacks" />
-  <meta name="twitter:title" content="{{ book.title }}" />
-  <meta name="twitter:description" content="Download {{ book.meta_title }} by {{ book.author }}. Download free programming books." />
-  <meta name="twitter:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
-
-  <meta property="og:url" content="https://www.pythonstacks.com{{ book.get_absolute_url }}" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="{{ book.title }}" />
-  <meta property="og:description" content="Download {{ book.meta_title }} by {{ book.author }}. Download free programming books." />
-  <meta property="og:image" content="https://www.pythonstacks.com{{ book.image.url }}" />
+  <meta name="description" content="Download {{ book.meta_title }} by {{ book.author }}. Find and download free programming books on PythonStacks.">
 {% endblock meta %}
 
 {% block title %}
-  <title>{{ book.meta_title }} - PythonStacks</title>
-{% endblock title%}
+  <title>{{ book.title }} - PythonStacks</title>
+{% endblock title %}
+
 
 {% block content %}
 
@@ -37,7 +25,8 @@
   <div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'books:category' book.categories.first.slug %}">Books</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'books:index' %}">Books</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'books:category' book.categories.first.slug %}">{{ book.categories.first.tag }}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ book.title }}</li>
       </ol>
     </nav>
@@ -71,10 +60,6 @@
         Creating Download Link ...
         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       </button>
-<!--      <button class="btn btn-primary" onclick="window.location.href='{{ book.download_link }}';">-->
-<!--        <i class="fa fa-download"></i> Download (pdf - {{ book.size }} MB)-->
-<!--      </button>-->
-<!--      <button class="btn btn-primary" disabled></i>Download unavailable now</button>-->
     </div>
 
     <!--  javascript -->
@@ -99,20 +84,14 @@
     </script>
 
     <div class="col-md-7 mb-4 mt-3 d-none d-lg-block">
-      <p>
-        <span class="lead">Share This Book: </span>
-        <a href="https://twitter.com/intent/tweet?url=https://www.pythonstacks.com{{ book.get_absolute_url }}&text={{book.title}}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-twitter text-white"></i>  Tweet</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.pythonstacks.com{{ book.get_absolute_url }}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-facebook text-white"></i>  Share</a>
-        <a href="https://www.reddit.com/submit?title={{ books.title }}&url=https://www.pythonstacks.com{{ book.get_absolute_url }}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-reddit text-white"></i> Share</a>
-        <a href="https://news.ycombinator.com/submitlink?u=https://www.pythonstacks.com{{ book.get_absolute_url }}&t={{ book.title }}" class="btn btn-info btn-sm mb-1" target="_blank"><i class="fa fa-hacker-news text-white"></i> Share</a>
-      </p>
+      <!-- Buy button-->
     </div>
 
   </div>
 
-  <!-- Similar books-->
+  <!-- Similar books (random)-->
   <div class="related mt-5 mb-5 pt-5">
-    <h4 class="text-info">Similar Books</h4>
+    <h4 class="text-primary">Similar Books</h4>
     <hr>
 
     <div class="row">
@@ -125,11 +104,11 @@
                 <div class="card mb-3 h-100">
                   <div class="row no-gutters">
                     <div class="col-3 col-sm-2 col-lg-4">
-                      <img class="mx-1 card-img img-fluid" src="{{ related.image.url }}" alt="{{ book.title }}">
+                      <img class="card-img img-fluid" src="{{ related.image.url }}" alt="{{ book.title }}">
                     </div>
                     <div class="col-9 col-sm-10 col-lg-8">
                       <div class="card-body">
-                        <h2 class="card-title book-title text-primary">{{ related.title }}</h2>
+                        <h2 class="card-title book-title text-secondary">{{ related.title }}</h2>
                         <p class="card-text">
                           <small class="text-muted">{{ related.author }}</small>
                           <span class="card-text text-primary float-right">PDF</span>
@@ -159,16 +138,31 @@
     </div>
   </div>
 
+  <!-- Top Tutorials -->
+  <div>
+      <h4 class="mt-5 mb-2 font-weight-bold">Learning Python?</h4>
+      <hr>
+      <div class="row">
+      {% for post in top_posts %}
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+          <a class="" href="{% url 'blog:detail' post.slug %}">
+            <p class="lead text-secondary"><i class="far fa-newspaper"></i> {{ post.title }}</p>
+          </a>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
   <!-- Reviews -->
   {% if reviews %}
     <div class="mt-5 mb-4">
 
-      <h4 class="text-info">Reviews</h4>
+      <h4 class="text-primary">Reviews</h4>
       <hr>
       {% for review in reviews %}
         <div class="bg-white p-3 mb-3">
           <p>
-            <span class="lead text-info">{{ review.name }}</span>
+            <span class="lead text-primary">{{ review.name }}</span>
             <span class="float-right text-muted">{{ review.date|date:"F d, Y" }}</span>
           </p>
           <p>{{ review.feedback }} </p>
@@ -189,7 +183,7 @@
       <form method="post" action="{% url 'books:detail' book.id %}">
         {% csrf_token %}
         {{ review_form|crispy }}
-        <input class="btn btn-info" type="submit" value="Post a Review">
+        <input class="btn btn-primary" type="submit" value="Post a Review">
       </form>
 
       {% endif %}

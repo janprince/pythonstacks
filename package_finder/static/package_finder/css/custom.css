@@ -2,12 +2,12 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, .nav-link {
   font-family: 'Spartan', sans-serif;
 }
 
 .navbar-default{
-  background-color: #0073b7;
+  background-color: #1f80c2;
   border-color: #E7E7E7;
 }
 
@@ -32,7 +32,6 @@ h1, h2, h3, h4, h5 {
 
 .navbar-nav .nav-item .dropdown-menu a:hover{
   background-color: #3498db;
-
 }
 
 .dropdown-item{

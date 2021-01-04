@@ -26,11 +26,11 @@ class Category(models.Model):
 # Post model
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
+    subtitle = models.CharField(max_length=120, blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='post_images', blank=True)
     slug = models.SlugField(unique=True)
     meta_description = models.CharField(max_length=157, blank=True)
-    overview = models.TextField()
     content = RichTextUploadingField()
     pub_date = models.DateTimeField(default=timezone.now)      # default=timezone.now - from django.utils import tim...
     categories = models.ManyToManyField(Category, blank=False, related_name='posts')

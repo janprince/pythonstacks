@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from .forms import ReviewForm
 from .models import *
+from blog.models import Post
 
 
 def index(request):
     context = {
         'categories': Category.objects.all(),
         'popular_books': Book.objects.filter(popular=True),
+        'top_posts': Post.objects.filter(mostly_viewed=True)[:6]  # 6 most_viewed posts;
     }
     return render(request, "books/index.html", context)
 
@@ -27,7 +29,7 @@ def detail(request, book_slug):
 
     # related book
     book_cat = book.categories.first()             # first category
-    related = book_cat.books.all().order_by("-id")[:7]               # 7 related book
+    related = book_cat.books.all().order_by("?")[:10]               # 10 random related book
 
     # Comment posted
     if request.method == 'POST':
@@ -49,5 +51,6 @@ def detail(request, book_slug):
         'related_books': related,
         'review_form': review_form,
         'new_review': new_review,
+        'top_posts': Post.objects.filter(mostly_viewed=True)[:6]  # 6 most_viewed posts;
     }
     return render(request, "books/detail.html", context)

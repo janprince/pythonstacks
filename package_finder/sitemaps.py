@@ -6,7 +6,7 @@ from datetime import datetime
 
 class PackageSitemap(Sitemap):
     changefreq = "weekly"
-    priority =  0.9
+    priority = 0.8
 
     def items(self):
         return Package.objects.all()

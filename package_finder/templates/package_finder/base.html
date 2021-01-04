@@ -28,6 +28,9 @@
   <!-- Bootstrap core CSS -->
   <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">
 
+  <!-- Grayscale stylesheet -->
+  <link href="{% static 'package_finder/css/bootstrap.min.css' %}" rel="stylesheet">
+
   <!-- Custom styles for this template -->
   <link href="{% static 'package_finder/css/custom.css' %}" rel="stylesheet">
 
@@ -61,19 +64,9 @@
             <a href="https://twitter.com/PythonStacks?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @PythonStacks</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </li>
 
-          <li class="nav-item mr-2">
-            <a class="nav-link lead" href="{% url 'packages:index' %}"><strong>Library-Index</strong></a>
-          </li>
-
-          <li class="nav-item mr-2">
-            <a class="nav-link lead" href="{% url 'blog:index' %}"><strong>Blog</strong>
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-
           <li class="nav-item dropdown">
-            <a class="nav-link lead mr-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>Top-Libraries</strong>
+            <a class="nav-link mr-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Top-Libraries
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {% for lib in top_libraries %}
@@ -86,11 +79,19 @@
           </li>
 
           <li class="nav-item mr-2">
-            <a class="nav-link lead" href="{% url 'books:index' %}"><strong>Free Books</strong></a>
+            <a class="nav-link" href="{% url 'packages:index' %}">Library-Index</a>
+          </li>
+
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
+          </li>
+
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="{% url 'books:index' %}">Free Books</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link lead" href="{% url 'home:contact' %}"><strong>Contact</strong></a>
+            <a class="nav-link " href="{% url 'home:contact' %}">Contact</a>
           </li>
 
 

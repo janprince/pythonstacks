@@ -1,5 +1,7 @@
 {% extends 'books/base.html' %}
 
+{% load static %}
+
 {% block meta %}
   <meta name="description"
       content="Download free programming books from PythonStacks. Find and download free python books, machine learning books, java books, AI books, computer science books, etc.">
@@ -7,39 +9,84 @@
 
 {% block title %}
   <title>Free Programming Books - PythonStacks</title>
-{% endblock title%}
+{% endblock title %}
 
 {% block content %}
 
-<section class="book-index">
+<section>
   <div class="container">
-
-    <div class="row pb-5">
-
-      <div class="col-lg-5 text-white">
-        <h1 class="mt-5 text-white display-4 index-head font-weight-bold">Free Programming Books</h1>
-        <p class="lead">
-          Find and download the best programming books on PythonStacks for free. Free books on Machine Learning, Python programming, Java programming, Computer science, Automation, Hacking, etc.
-        </p>
-        <a class="btn btn-primary btn-lg my-4 lead" type="button" data-toggle="modal" data-target="#exampleModalCenter">Subscribe</a>
+    <!-- Header -->
+    <header class="my-3">
+      <div class="jumbotron book-index text-white">
+        <h1 class="index-head text-center font-weight-bold">Free Programming Books</h1>
+        <p class="text-center mt-2">Find and download programming and tech related books for free</p>
       </div>
+    </header>
 
-      <div class="col-lg-7">
-        <div class="ml-3">
-          <h4 class="text-white text-center mt-5 b-1">Book Categories</h4>
-          {% for cat in categories %}
-            <a class="btn btn btn-primary my-2 mx-1 border" href="{% url 'books:category' cat.slug %}">{{ cat.tag }}</a>
-          {% endfor %}
+    <!-- Categories -->
+    <h3 class="mt-5 mb-2 font-weight-bold">Categories</h3>
+    <div class="card my-4 shadow">
+      <div class="row card-body">
+        {% for cat in categories %}
+        <div class="col-6 col-md-4">
+          <a class="m-2 text-secondary" href="{% url 'books:category' cat.slug %}">
+            <div class="media">
+              {% if cat.image %}<img src="{{ cat.image.url }}" class="align-self-center mr-3 index-image" alt="Category">
+              {% else %}<img src="{% static 'books/images/book-icon.png' %}" class="align-self-center mr-3 index-image" alt="Category">{% endif %}
+              <div class="media-body">
+                <h5 class="mt-2 index-category-title">{{ cat.tag }}</h5>
+              </div>
+            </div>
+          </a>
         </div>
+        {% endfor %}
 
-        <div class="ml-3">
-          <h4 class="text-white mt-5 mb-3">Popular Books</h4>
-            {% for book in popular_books %}
-            <p class="lead"><a class="text-white" href="{{ book.get_absolute_url }}"><i class="fa fa-book"></i> {{ book.title }}</a></p>
-            {% endfor %}
-        </div>
       </div>
+    </div>
 
+    <!-- Top Books -->
+    <div>
+      <h3 class="mt-5 mb-2 font-weight-bold">Top Books</h3>
+      <hr>
+      <div class="row">
+      {% for book in popular_books %}
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+          <a class="book-card" href="{% url 'books:detail' book.slug %}">
+            <div class="card mb-3 h-100">
+              <div class="row no-gutters">
+                <div class="col-3 col-sm-2 col-lg-4">
+                  <img class="card-img img-fluid" src="{{ book.image.url }}" alt="{{ book.title }}">
+                </div>
+                <div class="col-9 col-sm-10 col-lg-8">
+                  <div class="card-body">
+                    <h2 class="card-title book-title text-secondary">{{ book.title }}</h2>
+                    <p class="card-text">
+                      <small class="text-muted">{{ book.author }}</small>
+                      <span class="card-text text-primary float-right">PDF</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
+    <!-- Top Tutorials -->
+    <div>
+      <h3 class="mt-5 mb-2 font-weight-bold">Top Python Tutorials</h3>
+      <hr>
+      <div class="row">
+      {% for post in top_posts %}
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+          <a class="" href="{% url 'blog:detail' post.slug %}">
+            <p class="text-secondary"><i class="far fa-newspaper"></i> {{ post.title }}</p>
+          </a>
+        </div>
+      {% endfor %}
+      </div>
     </div>
 
   </div>

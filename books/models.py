@@ -4,6 +4,7 @@ from django.db import models
 class Category(models.Model):
     tag = models.CharField(max_length=120, blank=False, unique=True)
     slug = models.SlugField(unique=True)
+    image = models.ImageField(upload_to="category_images", blank=True)
 
     def __str__(self):
         return self.tag
@@ -24,7 +25,9 @@ class Book(models.Model):
     download_link = models.URLField(max_length=500)
     year = models.IntegerField()
     size = models.FloatField()
+    pub_date = models.DateTimeField(auto_now_add=True)
     popular = models.BooleanField(default=False)
+    affiliate_link = models.URLField(max_length=400, blank=True)
 
     def __str__(self):
         return self.title

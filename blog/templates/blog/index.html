@@ -1,69 +1,69 @@
 {% extends "blog/base.html" %}
 {% load static %}
 
+  {% block meta %}
+    <meta name="description"
+        content="Improve your Python skills. Learn from the best python tutorials, comprehensive articles and guides suitable for beginners and advanced python programmers.">
+  {% endblock meta %}
+
+  {% block title %}
+    <title>Python Tutorials - PythonStacks</title>
+  {% endblock title%}
+
+
 {% block content %}
 
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% static 'blog/images/bg/home-bg3.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>PythonStacks Blog</h1>
+            <span class="subheading">A Python Blog by PythonStacks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
   <div class="container">
-
     <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
 
-      <!-- Blog Entries Column -->
-      <div class="col-md-12 col-lg-8 mt-4">
-
-        <!-- Blog Post -->
-      {% for post in posts %}
-        <div class="card mb-4 shadow-sm">
-          <div class="card-body">
-            <a href="{% url 'blog:detail' post.slug %}"><h2 class="card-title text-primary index-post-title">{{ post.title }}</h2></a>
-            {% if not post.image %}<p class="card-text" style="font-size: 16px;">{{ post.overview | safe | slice:":250" }}...</p>{% endif %}
-            <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary float-right">Read More &rarr;</a>
-            <!-- Could Use {{ post.get_absolute_url }}-->
-          </div>
-          <div class="card-footer text-muted">
-            <i class="fa fa-calendar mr-2"></i>{{ post.pub_date | date:"F d, Y"}}
-            <i class="fa fa-user ml-4 mr-2"></i> <a href="{% url 'home:about' %}">{{ post.author }}</a>
-            <i class="fa fa-tag ml-5 mr-2"></i>
-            {% for cat in post.categories.all %}
-              <a class="mr-2" href="{% url 'blog:category' cat.tag %}">{{cat}}</a>
-            {% endfor %}
-          </div>
+        {% for post in posts %}
+        <div class="post-preview">
+          <a href="{{ post.get_absolute_url }}">
+            <h2 class="post-title">
+              {{ post.title }}
+            </h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+              {{ post.subtitle }}
+            </h3>
+            {% endif %}
+          </a>
+          <p class="post-meta">Posted by
+            <a href="{% url 'home:about' %}">{{ post.author }}</a>
+            on {{ post.pub_date | date:"F d, Y" }}</p>
         </div>
-        {% comment%}
-        {% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 9 or forloop.counter == 11 %}
-        <div class="card mb-3 p-0 shadow-sm">
-          {% include "blog/ads/blogfeeds.html" %}
+        <hr>
+        {% endfor %}
+
+
+
+        <!-- All Posts Button -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{% url 'blog:all' %}">View All Posts &rarr;</a>
         </div>
-        {% endif %}
-        {% endcomment %}
-      {% endfor %}
-
-
-        <!-- Pagination -->
-        {% if posts.has_other_pages %}
-        <ul class="pagination justify-content-center mb-4">
-          {% if posts.has_previous %}
-          <li class="page-item">
-            <a class="page-link bg-primary border-right" href="?page={{ posts.previous_page_number }}">&larr; Newer</a>
-          </li>
-          {% endif %}
-
-          {% if posts.has_next %}
-          <li class="page-item">
-            <a class="page-link bg-primary" href="?page={{ posts.next_page_number }}">Older &rarr;</a>
-          </li>
-          {% endif %}
-        </ul>
-        {% endif %}
-
 
       </div>
-
-      {% include 'blog/sidebar.html'%}
-
     </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.container -->
+
+  <!-- Newsletter -->
+  {% include 'blog/newsletter.html' %}
 
 {% endblock content%}

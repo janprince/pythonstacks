@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (){
 
-  document.querySelector('footer').classList.remove('bg-primary');
+  document.querySelector('footer').classList.remove('bg-secondary');
   document.querySelector('footer').classList.add('navbar-default');
 
   document.querySelectorAll(".cat_btn").forEach(btn => {

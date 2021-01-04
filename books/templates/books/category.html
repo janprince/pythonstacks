@@ -1,91 +1,111 @@
 {% extends 'books/base.html' %}
 
 {% block meta %}
-  <meta name="description" content="Download the best {{ category }} books for free. Read and download free programming and {{ category }} books on PythonStacks.">
+  <meta name="description" content="Download the best {{ category.tag }} books for free. Find more free programming and {{ category.tag }} books on PythonStacks.">
 {% endblock meta %}
 
 {% block title %}
-  <title>Download Free {{ category }} Books - PythonStacks</title>
+  <title>Download Free {{ category.tag }} Books - PythonStacks</title>
 {% endblock title%}
 
 {% block content %}
-<div class="container-fluid">
-  <div class="row cat-body">
+<div class="cat-body">
 
-        <!-- main-->
-        <div class="col-lg-8 mt-4">
-          <div class="jumbotron bg-white shadow"><h1 class="category-head mb-3 text-primary text-center">Free {{ category.tag }} books</h1></div>
+  <div class="container-fluid">
 
-          <div class="row">
-            {% for book in category.books.all %}
-            <div class="col-12 col-sm-12 col-md-6 mb-3">
-              <a class="book-card" href="{% url 'books:detail' book.slug %}">
-                <div class="card mb-3 h-100">
-                  <div class="row no-gutters">
-                    <div class="col-3 col-sm-2 col-lg-4">
-                      <img class="mx-1 card-img img-fluid" src="{{ book.image.url }}" alt="{{ book.title }}">
-                    </div>
-                    <div class="col-9 col-sm-10 col-lg-8">
-                      <div class="card-body">
-                        <h2 class="card-title book-title text-primary">{{ book.title }}</h2>
-                        <p class="card-text">
-                          <small class="text-muted">{{ book.author }}</small>
-                          <span class="card-text text-primary float-right">PDF</span>
-                        </p>
+    <!-- Breadcrumb -->
+    <div class="mt-2">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-light">
+        <li class="breadcrumb-item"><a href="{% url 'books:index' %}">Books</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ category.tag }} Books</li>
+      </ol>
+    </nav>
+  </div>
 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            {% comment %}
-              {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 11 or forloop.counter == 15 or forloop.counter == 18 %}
-                <div class="col-12 col-sm-12 col-md-6 mb-3">
-                  <div class="card">
-                    {% include 'blog/ads/booksfeeds.html' %}
-                  </div>
-                </div>
-              {% endif %}
-            {% endcomment %}
-            {% endfor %}
-          </div>
-
+    <!-- Header -->
+    <header >
+      <div class="mt-4">
+        <!-- Category Buttons-->
+        <div class="d-none d-md-block">
+          {% for cat in categories.all %}
+          <a href="{% url 'books:category' cat.slug %}" class="btn btn-sm btn-secondary mt-2">{{ cat.tag }}</a>
+          {% endfor %}
         </div>
 
-        <!-- sidebar -->
-        <div class="col-lg-4 mt-5">
+        <h1 class="mt-4 category-head font-weight-bold text-secondary">Free {{ category.tag }} Books</h1>
+      </div>
+    </header>
+    <hr>
 
-          <!-- Ad -->
-          <div>{% include "blog/ads/booksbox.html" %}</div>
+    <div class="row">
 
-          <!-- Social icons-->
-          <div class="text-center mt-5">{% include 'home/social.html' %}</div>
+      <!-- Category Books -->
+      <div class="col-lg-8 mt-4">
 
-          <!-- book categories-->
-          <div class="card shadow my-2 pb-4">
-            <h4 class="pt-5 mb-5 text-center">Book Categories</h4>
-
-            <div class="row">
-              {% for cat in categories %}
-                <div class="col-md-6">
-                  <a class="nav-link" href="{% url 'books:category' cat.slug %}">
-                    <i class="fa fa-book"></i> {{ cat.tag }}
-                  </a>
+        <div class="row">
+          {% for book in category.books.all %}
+          <div class="col-12 col-sm-12 col-md-6 mb-3">
+            <a class="book-card" href="{% url 'books:detail' book.slug %}">
+              <div class="card mb-3 h-100">
+                <div class="row no-gutters">
+                  <div class="col-3 col-sm-2 col-lg-4">
+                    <img class="card-img img-fluid" src="{{ book.image.url }}" alt="{{ book.title }}">
+                  </div>
+                  <div class="col-9 col-sm-10 col-lg-8">
+                    <div class="card-body">
+                      <h2 class="card-title book-title text-secondary">{{ book.title }}</h2>
+                      <p class="card-text">
+                        <small class="text-muted">{{ book.author }}</small>
+                        <span class="card-text text-primary float-right">PDF</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              {% endfor %}
-            </div>
+              </div>
+            </a>
           </div>
+          {% comment %}
+            {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 11 or forloop.counter == 15 or forloop.counter == 18 %}
+              <div class="col-12 col-sm-12 col-md-6 mb-3">
+                <div class="card">
+                  {% include 'blog/ads/booksfeeds.html' %}
+                </div>
+              </div>
+            {% endif %}
+          {% endcomment %}
+          {% endfor %}
+        </div>
 
-          <!-- Ad -->
-          <div class="my-2">{% include "blog/ads/booksbox.html" %}</div>
+      </div>
 
+      <!-- sidebar -->
+      <div class="col-lg-4 mt-5">
+
+        <!-- Ad -->
+        <div>{% include "blog/ads/booksbox.html" %}</div>
+
+        <!-- Social icons-->
+        <div class="text-center">{% include 'home/social.html' %}</div>
+
+        <!-- Half Page Ad-->
+        <div class="my-2">
+          {% include 'blog/ads/media-halfpage.html' %}
         </div>
 
         <!-- Ad -->
-        <div class="my-2 col-12 col-lg-8">
-          {% include "blog/ads/bookshorizontal.html" %}
-        </div>
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <!-- Ad -->
+      <div class="my-2 col-12 col-lg-8 mx-auto">
+        {% include "blog/ads/bookshorizontal.html" %}
+      </div>
+    </div>
 
   </div>
 

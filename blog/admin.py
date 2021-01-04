@@ -9,6 +9,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('featured', 'mostly_viewed')
     search_fields = ['title', 'overview']
     actions = ['feature_posts', 'make_mostly_viewed', 'remove_mostly_viewed']
+    filter_horizontal = ("categories",)
 
     def feature_posts(self, request, queryset):
         queryset.update(featured=True)
