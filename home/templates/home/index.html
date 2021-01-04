@@ -62,8 +62,8 @@
               <a href="{% url 'packages:index' %}" class="btn btn-secondary m-2">Python Library Index</a>
               <a href="{% url 'books:index' %}" class="btn btn-secondary m-2">Free Programming Books</a>
             </div>
-            <p class="mb-5">We're working hard to finish the development of this site. Our target launch date is
-              <strong>January 2022</strong>! Sign up for updates using the form below!</p>
+            <p class="mb-5">
+              <strong></strong>! Sign up for updates using the form below!</p>
             <form class="input-group input-group-newsletter" method="post" action="{% url 'marketing:subscription' %}">
               {% csrf_token %}
               <input type="email" class="form-control" name="email" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="submit-button">
