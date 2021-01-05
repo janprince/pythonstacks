@@ -30,7 +30,7 @@ class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='post_images', blank=True)
     slug = models.SlugField(unique=True)
-    meta_description = models.CharField(max_length=157, blank=True)
+    meta_description = models.CharField(max_length=162, blank=True)
     content = RichTextUploadingField()
     pub_date = models.DateTimeField(default=timezone.now)      # default=timezone.now - from django.utils import tim...
     categories = models.ManyToManyField(Category, blank=False, related_name='posts')
