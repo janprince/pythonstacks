@@ -34,7 +34,7 @@
         </div>
 
           <!-- Ad -->
-        <div class="card">
+        <div class="card my-2">
           {% include "blog/ads/media-super.html" %}
         </div>
 
@@ -79,13 +79,6 @@
               </div>
             {% endif %}
           {% endcomment %}
-          {% if forloop.counter == 4 or forloop.counter == 8 %}
-              <div class="col-12 col-sm-12 col-md-6 mb-3">
-                <div class="card">
-                  {% include 'blog/ads/media-medium.html' %}
-                </div>
-              </div>
-            {% endif %}
           {% endfor %}
         </div>
 
@@ -94,7 +87,8 @@
       <!-- sidebar -->
       <div class="col-lg-4 mt-5">
 
-        <!-- Ad -->
+        <!--Ad-->
+        <div>{% include 'blog/ads/media-medium.html' %}</div>
 
         <!-- Social icons-->
         <div class="text-center">{% include 'home/social.html' %}</div>
