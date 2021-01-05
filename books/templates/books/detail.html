@@ -82,8 +82,11 @@
       });
     </script>
 
-    <div class="col-md-7 mb-4 mt-3 d-none d-lg-block">
+    <div class="col-md-7 my-4 text-center">
       <!-- Buy button-->
+      {% if book.affiliate_link %}
+      <a href="{{ book.affiliate_link }}" class="btn btn-primary" target="_blank"><i class="fab fa-amazon mr-2"></i>Buy on Amazon</a>
+      {% endif %}
     </div>
 
   </div>
