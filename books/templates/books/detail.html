@@ -15,8 +15,9 @@
 <main class="container mt-5">
 
     <!-- Ad -->
-  <div class="my-3">
-    {% include "blog/ads/media-super.html" %}
+  <div class="my-3 text-center">
+    {% comment %}{% include "blog/ads/media-super.html" %}{% endcomment %}
+    {% include 'blog/ads/revenue-leaderboard.html' %}
   </div>
 
 
@@ -197,6 +198,7 @@
     </div>
 
     <div class="col-md-4 border-left my-2">
+      {% include 'blog/ads/revenue-bannermedium.html' %}
     </div>
 
   </div>
