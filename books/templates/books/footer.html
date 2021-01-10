@@ -9,14 +9,14 @@
           <a href="{% url 'home:index' %}"><img height="45" alt="Logo" src="{% static 'blog/images/logo5.png' %}"></a>
 
           <!-- Subscribe Widget -->
-          <div class="my-4 ml-3 mr-5 pr-5">
+          <div class="my-4 ml-3 mr-5">
             <p class="mt-3 text-white">Join our mailing list to be notified of python tutorials, programming books and more from PythonStacks. </p>
             <form method="post" action="{% url 'marketing:subscription' %}">
               {% csrf_token %}
               <div class="input-group">
                 <input type="text" class="form-control" name="email" placeholder="Enter Email...">
                 <span class="input-group-append">
-                  <button class="btn btn-primary" type="submit">Join</button>
+                  <button class="btn btn-primary" id="join" type="submit">Join</button>
                 </span>
               </div>
             </form>
@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-md-4 col-lg-2 text-center my-4">
-            {% include 'home/social.html' %}
+            {% include 'books/social.html' %}
 
 <!--          <div class="mt-5">-->
 <!--            <a href="#" class="btn btn-info ml-5">Support Us <i class="fa fa-heart"></i></a>-->

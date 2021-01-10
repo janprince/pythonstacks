@@ -1,16 +1,20 @@
 {% extends 'package_finder/base.html' %}
 {% load static %}
 
-{% block meta%}
-  <meta name="description"
-      content="Discover the best open-source python libraries and frameworks for your projects."> <!-- Perfect-->
-{% endblock meta %}
+  {% block meta%}
+    <meta name="description"
+        content="Find the best open-source python libraries and frameworks for your python projects. Best python libraries for web development, machine learning, game development and more"> <!-- Perfect-->
+  {% endblock meta %}
+
+  {% block title %}
+    <title>Python Libraries for all Your Projects - PythonStacks</title>
+  {% endblock title%}
 
 
 {% block content %}
 
     <!--Jumbotron-->
-  <div class="jumbotron" style="background-image: linear-gradient(rgba(0, 115, 183, 0.6), rgba(0, 115, 183, 0.6)), url('{% static 'package_finder/images/python-wall.png' %}');">
+  <div class="jumbotron" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{% static 'package_finder/images/python-wall.png' %}');">
     <h1 class="font-weight-bold text-white text-center jumbo-head">Discover the best python libraries for <br>your projects.</h1> <!--h3-->
 
     <!--Using Python for -->
@@ -26,7 +30,7 @@
     </div>
 
     <div class="mt-4 mb-0">
-      <p class="lead text-white text-center">Or  <a href="{% url 'blog:index' %}" class="ml-2 btn btn-light">Visit Blog</a></p>
+      <p class="lead text-white text-center">Or  <a href="{% url 'blog:index' %}" class="ml-2 btn btn-light">Visit Python Blog</a></p>
     </div>
 
   </div>
@@ -38,7 +42,7 @@
 
       {% for category in categories %}
         <div class="col-md-6 mb-4" id="{{ category.id }}">
-          <h2 class="mb-3 cat_head">{{ category.tag }}</h2>  <!--h4-->
+          <h2 class="mb-3 cat_head font-weight-bold">{{ category.tag }}</h2>
 
           <hr>
 

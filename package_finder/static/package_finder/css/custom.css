@@ -1,14 +1,14 @@
+/**
 body {
     font-family: 'Work Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, .nav-link {
+h1, h2, h3, h4, h5, .nav-link{
   font-family: 'Spartan', sans-serif;
-}
+} */
 
-.navbar-default{
-  background-color: #1f80c2;
-  border-color: #E7E7E7;
+footer{
+    border-top: 1px solid black;
 }
 
 .package_card a{
@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, .nav-link {
 
 .navbar-nav .nav-item:hover .nav-link {
     text-decoration: underline;
-    color: white;
+    color: #3498db;
 }
 
 .navbar-nav .nav-item .dropdown-menu a:hover{
@@ -40,7 +40,6 @@ h1, h2, h3, h4, h5, .nav-link {
 
 .code{
   font-size: 25px;
-  background-color: #0073b7;
 }
 
 @media (max-width: 480px) {

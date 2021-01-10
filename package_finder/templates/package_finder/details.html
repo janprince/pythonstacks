@@ -4,7 +4,7 @@
   {% block meta%}
     {% if package.description %}
       <meta name="description"
-          content="{% autoescape off %}{{ package.description|striptags|slice:':157' }}{% endautoescape %}...">
+          content="{% autoescape off %}{{ package.description|striptags|slice:':170' }}{% endautoescape %}">
     {% else %}
       <meta name="description"
           content="{{ summary|slice:':157' }}">
@@ -21,10 +21,10 @@
 {% block content %}
 
   <!-- Jumbotron -->
-  <div class="jumbotron bg-info text-white">
+  <div class="jumbotron bg-secondary text-white">
       <div class="container">
         <h1 class="mb-4 jumbo-head font-weight-bold">{{ name }} {{version}}</h1>
-        <pre><span class="code text-white py-1 px-4 font-weight-bold">pip install {{ name }}</span></pre>
+        <pre><span class="code text-secondary py-1 px-4 font-weight-bold bg-light">pip install {{ name }}</span></pre>
         <h2 class="jumbo-subhead mt-5">{{ summary }}</h2>
         <!-- can place ad in jumbotron -->
       </div>
@@ -43,23 +43,23 @@
           {% endcomment %}
 
           <div class="mb-5">
-            <h4>Project Author:</h4>
+            <h4 class="font-weight-bold">Project Author:</h4>
             <p class="lead ml-4">{{ author }}</p>
           </div>
 
           <div class="mb-5">
-            <h4>Project Homepage:</h4>
+            <h4 class="font-weight-bold">Project Homepage:</h4>
             <p><a href="{{ homepage }}" class="lead ml-3" target="_blank">{{ homepage }}</a></p>
           </div>
 
           <div class="mb-5">
-            <h4>Project on PyPI:</h4>
+            <h4 class="font-weight-bold">Project on PyPI:</h4>
             <p><a href="{{ project_url }}" class="lead ml-4" target="_blank">{{ project_url }}</a></p>
           </div>
 
           {% if documentation != "N/A" %}
           <div class="mb-5">
-            <h4>Documentation:</h4>
+            <h4 class="font-weight-bold">Documentation:</h4>
             <p class="lead ml-4" >
               Full Documentation of the project is available at -
               <a href="{{ documentation }}" target="_blank">{{ documentation }}</a>
@@ -69,7 +69,7 @@
 
 
           <div class="mb-5">
-            <h4>Project Summary:</h4>
+            <h4 class="font-weight-bold">Project Summary:</h4>
             <p class="lead ml-4" >{{ summary }}</p>
           </div>
 
