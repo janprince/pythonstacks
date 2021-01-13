@@ -17,7 +17,8 @@
   <!-- Ad -->
   {% comment %}
   <div class="my-3">
-    {% include 'blog/ads/bookshorizontal.html' %}
+    {% comment %}{% include 'blog/ads/bookshorizontal.html' %}{% endcomment %}
+    {% include 'blog/ads/media-super.html' %}
   </div>
   {% endcomment %}
 
@@ -93,8 +94,9 @@
   </div>
 
   <!-- Ad -->
-  <div class="my-3">
-    {% include 'blog/ads/bookshorizontal.html' %}
+  <div class="my-2">
+    {% comment %}{% include 'blog/ads/bookshorizontal.html' %}{% endcomment %}
+    {% include 'blog/ads/media-super.html' %}
   </div>
 
   <!-- Similar books (random)-->
@@ -140,7 +142,8 @@
 
       <div class="col-lg-4 my-3">
         <!-- Ad -->
-        {% include "blog/ads/booksbox.html" %}
+        {% comment %}{% include "blog/ads/booksbox.html" %}{% endcomment %}
+        {% include 'blog/ads/media-halfpage.html' %}
       </div>
 
     </div>
