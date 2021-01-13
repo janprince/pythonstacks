@@ -49,14 +49,14 @@
             on {{ post.pub_date | date:"F d, Y" }}</p>
         </div>
         <hr>
-
+        {% comment %}
         {% if forloop.counter == 4 or forloop.counter == 9 or forloop.counter == 15 or forloop.counter == 19 %}
         <div class="post-preview">
           {% include 'blog/ads/blogfeeds.html' %}
         </div>
         <hr>
         {% endif %}
-
+        {% endcomment %}
         {% endfor %}
 
 
