@@ -33,11 +33,6 @@
           {% endfor %}
         </div>
 
-          <!-- Ad -->
-        <div class="card my-2">
-          {% include "blog/ads/media-super.html" %}
-        </div>
-
         <h1 class="mt-4 category-head font-weight-bold text-secondary">Free {{ category.tag }} Books</h1>
       </div>
     </header>
@@ -71,15 +66,13 @@
               </div>
             </a>
           </div>
-          {% comment %}
-            {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 11 or forloop.counter == 15 or forloop.counter == 18 %}
-              <div class="col-12 col-sm-12 col-md-6 mb-3">
-                <div class="card">
-                  {% include 'blog/ads/booksfeeds.html' %}
-                </div>
+          {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 11 or forloop.counter == 15 or forloop.counter == 18 %}
+            <div class="col-12 col-sm-12 col-md-6 mb-3">
+              <div class="card">
+                {% include 'blog/ads/booksfeeds.html' %}
               </div>
-            {% endif %}
-          {% endcomment %}
+            </div>
+          {% endif %}
           {% endfor %}
         </div>
 
@@ -93,11 +86,13 @@
 
         <!-- Half Page Ad-->
         <div class="my-2">
-          {% include 'blog/ads/media-halfpage.html' %}
+          {% include 'blog/ads/booksbox.html' %}
         </div>
 
         <!--Ad-->
-        <div></div>
+        <div>
+          {% include 'blog/ads/booksbox.html' %}
+        </div>
 
       </div>
 
@@ -107,6 +102,7 @@
     <div class="row">
       <!-- Ad -->
       <div class="my-2 col-12 col-lg-8 mx-auto">
+        {% include 'blog/ads/bookshorizontal.html' %}
       </div>
     </div>
 
