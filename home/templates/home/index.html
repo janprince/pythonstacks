@@ -62,8 +62,8 @@
               <a href="{% url 'packages:index' %}" class="btn btn-secondary m-2">Python Library Index</a>
               <a href="{% url 'books:index' %}" class="btn btn-secondary m-2">Free Programming Books</a>
             </div>
-            <p class="mb-5">PythonStacks is a Python Programming hub and your best source of
-              <strong>free programming books</strong>! <br>Sign up for updates using the form below!</p>
+            <p class="mb-5">A Python Programming Hub.
+               <br>Sign up for updates using the form below!</p>
             <form class="input-group input-group-newsletter" method="post" action="{% url 'marketing:subscription' %}">
               {% csrf_token %}
               <input type="email" class="form-control" name="email" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="submit-button">

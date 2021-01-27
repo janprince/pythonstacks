@@ -43,7 +43,6 @@ ALLOWED_HOSTS = [] if DEBUG else [ "www.pythonstacks.com", 'pythonstacks.pythona
 INSTALLED_APPS = [
     'package_finder',
     'blog',
-    'books',
     'marketing',
     'home',
     'django.contrib.admin',
