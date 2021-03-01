@@ -17,11 +17,9 @@ blog/templates/blog/ads/googleanalytics.html
 
 *.sql
 
-blog/templates/blog/ads/googleadsense.html
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
 
 blog/templates/blog/ads/
 
-
-
-package_finder/templates/package_finder/googleadsense.html
-package_finder/templates/package_finder/googleanalytics.html
