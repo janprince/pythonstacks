@@ -26,7 +26,7 @@
 {% endblock meta %}
 
 {% block title %}
-  <title>{{ post.title }} - PythonStacks</title>
+  <title>{{ post.title }} | PythonStacks</title>
 {% endblock title %}
 
 
@@ -91,7 +91,7 @@
 
     <!-- Comments -->
     <div class="row my-3">
-      <div class="col-lg-7 col-md-10 mx-auto">
+      <div class="col-lg-8 col-md-10 mx-auto post">
 
         <!-- Comments -->
         <h3 class="mb-3">{{ comments.count }} Comments</h3>
@@ -136,7 +136,7 @@
 
     <!-- Comments Form -->
     <div class="row ">
-      <div class="col-lg-6 col-md-10 card my-4 mx-auto">
+      <div class="col-lg-8 col-md-10 mx-auto post card my-4">
       <div class="card-body">
         {% if new_comment %} <!-- If a new comment has been submitted -->
           <div class="alert alert-success">

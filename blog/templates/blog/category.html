@@ -9,11 +9,11 @@
 
 
 {% block title %}
-  <title>{{ category.title_representation }} - PythonStacks</title>
+  <title>{{ category.title_representation }} | PythonStacks</title>
 {% endblock title %}
 
 {% block content %}
-  <header class="masthead">
+  <header class="masthead" style="background-image: url('{{ category.image.url }}')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -45,18 +45,10 @@
             {% endif %}
           </a>
           <p class="post-meta">Posted by
-            <a href="{% url 'home:about' %}">{{ post.author }}</a>
+            <a href="{% url 'blog:about' %}">{{ post.author }}</a>
             on {{ post.pub_date | date:"F d, Y" }}</p>
         </div>
         <hr>
-        {% comment %}
-        {% if forloop.counter == 2 or forloop.counter == 5 or forloop.counter == 9 %}
-        <div class="post-preview">
-          {% include 'blog/ads/blogfeeds.html' %}
-        </div>
-        <hr>
-        {% endif %}
-        {% endcomment %}
         {% endfor %}
 
 

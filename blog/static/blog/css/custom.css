@@ -8,6 +8,10 @@
   color: #8f8c9a;
 }
 
+.jumbotron{
+    border-radius: 0px;
+}
+
 /** Post  content */
 @media only screen and (max-width: 768px) {
   .post h2{
