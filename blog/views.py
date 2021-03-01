@@ -82,8 +82,8 @@ def detail(request, slug):
 
 
 # Category view
-def category(request, category_tag):
-    cat = Category.objects.get(tag=category_tag)
+def category(request, category_slug):
+    cat = Category.objects.get(slug=category_slug)
     posts = cat.posts.filter(featured=True)
 
     context = {
@@ -130,7 +130,7 @@ def contact(request):
         'contact_form': contact_form,
     }
 
-    return render(request, 'blog/contact.html', context)
+    return render(request, 'blog/others/contact.html', context)
 
 
 # About View
@@ -138,5 +138,20 @@ def about(request):
     context = {
         'categories': categories,
     }
-    return render(request, 'blog/about.html', context)
+    return render(request, 'blog/others/about.html', context)
 
+
+def policy(request):
+    return render(request, "blog/others/policy.html", {})
+
+
+def terms(request):
+    return render(request, "blog/others/terms.html", {})
+
+
+def robots(request):
+    return render(request, "blog/others/robots.txt", content_type="text/plain")
+
+
+def ads(request):
+    return render(request, "blog/others/ads.txt", content_type="text/plain")

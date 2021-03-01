@@ -19,22 +19,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import BlogSitemap, StaticViewSitemap
-from package_finder.sitemaps import PackageSitemap
 
 
 
 sitemaps = {
     'static': StaticViewSitemap,
     'blog' : BlogSitemap,
-    'package_finder': PackageSitemap,
 }
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("home.urls")),
-    path("python-packages/", include('package_finder.urls')),
-    path("blog/", include('blog.urls')),
+    path("", include("blog.urls")),
     path('subscribe/', include('marketing.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemaps'),
 

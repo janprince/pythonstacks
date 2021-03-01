@@ -13,11 +13,11 @@ db.sqlite3
 *.env
 
 
-blog/templates/blog/googleanalytics.html
+blog/templates/blog/ads/googleanalytics.html
 
 *.sql
 
-blog/templates/blog/googleadsense.html
+blog/templates/blog/ads/googleadsense.html
 
 blog/templates/blog/ads/
 

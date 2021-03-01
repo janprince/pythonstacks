@@ -4,31 +4,21 @@ from .models import *
 
 # Post
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'pub_date', 'featured',  'mostly_viewed']
+    list_display = ['id', 'title', 'pub_date', 'featured']
     prepopulated_fields = {'slug': ('title',)}
-    list_filter = ('featured', 'mostly_viewed')
+    list_filter = ('featured', )
     search_fields = ['title', 'overview']
-    actions = ['feature_posts', 'make_mostly_viewed', 'remove_mostly_viewed']
+    actions = ['feature_posts']
     filter_horizontal = ("categories",)
 
     def feature_posts(self, request, queryset):
         queryset.update(featured=True)
 
-    def make_mostly_viewed(self, request, queryset):
-        queryset.update(mostly_viewed=True)
-
-    def remove_mostly_viewed(self, request, queryset):
-        queryset.update(mostly_viewed=False)
-
 
 # Category
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'tag', 'important']
-    actions = ['make_key']
-
-
-    def make_key(self, request, queryset):
-        queryset.update(important=True)
+    list_display = ['id', 'tag']
+    prepopulated_fields = {'slug': ('tag',)}
 
 
 # Comment

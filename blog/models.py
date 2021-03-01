@@ -15,9 +15,10 @@ class Author(models.Model):
 # Category model
 class Category(models.Model):
     tag = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(blank=True)
     title_representation = models.CharField(max_length=250, blank=False)
     meta_description = models.CharField(max_length=155, blank=False)
-    important = models.BooleanField(default=False)
+
 
     def __str__(self):
         return f'{self.tag}'
@@ -35,7 +36,6 @@ class Post(models.Model):
     pub_date = models.DateTimeField(default=timezone.now)      # default=timezone.now - from django.utils import tim...
     categories = models.ManyToManyField(Category, blank=False, related_name='posts')
     featured = models.BooleanField(default=False)
-    mostly_viewed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-pub_date']
