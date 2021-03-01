@@ -1,0 +1,77 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+  {% block meta %}
+    <meta name="description"
+        content="Improve your Python skills. Learn from the best python tutorials, comprehensive articles and guides suitable for beginners and advanced python programmers.">
+  {% endblock meta %}
+
+  {% block title %}
+    <title>Python Tutorials - PythonStacks</title>
+  {% endblock title%}
+
+
+{% block content %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% static 'blog/images/bg/home-bg.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>PythonStacks Blog</h1>
+            <span class="subheading">A Python Blog by PythonStacks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        {% for post in posts %}
+        <div class="post-preview">
+          <a href="{{ post.get_absolute_url }}">
+            <h2 class="post-title">
+              {{ post.title }}
+            </h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+              {{ post.subtitle }}
+            </h3>
+            {% endif %}
+          </a>
+          <p class="post-meta">Posted by
+            <a href="{% url 'blog:about' %}">{{ post.author }}</a>
+            on {{ post.pub_date | date:"F d, Y" }}</p>
+        </div>
+        <hr>
+        {% comment %}
+        {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %}
+        <div class="post-preview">
+          {% include 'blog/ads/blogfeeds.html' %}
+        </div>
+        <hr>
+        {% endif %}
+        {% endcomment %}
+        {% endfor %}
+
+
+
+        <!-- All Posts Button -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{% url 'blog:all' %}">View All Posts &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  {% include 'blog/newsletter.html' %}
+
+{% endblock content%}

@@ -1,0 +1,21 @@
+.navbar-nav .nav-item .dropdown-menu a:hover{
+  background-color: #17a2b8;
+}
+
+.note{
+  border-left: 6px solid #0085A1;
+  padding-left: 13px;
+  color: #8f8c9a;
+}
+
+.jumbotron{
+    border-radius: 0px;
+}
+
+/** Post  content */
+@media only screen and (max-width: 768px) {
+  .post h2{
+    font-size: 27px;
+    }
+}
+

@@ -1,0 +1,61 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+  {% block meta %}
+    <meta name="description"
+        content=" All python tutorials and guides to improve your python programming skills. ">
+  {% endblock meta %}
+
+  {% block title %}
+    <title>Best Python Tutorials - PythonStacks</title>
+  {% endblock title%}
+
+{% block content %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% static 'blog/images/bg/home-bg2.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>All Posts</h1>
+            <span class="subheading">Python Tutorials from PythonStacks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        {% for post in posts %}
+        <div class="post-preview">
+          <a href="{{ post.get_absolute_url }}">
+            <h2 class="post-title">
+              {{ post.title }}
+            </h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+              {{ post.subtitle }}
+            </h3>
+            {% endif %}
+          </a>
+          <p class="post-meta">Posted by
+            <a href="{% url 'blog:about' %}">{{ post.author }}</a>
+            on {{ post.pub_date | date:"F d, Y" }}</p>
+        </div>
+        <hr>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  {% include 'blog/newsletter.html' %}
+
+{% endblock content%}
