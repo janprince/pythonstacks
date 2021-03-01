@@ -15,7 +15,7 @@ class Author(models.Model):
 # Category model
 class Category(models.Model):
     tag = models.CharField(max_length=50, unique=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True)
     title_representation = models.CharField(max_length=250, blank=False)
     meta_description = models.TextField(max_length=160, blank=False)
     image = models.ImageField(upload_to="category_images", blank=True)
