@@ -9,7 +9,7 @@ class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.user.username}"
+        return f"{self.user.get_full_name}"
 
 
 # Category model
