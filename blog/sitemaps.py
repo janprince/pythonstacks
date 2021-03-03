@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from .models import Post
+from .models import Post, Category
 from django.urls import reverse
 
 
@@ -23,4 +23,12 @@ class BlogSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.pub_date
+
+
+class CategorySitemap(Sitemap):
+    changefreq = "weekly"
+    priority =  0.9
+
+    def items(self):
+        return Category.objects.all()
 

@@ -9,7 +9,7 @@ class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.user.get_full_name}"
+        return f"{self.user.get_full_name()}"
 
 
 # Category model
@@ -23,6 +23,10 @@ class Category(models.Model):
 
     def __str__(self):
         return f'{self.tag}'
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('blog:category', args=[str(self.slug)])
 
 
 # Post model
