@@ -14,23 +14,8 @@
 
 
 /* Post  content */
-.post h2 {
-  font-size: 25px;
-}
-
-.post .row p{
-  margin: 9px;
-}
-.post p{
-    font-size: 19px;
-    font-family: 'Nunito', sans-serif;
-}
-
 @media only screen and (max-width: 768px) {
   .post h2{
     font-size: 23px;
     }
-  .post img {
-  width: 100%;
- }
 }
