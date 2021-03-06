@@ -12,6 +12,13 @@
     border-radius: 0px;
 }
 
+.dropdown-item{
+    font-family: open sans,helvetica neue,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
 /* Post  content */
 @media only screen and (max-width: 768px) {
