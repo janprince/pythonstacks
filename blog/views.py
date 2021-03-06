@@ -42,7 +42,10 @@ def detail(request, slug):
     # Next and Previous Posts
     all_posts = Post.objects.filter(featured=True).order_by('id')
     posts_list = list(all_posts)
-    current_index = posts_list.index(post)
+    try:
+        current_index = posts_list.index(post)
+    except:
+        current_index = 0
     try:
         next_post = posts_list[current_index + 1]
     except IndexError:
