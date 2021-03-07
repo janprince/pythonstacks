@@ -41,7 +41,7 @@
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-9 col-md-10 mx-auto">
           <div class="post-heading">
             <h1>{{ post.title }}</h1>
             {% if post.subtitle %}<h2 class="subheading">{{ post.subtitle }}</h2>{% endif %}
@@ -65,7 +65,9 @@
           <hr>
 
           <!-- ShareThis -->
-          <div class="sharethis-inline-share-buttons"></div>
+          <div class="my-5">
+            <div class="sharethis-inline-share-buttons"></div>
+          </div>
 
           <div class="clearfix">
             <a class="btn btn-primary float-left" href="{{ prev_post.get_absolute_url }}" data-toggle="tooltip" data-placement="top" title="{{ prev_post.title }}">&larr; Previous<span class="d-none d-md-inline">
