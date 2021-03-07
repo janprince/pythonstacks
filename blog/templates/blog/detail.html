@@ -29,11 +29,15 @@
   <title>{{ post.title }} | PythonStacks</title>
 {% endblock title %}
 
+{% block sharethis %}
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5fc12549eb422600129fa047&product=inline-share-buttons-buttons' async='async'></script>
+{% endblock sharethis%}
+
 
 {% block content %}
 
-<!-- Page Header -->
-  <header class="masthead" style="background-image: url('{% static 'blog/images/bg/python-wall1.png' %}')">
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% if post.image %}{{post.image.url}}{%else%}{% static 'blog/images/bg/python-wall1.png' %}{% endif %}')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -59,17 +63,6 @@
           {{ post.content | safe }}
 
           <hr>
-
-          <!-- Share -->
-        <div class="mb-5 text-center">
-          <span>
-            <p class="lead font-weight-bold">Share This Post</p>
-            <a href="https://twitter.com/intent/tweet?url=https://www.pythonstacks.com{{ post.get_absolute_url }}&text={{post.title}}" class="btn btn-info mb-1" target="_blank"><i class="fab fa-twitter text-white"></i>  Tweet</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.pythonstacks.com{{ post.get_absolute_url }}" class="btn btn-info mb-1" target="_blank"><i class="fab fa-facebook-f text-white"></i>  Share</a>
-            <a href="https://www.reddit.com/submit?title={{ post.title }}&url=https://www.pythonstacks.com{{ post.get_absolute_url }}" class="btn btn-info mb-1" target="_blank"><i class="fab fa-reddit text-white"></i> Share</a>
-            <a href="https://news.ycombinator.com/submitlink?u=https://www.pythonstacks.com{{ post.get_absolute_url }}&t={{ post.title }}" class="btn btn-info mb-1" target="_blank"><i class="fab fa-hacker-news text-white"></i> Share</a>
-          </span>
-        </div>
 
           <div class="clearfix">
             <a class="btn btn-primary float-left" href="{{ prev_post.get_absolute_url }}" data-toggle="tooltip" data-placement="top" title="{{ prev_post.title }}">&larr; Previous<span class="d-none d-md-inline">
