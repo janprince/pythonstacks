@@ -20,6 +20,16 @@
     text-transform: uppercase;
 }
 
+/* newsletter */
+.news-border{
+    border: 3px solid black;
+}
+@media only screen and (max-width: 768px) {
+  .news-border h2{
+    font-size: 23px;
+    }
+}
+
 /* Post  content */
 @media only screen and (max-width: 768px) {
   .post h2{
