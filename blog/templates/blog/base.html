@@ -144,6 +144,9 @@
     </div>
   </footer>
 
+  <!-- Modal -->
+  {% include 'blog/components/modal.html' %}
+
   <!-- Prism JS -->
   <script src="{% static 'blog/prism/tomorrow.js' %}"></script>
 
@@ -164,6 +167,13 @@
 					</script>
 				{% endfor %}
     {% endif %}
+
+  <!-- Script timeout for modal -->
+  <script>
+    setTimeout(function() {
+      $('#exampleModalCenter').modal('show');
+    }, 15000);
+  </script>
 
 </body>
 
