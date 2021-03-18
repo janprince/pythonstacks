@@ -7,7 +7,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'pub_date', 'featured']
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('featured', )
-    search_fields = ['title', 'overview']
+    search_fields = ['title']
     actions = ['feature_posts']
     filter_horizontal = ("categories",)
 
