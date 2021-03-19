@@ -66,27 +66,28 @@
             <a class="nav-link" href="{% url 'blog:index' %}">Home</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:all' %}">All Posts</a>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{% url 'blog:all' %}">Articles</a>-->
+<!--          </li>-->
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tutorials
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'blog:category' 'python' %}">Python Tutorials</a>
+              <a class="dropdown-item" href="{% url 'blog:category' 'django' %}">Django Tutorials</a>
+            </div>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:category' 'online-courses' %}">Online Courses</a>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{% url 'blog:contact' %}">Contact</a>
           </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Topics
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              {% for cat in categories %}
-                <a class="dropdown-item" href="{% url 'blog:category' cat.slug %}">
-                  {{ cat.title_representation }}
-                </a>
-              {% endfor %}
-            </div>
-          </li>
         </ul>
 
       </div>

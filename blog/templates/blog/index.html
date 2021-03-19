@@ -36,6 +36,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+        <a href="{% url 'blog:category' 'python'%}" class="btn btn-primary p-2 mb-1"><small>Python Tutorials</small></a>
+        <a href="{% url 'blog:category' 'django'%}" class="btn btn-primary p-2 mb-1"><small>Django tutorials</small></a>
+        <a href="{% url 'blog:category' 'online-courses'%}" class="btn btn-primary p-2 mb-1"><small>Top Online Courses</small></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
 
         {% for post in posts %}
         <div class="post-preview">
@@ -54,16 +61,7 @@
             on {{ post.pub_date | date:"F d, Y" }}</p>
         </div>
         <hr>
-        {% comment %}
-        {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %}
-        <div class="post-preview">
-          {% include 'blog/ads/blogfeeds.html' %}
-        </div>
-        <hr>
-        {% endif %}
-        {% endcomment %}
         {% endfor %}
-
 
 
         <!-- All Posts Button -->
