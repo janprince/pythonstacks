@@ -3,11 +3,11 @@
 
   {% block meta %}
     <meta name="description"
-        content=" All python tutorials and guides to improve your python programming skills. ">
+        content="Find all articles, tutorials and course reviews on PythonStacks.">
   {% endblock meta %}
 
   {% block title %}
-    <title>Best Python Tutorials - PythonStacks</title>
+    <title>All Featured Posts | PythonStacks</title>
   {% endblock title%}
 
 {% block content %}
@@ -19,8 +19,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>All Posts</h1>
-            <span class="subheading">All Articles and Tutorials from PythonStacks</span>
+            <h1>All Featured Posts</h1>
+            <span class="subheading">All Articles, Tutorials and Online Course Reviews</span>
           </div>
         </div>
       </div>
@@ -29,6 +29,13 @@
 
   <!-- Main Content -->
   <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <a href="{% url 'blog:category' 'python'%}" class="btn btn-primary p-2 mb-1"><small>Python Tutorials</small></a>
+        <a href="{% url 'blog:category' 'django'%}" class="btn btn-primary p-2 mb-1"><small>Django tutorials</small></a>
+        <a href="{% url 'blog:category' 'online-courses'%}" class="btn btn-primary p-2 mb-1"><small>Top Online Courses</small></a>
+      </div>
+    </div>
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
