@@ -3,10 +3,7 @@ media/
 static/
 
 !blog/static/
-!package_finder/static
-!courses/static
-!home/static
-!books/static
+!python_packages/static
 
 db.sqlite3
 
@@ -22,4 +19,3 @@ __pycache__/
 *.pyc
 
 blog/templates/blog/ads/
-
