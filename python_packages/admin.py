@@ -4,12 +4,12 @@ from .models import  *
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'tag']
+    filter_horizontal = ("packages",)
 
 
 class PackageAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'featured']
     prepopulated_fields = {'slug': ('name',)}
-    filter_horizontal = ("categories",)
 
 
 # Register your models here.
