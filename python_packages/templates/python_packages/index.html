@@ -1,0 +1,89 @@
+{% extends 'python_packages/base.html' %}
+{% load static %}
+
+  {% block meta%}
+    <meta name="description"
+        content="Find the best open-source python libraries and frameworks for your python projects. Best python libraries for web development, machine learning, game development and more"> <!-- Perfect-->
+  {% endblock meta %}
+
+  {% block title %}
+    <title>Python Libraries for all Your Projects - PythonStacks</title>
+  {% endblock title%}
+
+
+{% block content %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% static '' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mx-auto">
+          <div class="packages-heading">
+
+            <h1 class="font-weight-bold text-white text-center">Discover the best python libraries for <br>your projects.</h1>
+
+              <!--Using Python for -->
+              <div class="row mt-5">
+                <div class="col-md-3">
+                  <h3 class="font-weight-bold mt-3 text-light python-for">Using Python for: </h3>
+                </div>
+                <div class="col-md-9" id="cat_buttons">
+                  {% for category in categories %}
+                    <a href="#{{ category.id }}" class="btn mt-2 mx-1 cat_btn btn-light">{{ category.tag }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Main Content -->
+  <div class="container-fluid">
+    <div class="row">
+
+      {% for category in categories %}
+        <div class="col-md-6 mb-4" id="{{ category.id }}">
+          <h2 class="mb-3 cat_head font-weight-bold">{{ category.tag }}</h2>
+          <hr>
+
+          <div class="row">
+
+            {% for package in category.packages.all %}
+              <div class="card px-0 package_card col-5 ml-3 shadow mb-4 ">
+                <a class="py-3 pl-4" href="#">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      {% if package.image %}
+                        <img class="img-fluid" alt="package icon" src="{{ package.image.url }}" width="40">
+                      {% else %}
+                        <img class="img-fluid" alt="package icon" src="{% static 'python_packages/images/box.png' %}" width="40">
+                      {% endif %}
+                    </div>
+
+                    <div class="col-md-8">
+                     <span class="package_name">{{ package.name }}</span>
+                    </div>
+
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  {% include 'blog/newsletter.html' %}
+
+
+{% endblock content %}

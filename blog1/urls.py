@@ -31,6 +31,7 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("blog.urls")),
+    path("python-packages/", include("python_packages.urls")),
     path('subscribe/', include('marketing.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemaps'),
 
