@@ -3,7 +3,6 @@ from .models import *
 # from django.core.paginator import PageNotAnInteger, Paginator, EmptyPage
 from .forms import *
 # from django.db.models import Q
-from django.contrib import messages
 from django.conf import settings  # import some variables from settings
 
 
@@ -115,46 +114,3 @@ def category(request, category_slug):
 #         return render(request, "blog/search.html", {
 #             'categories': categories,
 #         })
-
-
-# Contact View
-def contact(request):
-
-    if request.method == 'POST':
-        contact_form = ContactForm(request.POST)
-        if contact_form.is_valid():
-            contact_form.save()
-            messages.success(request, "Message Sent. ")
-
-    contact_form = ContactForm()
-    context = {
-        'title': "Contact",
-        'categories': categories,
-        'contact_form': contact_form,
-    }
-
-    return render(request, 'blog/others/contact.html', context)
-
-
-# About View
-def about(request):
-    context = {
-        'categories': categories,
-    }
-    return render(request, 'blog/others/about.html', context)
-
-
-def policy(request):
-    return render(request, "blog/others/policy.html", {})
-
-
-def terms(request):
-    return render(request, "blog/others/terms.html", {})
-
-
-def robots(request):
-    return render(request, "blog/others/robots.txt", content_type="text/plain")
-
-
-def ads(request):
-    return render(request, "blog/others/ads.txt", content_type="text/plain")

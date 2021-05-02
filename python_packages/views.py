@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import *
+from django.contrib import messages
+from blog.forms import ContactForm
 
 
 def index(request):
@@ -12,3 +14,42 @@ def index(request):
 
 def detail(request, package_name):
     pass
+
+
+# Contact View
+def contact(request):
+
+    if request.method == 'POST':
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, "Message Sent. ")
+
+    contact_form = ContactForm()
+    context = {
+        'title': "Contact",
+        'contact_form': contact_form,
+    }
+
+    return render(request, 'blog/others/contact.html', context)
+
+
+# About View
+def about(request):
+    return render(request, 'blog/others/about.html')
+
+
+def policy(request):
+    return render(request, "blog/others/policy.html", {})
+
+
+def terms(request):
+    return render(request, "blog/others/terms.html", {})
+
+
+def robots(request):
+    return render(request, "blog/others/robots.txt", content_type="text/plain")
+
+
+def ads(request):
+    return render(request, "blog/others/ads.txt", content_type="text/plain")

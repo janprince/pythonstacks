@@ -5,11 +5,13 @@ from .models import  *
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'tag']
     filter_horizontal = ("packages",)
+    search_fields = ['tag']
 
 
 class PackageAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'featured']
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {'slug': ('name',), 'pip_name': ('name',)}
+    search_fields = ['name']
 
 
 # Register your models here.

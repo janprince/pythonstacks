@@ -1,4 +1,5 @@
 /** */
+
 .navbar-nav .nav-item .dropdown-menu a:hover{
   background-color: #17a2b8;
 }
@@ -47,7 +48,9 @@ body {
 h1, h2, h3, h4, h5, .nav-link{
   font-family: 'Spartan', sans-serif;
 } */
-
+html {
+  scroll-behavior: smooth;
+}
 
 .package_card a{
   text-decoration: none;
