@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor.fields import RichTextField
 from django.utils import timezone
 
 
@@ -12,6 +13,7 @@ class Package(models.Model):
     title = models.CharField(max_length=200, blank=True)
     meta_description = models.TextField(max_length=170, blank=True)
     description = RichTextUploadingField(blank=True)
+    meta_data = RichTextField(blank=True)
     pub_date = models.DateTimeField(default=timezone.now)
     featured = models.BooleanField(default=False)
 

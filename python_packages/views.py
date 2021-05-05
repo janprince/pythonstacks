@@ -13,7 +13,12 @@ def index(request):
 
 
 def detail(request, package_name):
-    pass
+    package = Package.objects.get(name=package_name)
+
+    context = {
+        'package': package,
+    }
+    return render(request, "python_packages/detail.html", context)
 
 
 # Contact View

@@ -15,8 +15,8 @@ class StaticViewSitemap(Sitemap):
 
 
 class BlogSitemap(Sitemap):
-    changefreq = "weekly"
-    priority =  0.9
+    changefreq = "monthly"
+    priority =  0.8
 
     def items(self):
         return Post.objects.filter(featured=True)

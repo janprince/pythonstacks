@@ -1,4 +1,7 @@
 /** */
+html {
+  scroll-behavior: smooth;
+}
 
 .navbar-nav .nav-item .dropdown-menu a:hover{
   background-color: #17a2b8;
@@ -32,10 +35,21 @@
     }
 }
 
-/* Post  content */
+/* Detail Post  content */
+.post h2{
+    font-size: 21px;
+}
+
+.post p, .post ol li{
+    font-size: 18px;
+}
+
 @media only screen and (max-width: 768px) {
-  .post h2{
-    font-size: 23px;
+    .post h2{
+        font-size: 19px;
+    }
+    .post p, .post ol li{
+        font-size: 16.5px;
     }
 }
 
@@ -48,9 +62,6 @@ body {
 h1, h2, h3, h4, h5, .nav-link{
   font-family: 'Spartan', sans-serif;
 } */
-html {
-  scroll-behavior: smooth;
-}
 
 .package_card a{
   text-decoration: none;
@@ -63,7 +74,7 @@ html {
 }
 
 .package_name {
-  font-size: 20px;
+  font-size: 18.5px;
 }
 
 /* packages_heading */
@@ -83,6 +94,41 @@ html {
 	border-radius: 0;
 }
 
+
+/** detail */
+
+.pip {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    background-color: white;
+    color: #323a42;
+    width: max-content;
+    margin-top: 20px;
+    padding: 4px 6px;
+}
+
+.sidebar p a{
+    text-decoration: none;
+    color: #0085A1;
+}
+.sidebar p a:hover{color: #00748c;}
+
+.sidebar p, .sidebar ul li a{
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 17px;
+}
+
+.sidebar .metaLinks p{
+    margin: 5px;
+}
+.sidebar hr{
+    margin-right: 100px;
+    border-color: black;
+    border-width: 1px;
+}
+
+
+/* media queries */
+
 @media only screen and (max-width: 1198px) {
     .packages-heading h1{
         font-size: 30px;
@@ -92,12 +138,15 @@ html {
     }
 
     .packages-heading .btn {
-	      font-size: 12.5px;
-        font-weight: 600;
-        padding: 7px 8px;
-        letter-spacing: 0px;
-        text-transform: none;
-        border-radius: 0;
+        font-size: 12.5px;
+    }
+
+    .pip{
+        font-size: 20px;
+    }
+
+    header.masthead .post-heading h1 {
+	    font-size: 45px;
     }
 }
 
@@ -114,11 +163,11 @@ html {
 
     .packages-heading .btn {
 	      font-size: 12px;
-	      font-weight: 600;
 	      padding: 7px 8px;
-	      letter-spacing: 0px;
-	      text-transform: none;
-	      border-radius: 0;
+    }
+
+    header.masthead .post-heading h1 {
+	    font-size: 35px;
     }
 }
 
@@ -146,7 +195,7 @@ html {
 }
 
 .cat_head{
-  font-size: 22.5px;
+  font-size: 22px;
   animation-name: notice;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -154,4 +203,20 @@ html {
   animation-iteration-count: infinite;
 }
 
-/** detail */
+
+/** to top button */
+#topBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #0085A1; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 8px 16px; /* Some padding */
+  border-radius: 50%; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}

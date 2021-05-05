@@ -201,6 +201,8 @@ CKEDITOR_CONFIGS = {
                 'Preview',
                 'Maximize',
                 'CodeSnippet',
+                'ckawesome',
+                'ckeditorfa',
 
             ]},
         ],
@@ -228,7 +230,9 @@ CKEDITOR_CONFIGS = {
             'clipboard',
             'dialog',
             'dialogui',
-            'elementspath'
+            'elementspath',
+            'ckawesome',
+            'ckeditorfa',
         ]),
     }
 }

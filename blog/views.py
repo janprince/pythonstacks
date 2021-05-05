@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import *
 # from django.core.paginator import PageNotAnInteger, Paginator, EmptyPage
 from .forms import *
-# from django.db.models import Q
+from django.db.models import Q
 from django.conf import settings  # import some variables from settings
 
 
@@ -11,7 +11,7 @@ categories = Category.objects.all()
 
 # Index view
 def index(request):
-    posts = Post.objects.filter(featured=True)
+    posts = Post.objects.filter(featured=True).exclude(Q(title__icontains="course")) # exclude online courses
 
     context = {
         'posts': posts[:10],
