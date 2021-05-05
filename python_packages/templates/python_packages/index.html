@@ -6,7 +6,7 @@
   {% endblock meta %}
 
   {% block title %}
-    <title>Best Frameworks and Libraries for Python Projects | PythonStacks</title>
+    <title>Best Libraries And Frameworks For Your Python Projects | PythonStacks</title>
   {% endblock title%}
 
 
@@ -21,18 +21,17 @@
           <div class="packages-heading">
 
             <h1 class="font-weight-bold text-white text-center">Find The Best Frameworks and Libraries for Your Python Projects.</h1>
-
-              <!--Using Python for -->
-              <div class="row mt-5">
-                <div class="col-md-3">
-                  <h3 class="font-weight-bold mt-3 text-light python-for">Using Python for: </h3>
-                </div>
-                <div class="col-md-9" id="cat_buttons">
-                  {% for category in categories %}
-                    <a href="#{{ category.id }}" class="btn mt-2 mx-1 cat_btn btn-light">{{ category.tag }}</a>
-                  {% endfor %}
-                </div>
+            <!--Using Python for -->
+            <div class="row mt-5">
+              <div class="col-md-3">
+                <h3 class="font-weight-bold mt-3 text-light python-for">Using Python for: </h3>
               </div>
+              <div class="col-md-9" id="cat_buttons">
+                {% for category in categories %}
+                  <a href="#{{ category.id }}" class="btn mt-2 mx-1 cat_btn btn-light">{{ category.tag }}</a>
+                {% endfor %}
+              </div>
+            </div>
 
           </div>
         </div>
