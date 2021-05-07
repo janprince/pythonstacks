@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, .nav-link{
     padding: 120px 0px;
 }
 .packages-heading h1{
-    font-size: 35px;
+    font-size: 39px;
 }
 
 .packages-heading .btn {
@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, .nav-link{
 .sidebar p a:hover{color: #00748c;}
 
 .sidebar p, .sidebar ul li a{
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    /*font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;*/
     font-size: 17px;
 }
 
@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5, .nav-link{
 
 @media only screen and (max-width: 1198px) {
     .packages-heading h1{
-        font-size: 30px;
+        font-size: 33px;
     }
     .python-for{
         font-size: 26px;
@@ -155,7 +155,7 @@ h1, h2, h3, h4, h5, .nav-link{
         padding: 100px 0px;
     }
     .packages-heading h1{
-        font-size: 25px;
+        font-size: 29px;
     }
     .python-for{
         font-size: 20px;
