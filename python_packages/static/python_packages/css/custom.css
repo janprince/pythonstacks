@@ -126,6 +126,10 @@ h1, h2, h3, h4, h5, .nav-link{
     border-width: 1px;
 }
 
+#features p, #uses p{
+    margin: 15px 0px;
+}
+
 
 /* media queries */
 

@@ -57,13 +57,23 @@
     <div class="container">
       <div class="row no-gutters">
         <div class="col-lg-3 d-none d-lg-block sidebar">
+
+          <!-- package icon -->
           <div>
             {% if package.image %}
               <img src="{{ package.image.url }}" width="130">
             {% endif %}
           </div>
 
-          {{ package.meta_data | safe }}
+          <!-- meta data -->
+          <div>
+            {{ package.meta_data | safe }}
+          </div>
+
+          <!--udemy ad -->
+          <div class="mt-2">
+            <a href="https://click.linksynergy.com/fs-bin/click?id=w7*S3fGR7tg&offerid=507388.1628&subid=0&type=4"><IMG border="0"   alt="Learn Anything. Udemy" src="https://ad.linksynergy.com/fs-bin/show?id=w7*S3fGR7tg&bids=507388.1628&subid=0&type=4&gridnum=9"></a>
+          </div>
 
         </div>
         <div class="col-lg-9 post">
@@ -77,13 +87,6 @@
             <div class="sharethis-inline-share-buttons"></div>
           </div>
 
-          <div class="clearfix">
-            <a class="btn btn-primary float-left" href="{{ prev_post.get_absolute_url }}" data-toggle="tooltip" data-placement="top" title="{{ prev_post.title }}">&larr; Previous<span class="d-none d-md-inline">
-                Post</span></a>
-
-            <a class="btn btn-primary float-right" href="{{ next_post.get_absolute_url }}" data-toggle="tooltip" data-placement="top" title="{{ next_post.title }}">Next<span class="d-none d-md-inline">
-                Post</span> &rarr;</a>
-          </div>
         </div>
       </div>
     </div>
