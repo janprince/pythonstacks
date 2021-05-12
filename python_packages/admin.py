@@ -9,7 +9,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PackageAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'featured']
+    list_display = ['id', 'name', 'draft', 'featured']
     prepopulated_fields = {'slug': ('name',), 'pip_name': ('name',)}
     search_fields = ['name']
 

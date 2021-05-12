@@ -13,7 +13,7 @@
 {% block content %}
 
   <!-- Page Header --> <!-- If background-image is not suitable, just set bg-color to #0085A1 -->
-  <header class="masthead" style="background-image: linear-gradient(rgba(0, 133, 161, 0.6), rgba(0, 133, 161, 0.6)), url('{% static 'python_packages/images/python-img3.jpg' %}');background-attachment: fixed;">
+  <header class="masthead" style="background-image: linear-gradient(rgba(0, 133, 161, 0.6), rgba(0, 133, 161, 0.6)), url('{% static 'python_packages/images/python_img2.jpg' %}');background-attachment: fixed;">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -52,7 +52,7 @@
 
             {% for package in category.packages.all %}
               <div class="card px-0 package_card col-5 ml-3 shadow mb-4 ">
-                <a class="py-3 pl-4" href="{% if package.featured %}{% url 'python_packages:detail' package.slug %} {% else %}#{% endif %}">
+                <a class="py-3 pl-4" href="{% if package.featured %}{% url 'python_packages:detail' package.slug %} {% else %}{{package.homepage}}{% endif %}">
                   <div class="row no-gutters">
 
                     <div class="col-lg-4">
