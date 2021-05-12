@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, .nav-link{
   color: black;
 }
 
-.package_card a:hover {
+.package_card:hover {
   color: black;
   background-color: lightblue;
 }
