@@ -201,9 +201,6 @@ CKEDITOR_CONFIGS = {
                 'Preview',
                 'Maximize',
                 'CodeSnippet',
-                'ckawesome',
-                'ckeditorfa',
-
             ]},
         ],
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
@@ -231,8 +228,6 @@ CKEDITOR_CONFIGS = {
             'dialog',
             'dialogui',
             'elementspath',
-            'ckawesome',
-            'ckeditorfa',
         ]),
     }
 }
