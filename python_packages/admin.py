@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  *
+from .models import *
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -9,8 +9,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PackageAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'draft', 'featured']
-    prepopulated_fields = {'slug': ('name',), 'pip_name': ('name',)}
+    list_display = ['id', 'name', 'featured']
     search_fields = ['name']
 
 

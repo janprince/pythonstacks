@@ -39,21 +39,8 @@ def detail(request, slug):
 
 
     # Next and Previous Posts
-    all_posts = Post.objects.filter(featured=True).order_by('id')
-    posts_list = list(all_posts)
-    try:
-        current_index = posts_list.index(post)
-    except:
-        current_index = 0
-    try:
-        next_post = posts_list[current_index + 1]
-    except IndexError:
-        next_post = posts_list[0]
+    popular_posts = Post.objects.filter(popular=True).order_by('id')
 
-    try:
-        prev_post = posts_list[current_index - 1]
-    except IndexError:
-        prev_post = posts_list[len(posts_list)-1]
 
     # Comment posted
     if request.method == 'POST':
@@ -71,9 +58,8 @@ def detail(request, slug):
 
 
     context = {
+        'popular_posts': popular_posts[:4],
         'post': post,
-        'next_post': next_post,
-        'prev_post': prev_post,
         'categories': categories,
         'comment_form': comment_form,
         'new_comment': new_comment,

@@ -9,84 +9,135 @@
     <title>Best Libraries And Frameworks For Your Python Projects | PythonStacks</title>
   {% endblock title%}
 
+    <!-- Page-specific CSS-->
+    {% block extra_css %}
+    <style>
+        @media (min-width: 1400px) {
+            .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+                max-width: 1420px;
+            }
+        }
+    </style>
+    {% endblock %}
 
 {% block content %}
 
-  <!-- Page Header --> <!-- If background-image is not suitable, just set bg-color to #0085A1 -->
-  <header class="masthead" style="background-image: linear-gradient(rgba(0, 133, 161, 0.6), rgba(0, 133, 161, 0.6)), url('{% static 'python_packages/images/python_img2.jpg' %}');background-attachment: fixed;">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 mx-auto">
-          <div class="packages-heading">
-
-            <h1 class="font-weight-bold text-white col-md-10 mx-auto text-center">Find The Best Frameworks and Libraries for Your Python Projects.</h1>
-            <!--Using Python for -->
-            <div class="row mt-5">
-              <div class="col-md-3">
-                <h3 class="font-weight-bold mt-3 text-light python-for">Using Python for: </h3>
-              </div>
-              <div class="col-md-9" id="cat_buttons">
-                {% for category in categories %}
-                  <a href="#{{ category.id }}" class="btn mt-2 mx-1 cat_btn btn-light">{{ category.tag }}</a>
-                {% endfor %}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <div class="container-fluid">
-    <div class="row">
-
-      {% for category in categories %}
-        <div class="col-md-6 mb-4" id="{{ category.id }}">
-          <h2 class="mb-3 cat_head font-weight-bold">{{ category.tag }}</h2>
-          <hr>
-
+  <section>
+      <div style="background-image: linear-gradient(rgba(0, 133, 161, 0.6), rgba(0, 133, 161, 0.6)), url('{% static 'python_packages/images/py.png' %}'); background-attachment: fixed;">
+        <div class="container">
           <div class="row">
+              <div class="col-lg-12 mx-auto">
+                  <div class="packages-heading">
 
-            {% for package in category.packages.all %}
-              <div class="card px-0 package_card col-5 ml-3 shadow mb-4 ">
-                <a class="py-3 pl-4" href="{% if package.featured %}{% url 'python_packages:detail' package.slug %} {% else %}{{package.homepage}}{% endif %}" target="_blank">
-                  <div class="row no-gutters">
+                      <h1 data-animate="fadeInUp" class="font-weight-bold text-white col-md-10 mx-auto text-center fadeInUp animated">Find The
+                          Best Frameworks and Libraries for Your Python Projects.</h1>
+                      <!--Using Python for -->
+                      <div class="row mt-5">
 
-                    <div class="col-lg-4">
-                      {% if package.image %}
-                        <img class="img-fluid" alt="{{ package.name }} icon" src="{{ package.image.url }}" width="40">
-                      {% else %}
-                        <img class="img-fluid" alt="box" src="{% static 'python_packages/images/box.png' %}" width="40">
-                      {% endif %}
-                    </div>
+                          <div class="col-md-3">
+                              <h3 data-animate="fadeInUp" class="font-weight-bold mt-3 text-light python-for fadeInUp animated">Using Python
+                                  for: </h3>
+                          </div>
 
-                    <div class="col-lg-8">
-                     <span class="package_name">{{ package.name }}</span>
-                    </div>
+                          <div class="col-md-9" id="cat_buttons">
+                              {% for category in categories %}
+                              <a data-animate="fadeInUp" class="btn mt-2 mx-1 cat_btn btn-light fadeInUp animated">{{category.tag }}</a>
+                              {% endfor %}
+                          </div>
+
+                      </div>
 
                   </div>
-                </a>
               </div>
-            {% endfor %}
+        </div>
+        </div>
+      </div>
+  </section>
 
+  <!-- Content
+  ============================================= -->
+  <section id="content">
+      <div class="content-wrap">
+
+          <div class="promo promo-full promo-border p-5 header-stick bottommargin-lg">
+              <div class="container">
+                  <div class="row align-items-center">
+                      <div class="col-12 col-lg">
+                          <h3>Try Premium Free for <span>30 Days</span> and you'll never regret it!</h3>
+                          <span>Starts at just <em>$0/month</em> afterwards. No Ads, No Gimmicks and No SPAM. Just Real Content.</span>
+                      </div>
+                      <div class="col-12 col-lg-auto mt-4 mt-lg-0">
+                          <a href="#" class="button button-reveal button-large text-end m-0"><i class="icon-angle-right"></i><span>Browse Now</span></a>
+                      </div>
+                  </div>
+              </div>
           </div>
 
-        </div>
-      {% endfor %}
+          <div class="container clearfix">
 
-    </div>
-  </div>
+              <div class="row">
 
-  <!-- Additional Info -->
-  <div class="container post home-post">
+                {% for category in categories %}
+                <div class="col-md-6 mb-4" id="{{ category.id }}">
+                    <h2 class="mb-3 cat_head font-weight-bold">{{ category.tag }}</h2>
+                    <hr>
 
-  </div>
+                    <div class="row">
 
-  <!-- Newsletter -->
-  {% include 'blog/newsletter.html' %}
+                        {% for package in category.packages.all %}
+                        <div class="card package_card col-5 shadow mb-4 mx-2">
+                            <a href="#{{ package.name|slugify }}" {% if package.description %}data-lightbox="inline"{% endif %} class="py-3 pl-4">
+                              <div class="row no-gutters">
+
+                                    <div class="col-lg-4">
+                                      {% if package.image %}
+                                        <img class="img-fluid pl-3" alt="{{ package.name }} icon" src="{% static 'python_packages/images/box.png' %}" width="40">
+                                      {% else %}
+                                        <img class="img-fluid" alt="box" src="{% static 'python_packages/images/box.png' %}" width="40">
+                                      {% endif %}
+                                    </div>
+
+                                    <div class="col-lg-8 pt-1">
+                                     <span class="package_name">{{ package.name }}</span>
+                                    </div>
+
+                              </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+                {% endfor %}
+
+              </div>
+
+              <div class="clear"></div><div class="line"></div>
+
+
+                <!-- Modal -->
+              {% for package in packages %}
+                {% if package.description %}
+                    <div class="" data-target="#{{ package.name|slugify }}"></div>
+
+                    <div class="modal1 mfp-hide mx-auto" id="{{ package.name|slugify }}" style="background-color: #FFF; max-width: 500px;">
+						<div class="block mx-auto" style="background-color: #FFF; max-width: 500px;">
+							<div class="" style="padding: 50px;">
+								<h3>{{ package.name }}</h3>
+								{{ package.description|safe }}
+							</div>
+							<div class="section center m-0" style="padding: 30px;">
+								<a href="#" class="button" onClick="$.magnificPopup.close();return false;">Close this Modal</a>
+							</div>
+						</div>
+					</div>
+                {% endif %}
+              {% endfor %}
+
+          </div>
+      </div>
+  </section><!-- #content end -->
 
 
 {% endblock content %}

@@ -1,4 +1,4 @@
-{% extends "blog/base.html" %}
+{% extends "python_packages/base.html" %}
 
 {% load crispy_forms_tags %}
 
@@ -33,6 +33,123 @@
   <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5fc12549eb422600129fa047&product=inline-share-buttons-buttons' async='async'></script>
 {% endblock sharethis%}
 
+{% block extra_css %}
+  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;700&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'blog/css/fonts.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}" type="text/css" />
+
+<!--  <link rel="stylesheet" href="{% static 'blog/css/colorsf210.css?color=F39887' %}" type="text/css" />-->
+
+   <style>
+       body{font-family: Poppins, sans-serif}
+
+    header.masthead {
+      margin-bottom: 50px;
+      background: no-repeat center center;
+      background-color: #868e96;
+      background-attachment: scroll;
+      position: relative;
+      background-size: cover;
+    }
+
+    header.masthead .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #212529;
+      opacity: 0.5;
+    }
+
+    header.masthead .post-heading {
+      padding: 100px 0 100px;
+      color: white;
+    }
+
+    @media only screen and (min-width: 768px) {
+      header.masthead .post-heading {
+        padding: 200px 0;
+      }
+    }
+
+    header.masthead .page-heading h1,
+    header.masthead .site-heading h1 {
+      font-size: 50px;
+      margin-top: 0;
+    }
+
+    header.masthead .page-heading .subheading,
+    header.masthead .site-heading .subheading {
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.1;
+      display: block;
+      margin: 10px 0 0;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    @media only screen and (min-width: 768px) {
+      header.masthead .page-heading h1,
+      header.masthead .site-heading h1 {
+        font-size: 80px;
+      }
+    }
+
+    header.masthead .post-heading h1 {
+      font-size: 35px;
+    }
+
+    header.masthead .post-heading .meta,
+    header.masthead .post-heading .subheading {
+      line-height: 1.1;
+      display: block;
+    }
+
+    header.masthead .post-heading .subheading {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 10px 0 30px;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    header.masthead .post-heading .meta {
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      font-family: 'Lora', 'Times New Roman', serif;
+    }
+
+    header.masthead .post-heading .meta a {
+      color: #fff;
+    }
+
+    @media only screen and (min-width: 768px) {
+      header.masthead .post-heading h1 {
+        font-size: 55px;
+      }
+      header.masthead .post-heading .subheading {
+        font-size: 30px;
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 800;
+      font-family: Poppins, sans-serif;
+    }
+
+    h1{
+      margin: 0px 0px 15px 0px;
+    }
+
+    .ad-banner{
+      /*position: -webkit-sticky;*/
+      position: sticky;
+      top: 90px;
+    }
+
+  </style>
+{% endblock %}
 
 {% block content %}
 
@@ -43,7 +160,7 @@
       <div class="row">
         <div class="col-lg-9 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>{{ post.title }}</h1>
+            <h1 class="text-white font-weight-bold">{{ post.title }}</h1>
             {% if post.subtitle %}<span class="subheading">{{ post.subtitle }}</span>{% endif %}
             <span class="meta">Published by
               <a href="{% url 'python_packages:about' %}">{{ post.author }}</a>
@@ -57,8 +174,9 @@
   <!-- Post Content -->
   <article>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-9 col-md-10 mx-auto post">
+
+      <div class="row mb-2">
+        <div class="col-lg-7 col-md-10 mx-auto post">
 
           {{ post.content | safe }}
 
@@ -69,95 +187,353 @@
             <div class="sharethis-inline-share-buttons"></div>
           </div>
 
-          <div class="clearfix">
-            <a class="btn btn-primary float-left" href="{{ prev_post.get_absolute_url }}" data-toggle="tooltip" data-placement="top" title="{{ prev_post.title }}">&larr; Previous<span class="d-none d-md-inline">
-                Post</span></a>
+          <!-- Tag Cloud
+            ============================================= -->
+          <div class="tagcloud">
+                <h4>Related Categories</h4>
+                {% for cat in categories %}
+                <a href="{% url 'blog:category' cat.slug %}">{{cat.tag}}</a>
+                {% endfor %}
+            </div><!-- .tagcloud end -->
 
-            <a class="btn btn-primary float-right" href="{{ next_post.get_absolute_url }}" data-toggle="tooltip" data-placement="top" title="{{ next_post.title }}">Next<span class="d-none d-md-inline">
-                Post</span> &rarr;</a>
-          </div>
+          <div class="clear"></div>
+
         </div>
+        <div class="col-1"></div>
+        <div class="sidebar col-lg-3">
+          <div class="sidebar-widgets-wrap ad-banner">
+
+              <div class="widget subscribe-widget clearfix">
+                  <div class="dark" style="padding: 25px; background-color: #383838; border-radius: 2px;">
+                      <div class="fancy-title title-border">
+                          <h4>Subscribe</h4>
+                      </div>
+
+                      <p style="font-size: 15px; line-height: 1.5; color: #999;">Subscribe to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</p>
+                      <div class="widget-subscribe-form-result"></div>
+                      <form id="widget-subscribe-form2" action="include/subscribe.php" method="post" class="mb-0" novalidate="novalidate">
+                          <div class="input-group mx-auto">
+                              <div class="input-group-text"><i class="icon-email2"></i></div>
+                              <input type="email" id="widget-subscribe-form-email2" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                          </div>
+                          <button class="button button-3d w-100 button-small m-0" style="margin-top: 15px !important;" type="submit">Subscribe</button>
+                      </form>
+                  </div>
+              </div>
+
+              <div class="widget clearfix">
+
+                  <h4>Popular Posts</h4>
+                  <div class="posts-sm row col-mb-30" id="post-list-sidebar">
+                      {% for post in popular_posts %}
+                        <div class="entry col-12">
+                          <div class="grid-inner row g-0">
+                              <div class="col-auto">
+                                  <div class="entry-image">
+                                      {% if post.image %}
+                                      <a href="{% url 'blog:detail' post.slug %}"><img src="{{post.image.url}}" alt="Image"></a>
+                                      {% else %}
+                                      <a href="{% url 'blog:detail' post.slug %}"><img src="{% static 'blog/images/bg/python-wall1.png' %}"alt="Image"></a>
+                                      {% endif %}
+                                  </div>
+                              </div>
+                              <div class="col ps-3">
+                                  <div class="entry-title">
+                                      <h4><a href="{% url 'blog:detail' post.slug %}">{{post.title}}</a></h4>
+                                  </div>
+                                  <div class="entry-meta">
+                                      <ul>
+                                          <li>{{ post.pub_date | date:"F d, Y" }}</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+
+              </div>
+
+              <div class="widget clearfix">
+
+                  <h4>Connect with Us</h4>
+                  <a href="#" class="social-icon si-colored si-small si-facebook" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook">
+                      <i class="icon-facebook"></i>
+                      <i class="icon-facebook"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-delicious" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delicious">
+                      <i class="icon-delicious"></i>
+                      <i class="icon-delicious"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-android" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Android">
+                      <i class="icon-android"></i>
+                      <i class="icon-android"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-gplus" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Google Plus">
+                      <i class="icon-gplus"></i>
+                      <i class="icon-gplus"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-stumbleupon" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Stumbleupon">
+                      <i class="icon-stumbleupon"></i>
+                      <i class="icon-stumbleupon"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-foursquare" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Foursquare">
+                      <i class="icon-foursquare"></i>
+                      <i class="icon-foursquare"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-forrst" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Forrst">
+                      <i class="icon-forrst"></i>
+                      <i class="icon-forrst"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-digg" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Digg">
+                      <i class="icon-digg"></i>
+                      <i class="icon-digg"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-spotify" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Spotify">
+                      <i class="icon-spotify"></i>
+                      <i class="icon-spotify"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-reddit" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Reddit">
+                      <i class="icon-reddit"></i>
+                      <i class="icon-reddit"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-blogger" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Blogger">
+                      <i class="icon-blogger"></i>
+                      <i class="icon-blogger"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-dribbble" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Dribbble">
+                      <i class="icon-dribbble"></i>
+                      <i class="icon-dribbble"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-flickr" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Flickr">
+                      <i class="icon-flickr"></i>
+                      <i class="icon-flickr"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-linkedin" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linked In">
+                      <i class="icon-linkedin"></i>
+                      <i class="icon-linkedin"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-rss" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="RSS">
+                      <i class="icon-rss"></i>
+                      <i class="icon-rss"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-skype" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Skype">
+                      <i class="icon-skype"></i>
+                      <i class="icon-skype"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-twitter" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter">
+                      <i class="icon-twitter"></i>
+                      <i class="icon-twitter"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-youtube" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Youtube">
+                      <i class="icon-youtube"></i>
+                      <i class="icon-youtube"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-vimeo" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Vimeo">
+                      <i class="icon-vimeo"></i>
+                      <i class="icon-vimeo"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-yahoo" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Yahoo">
+                      <i class="icon-yahoo"></i>
+                      <i class="icon-yahoo"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-github" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Github">
+                      <i class="icon-github-circled"></i>
+                      <i class="icon-github-circled"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-tumblr" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Trumblr">
+                      <i class="icon-tumblr"></i>
+                      <i class="icon-tumblr"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-instagram" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Instagram">
+                      <i class="icon-instagram"></i>
+                      <i class="icon-instagram"></i>
+                  </a>
+
+                  <a href="#" class="social-icon si-colored si-small si-pinterest" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Pinterst">
+                      <i class="icon-pinterest"></i>
+                      <i class="icon-pinterest"></i>
+                  </a>
+
+              </div>
+
+              <div class="widget clearfix placeholder-custom">
+
+                  <h4>Embed Videos</h4>
+                  <div class="fluid-width-video-wrapper" style="padding-top: 50%;"><iframe src="//player.vimeo.com/video/103927232" allow="autoplay; fullscreen" allowfullscreen="" id="fitvid0"></iframe></div>
+
+              </div>
+
+          </div>
       </div>
+      </div>
+
+      <div class="row mb-4">
+          <div class="col-lg-7 mx-auto">
+              <!-- Comments
+              ============================================= -->
+            <div id="comments">
+
+                <h3 id="comments-title"><span>{{comments.count}}</span> Comments</h3>
+
+                <!-- Comments List
+                ============================================= -->
+                <ol class="commentlist">
+                    {% for comment in comments %}
+                    <li class="comment even thread-even depth-1" id="li-comment-1">
+
+                        <div id="comment-1" class="comment-wrap">
+
+                            <div class="comment-meta">
+
+                                <div class="comment-author vcard">
+
+                                    <span class="comment-avatar">
+                                    <img alt='' src='https://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=60' class='avatar avatar-60 photo avatar-default' height='60' width='60' /></span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="comment-content">
+
+                                <div class="comment-author">{{ comment.name }}<span><a href="#" title="Permalink to this comment">{{ comment.created_on | date:"F d, Y" }}</a></span></div>
+
+                                <p>{{ comment.comment | linebreaks }}</p>
+
+                                <a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
+
+                            </div>
+
+                            <div class="clear"></div>
+
+                        </div>
+
+                        {% if comment.replies %}
+                        <ul class='children'>
+                            {% for reply in comment.replies.all %}
+                            <li class="comment byuser comment-author-_smcl_admin odd alt depth-2" id="li-comment-3">
+
+                                <div id="comment-3" class="comment-wrap">
+
+                                    <div class="comment-meta">
+
+                                        <div class="comment-author vcard">
+
+                                            <span class="comment-avatar">
+                                            <img alt='' src='https://1.gravatar.com/avatar/30110f1f3a4238c619bcceb10f4c4484?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /></span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="comment-content">
+
+                                        <div class="comment-author"><a href='#' rel='external nofollow' class='url'>PythonStacks</a><span><a href="#" title="Permalink to this comment">{{ reply.created_on | date:"F d, Y" }}</a></span></div>
+
+                                        <p>{{ reply.reply_message | linebreaks }}</p>
+
+                                        <a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
+
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ol>
+
+                <div class="clear"></div>
+
+                <!-- Comment Form
+                ============================================= -->
+                <div id="respond">
+
+                    <h3>Leave a <span>Comment</span></h3>
+
+                    <form class="row mb-0" method="post" id="commentform">
+                        {% csrf_token %}
+                        <div class="form-group col-4">
+                            <label for="author">Name</label>
+                            <input type="text" name="name" id="author" value="" size="22" tabindex="1" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" value="" size="22" tabindex="2" class="form-control" />
+                        </div>
+
+                        <div class="w-100"></div>
+
+                        <div class="form-group col-12">
+                            <label for="comment">Comment</label>
+                            <textarea name="comment" id="comment" cols="58" rows="7" tabindex="4" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group col-12 mt-4 mb-0">
+                            <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-large button-black button-dark nott fw-medium ls0 button-rounded m-0">Submit Comment</button>
+                        </div>
+
+                    </form>
+
+                </div><!-- #respond end -->
+
+            </div><!-- #comments end -->
+
+            <!-- if new_comment -->
+              {% if new_comment %}
+                  <div class="modal-on-load" data-target="#myModal1"></div>
+
+                  <!-- Modal -->
+                  <div class="modal1 mfp-hide" id="myModal1">
+                        <div class="block mx-auto" style="background-color: #FFF; max-width: 500px;">
+                            <div class="center" style="padding: 50px;">
+                                <span class="fs-4">Feedback Received.</span>
+                                <p class="mb-0">Your comment is awaiting moderation.</p>
+                            </div>
+                            <div class="section center m-0" style="padding: 30px;">
+                                <a href="#" class="button" onClick="$.magnificPopup.close();return false;">Close</a>
+                            </div>
+                        </div>
+                    </div>`
+              {% endif %}
+
+          </div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-3"></div>
+      </div>
+
     </div>
   </article>
 
-  <!-- Newsletter -->
-  {% include 'blog/newsletter.html' %}
-
-  <div class="container comment-section my-5">
-
-    <!-- Comments -->
-    <div class="row my-3">
-      <div class="col-lg-8 col-md-10 mx-auto post">
-
-        <!-- Comments -->
-        <h3 class="mb-3">{{ comments.count }} Comments</h3>
-
-        {% for comment in comments%}
-        <div class="media mb-2">
-          <img class="d-flex mr-3 rounded-circle" width="40" src="{% static 'blog/images/avatar.png' %}" alt="avatar">
-          <div class="media-body">
-            <p class="my-0">
-              <span class="text-info">{{ comment.name }}</span>
-              <span class="float-right text-muted">
-                 {{ comment.created_on | date:"F d, Y" }}
-              </span>
-            </p>
-            <p>{{ comment.comment | linebreaks }}</p>
-            <hr>
-          </div>
-        </div>
-
-        {% if comment.replies %}
-          {% for reply in comment.replies.all %}
-            <div class="media ml-5 mt-0 mb-2">
-              <img class="d-flex mr-3 rounded-circle" width="35" src="{% static 'blog/images/logo.png' %}" alt="avatar">
-              <div class="media-body">
-                <p class="mt-0">
-                  <span class="text-info lead">{{ reply.name }}</span>
-                  <span class="float-right text-muted font-weight-normal">
-                     {{ reply.created_on | date:"F d, Y" }}
-                  </span>
-                </p>
-                {{ reply.reply_message | linebreaks }}
-                <hr>
-              </div>
-            </div>
-          {% endfor %}
-        {% endif %}
-
-        {% endfor %}
-
-    </div>
-    </div>
-
-    <!-- Comments Form -->
-    <div class="row" id="comment">
-      <div class="col-lg-8 col-md-10 mx-auto post card my-4">
-      <div class="card-body">
-        {% if new_comment %} <!-- If a new comment has been submitted -->
-          <div class="alert alert-success">
-            Your comment is awaiting moderation
-          </div>
-        {% else %}
-          <h3>Leave a comment </h3>
-          <form method="post" class="form">
-            {% csrf_token %}
-            {{ comment_form | crispy }}
-            <p><small>* Email would not published </small></p>
-            <button type="submit" class="btn btn-primary btn-lg px-4">Submit</button>
-          </form>
-        {%  endif %}
-      </div>
-    </div>
-    </div>
-
-    <!--Ad here -->
-    <div class="row">
-
-    </div>
-
-  </div>
 
   <script>
       document.addEventListener("DOMContentLoaded", function() {

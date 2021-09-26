@@ -7,24 +7,15 @@ from django.utils import timezone
 # Create your models here.
 class Package(models.Model):
     name = models.CharField(max_length=120, unique=True)
-    slug = models.SlugField(unique=True)
-    pip_name = models.CharField(max_length=70, blank=True)
     homepage = models.URLField(blank=True, max_length=300)
     image = models.ImageField(blank=True, upload_to='package_images')
-    title = models.CharField(max_length=200, blank=True)
-    meta_description = models.TextField(max_length=170, blank=True)
     description = RichTextUploadingField(blank=True)
-    meta_data = RichTextField(blank=True)
     pub_date = models.DateTimeField(default=timezone.now)
-    draft = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        from django.urls import reverse
-        return reverse('python_packages:detail', args=[str(self.slug)])
 
 
 class Category(models.Model):

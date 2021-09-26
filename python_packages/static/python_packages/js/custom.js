@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function (){
 
       document.querySelectorAll('.cat_head').forEach(c => {
         if (c.innerHTML == cat) {
+          c.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'})
           c.style.animationPlayState = 'running';
         }
         setTimeout(function(){

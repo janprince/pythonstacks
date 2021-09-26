@@ -4,7 +4,7 @@ from .models import *
 
 # Post
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'pub_date', 'featured']
+    list_display = ['id', 'title', 'pub_date', 'featured', 'popular']
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('featured', )
     search_fields = ['title']
@@ -37,7 +37,7 @@ class ReplyCommentAdmin(admin.ModelAdmin):
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'email', 'date', 'message']
+    list_display = ['id', 'name', 'email', 'date', 'subject']
 
 
 # Registering models

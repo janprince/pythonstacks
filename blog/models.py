@@ -40,6 +40,7 @@ class Post(models.Model):
     content = RichTextUploadingField()
     pub_date = models.DateTimeField(default=timezone.now)      # default=timezone.now - from django.utils import tim...
     categories = models.ManyToManyField(Category, blank=False, related_name='posts')
+    popular = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
 
     class Meta:
@@ -86,6 +87,7 @@ class ReplyComment(models.Model):
 class Contact(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(blank=False)
+    subject = models.CharField(max_length=500, blank=True)
     message = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 

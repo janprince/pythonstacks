@@ -18,7 +18,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import BlogSitemap, StaticViewSitemap, CategorySitemap
-from python_packages.sitemaps import PackageSitemap
 
 
 
@@ -26,7 +25,6 @@ sitemaps = {
     'static': StaticViewSitemap,
     'blog' : BlogSitemap,
     'category': CategorySitemap,
-    'packages': PackageSitemap,
 }
 
 

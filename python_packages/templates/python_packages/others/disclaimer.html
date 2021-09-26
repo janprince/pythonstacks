@@ -1,0 +1,54 @@
+{% extends 'python_packages/base.html' %}
+
+{% load static %}
+
+  {% block meta%}
+    <meta name="description"
+        content="Terms of Use of the services provided by PythonStacks">
+  {% endblock meta %}
+
+  {% block title %}
+    <title>Affiliate Disclaimer | PythonStacks</title>
+  {% endblock title%}
+
+
+{% block content %}
+
+<!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+
+        <div class="container">
+            <h1>Affiliate Disclaimer</h1>
+            <span>A Blank Page</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'python_packages:index' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Terms</li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <!-- Content
+    ============================================= -->
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container">
+                <div class="row">
+
+                    <p>The Site may contain links to affiliate websites and we receive an affiliate commission for any
+                        purchases made by you on the affiliate website using such links.
+                    </p>
+
+                </div>
+
+                <div class="my-4">
+                  <a href="{% url 'python_packages:contact' %}" class="button button-3d mx-auto"><span class="lead">Contact Us</span></a>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- #content end -->
+
+
+{% endblock content %}
