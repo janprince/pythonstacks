@@ -17,7 +17,7 @@ class Category(models.Model):
     tag = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(blank=True)
     title_representation = models.CharField(max_length=250, blank=False)
-    meta_description = models.TextField(max_length=170, blank=False)
+    meta_description = models.TextField(max_length=170, blank=True)
     image = models.ImageField(upload_to="category_images", blank=True)
 
 
