@@ -104,11 +104,6 @@ html {
   scroll-behavior: smooth !important;
 }
 
-ol{
-    margin-left: 17px;
-}
-
-
 /* Detail Post  content */
 
 .note{
@@ -117,11 +112,15 @@ ol{
   color: #8f8c9a;
 }
 
+.post ol, .post ul {
+    margin-left: 18px;
+}
+
 .post h2{
     font-size: 21px;
 }
 
-.post p, .post ol li{
+.post p, .post ol li, .post ul li {
     font-size: 16.5px;
     font-family: Poppins, sans-serif;
 }
