@@ -70,7 +70,7 @@
                       <div class="widget widget-nav mt-md-5">
                           <ul class="nav">
                               <li class="nav-item">
-                                  <a class="nav-link" href="#">All Categories</a>
+                                  <a class="nav-link" href="{% url 'blog:index' %}">All Categories</a>
                               </li>
                             {% for cat in categories %}
                               {% if cat == category %}
@@ -105,7 +105,7 @@
                       </div>
 
                       <div class="row col-mb-50 posts-md">
-                        {% for post in category.posts.all %}
+                        {% for post in posts %}
                           <div class="col-md-4">
                               <article class="entry">
                                   <div class="entry-image mb-3">
@@ -127,7 +127,7 @@
                                       </ul>
                                   </div>
                                   <div class="entry-content mt-3">
-                                      <p>Today’s freebie is a set of 60 beautiful multimedia icons designed by Carlotta Govi.</p>
+                                      <p><!--something--></p>
                                       <a href="{% url 'blog:detail' post.slug %}" class="more-link">Read the artcile</a>
                                   </div>
                               </article>
