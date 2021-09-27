@@ -4,24 +4,11 @@
 
 {% block meta%}
   <meta name="description"
-      content="{{ category.meta_description }}">
-
- <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@PythonStacks" />
-  <meta name="twitter:title" content="{{ category.title_representation }}" />
-  <meta name="twitter:description" content="{{ category.meta_description }}" />
-  <meta name="twitter:image" content="https://www.pythonstacks.com{{ category.image.url }}" />
-
-  <meta property="og:url" content="https://www.pythonstacks.com/category/{{ category.slug }}" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="{{ category.title_representation }}" />
-  <meta property="og:description" content="{{ category.meta_description }}" />
-  <meta property="og:image" content="https://www.pythonstacks.com{{ category.image.url }}" />
+      content="">
 {% endblock meta %}
 
-
 {% block title %}
-  <title>{{ category.title_representation }} | PythonStacks</title>
+  <title>Search Results for {{ q }} | PythonStacks</title>
 {% endblock title %}
 
 {% block extra_css %}
@@ -44,8 +31,12 @@
   <section id="page-title" class="page-title-center">
 
       <div class="container">
-          <h1>{{ category.tag }}</h1>
-          <span>{{ category.meta_description }}</span>
+        {% if posts %}
+          <h1>Search Results for {{ q }}</h1>
+          <span>{{query_count}} results.</span>
+        {% else %}
+          <h1>No Results.</h1>
+        {% endif %}
       </div>
 
   </section><!-- #page-title end -->
@@ -62,7 +53,7 @@
                   <div class="col-lg-3 cat-widgets position-sticky h-100" style="top: 234px;">
                       <div class="widget widget-search">
                           <form class="input-group" method="get" action="{% url 'blog:search' %}">
-                              <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
+                              <input class="form-control" type="search" name='q' placeholder="Search" aria-label="Search">
                               <button class="btn btn-outline-secondary icon-line-search" type="button"></button>
                           </form>
                       </div>
@@ -73,15 +64,9 @@
                                   <a class="nav-link" href="#">All Categories</a>
                               </li>
                             {% for cat in categories %}
-                              {% if cat == category %}
-                              <li class="nav-item active">
-                                  <a class="nav-link" href="{% url 'blog:category' cat.slug %}">{{ cat.tag }}</a>
-                              </li>
-                              {% else %}
                               <li class="nav-item">
                                   <a class="nav-link" href="{% url 'blog:category' cat.slug %}">{{ cat.tag }}</a>
                               </li>
-                              {% endif %}
                             {% endfor %}
                           </ul>
                       </div>
@@ -90,22 +75,21 @@
                   <div class="col-lg-9 mt-5 mt-lg-0">
                       <div class="d-flex">
                           <div class="flex-grow-1">
-                              <h3>All {{ category }} Posts</h3>
+                              <h3>All Posts related to '{{q}}'</h3>
                           </div>
                           <div>
                               <!-- Example single danger button -->
                               <div class="btn-group">
                                   <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Most Popular</button>
                                   <div class="dropdown-menu">
-                                      <a class="dropdown-item" href="#">Latest Posts</a>
-                                      <a class="dropdown-item" href="#">Most Comments</a>
+                                      <a class="dropdown-item" href="#">Latest</a>
                                   </div>
                               </div>
                           </div>
                       </div>
 
                       <div class="row col-mb-50 posts-md">
-                        {% for post in category.posts.all %}
+                        {% for post in posts %}
                           <div class="col-md-4">
                               <article class="entry">
                                   <div class="entry-image mb-3">

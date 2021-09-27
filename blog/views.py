@@ -20,17 +20,6 @@ def index(request):
     return render(request, 'blog/index.html', context)
 
 
-def all(request):
-    posts = Post.objects.filter(featured=True).order_by('id')
-
-    context = {
-        'all': True,
-        'posts': posts,
-        'categories': categories,
-    }
-    return render(request, 'blog/all.html', context)
-
-
 # Detail view
 def detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -82,21 +71,20 @@ def category(request, category_slug):
 
 
 # View to handle Search
-# def search(request):
-#     if request.GET.get('q'):
-#         query = request.GET.get('q')
-#         print(query.split())# Todo
-#         query_list = Post.objects.filter(Q(title__icontains=query), featured=True) # Note: two underscores
-#
-#         context = {
-#             'posts': query_list,
-#             'categories': categories,
-#             'recent_posts': recent_posts,
-#             'query_count': len(query_list),
-#             'q': query,
-#         }
-#         return render(request, 'blog/search.html', context)
-#     else:
-#         return render(request, "blog/search.html", {
-#             'categories': categories,
-#         })
+def search(request):
+    if request.GET.get('q'):
+        query = request.GET.get('q')
+        print(query.split())# Todo
+        query_list = Post.objects.filter(Q(title__icontains=query), featured=True) # Note: two underscores
+
+        context = {
+            'posts': query_list,
+            'categories': categories,
+            'query_count': len(query_list),
+            'q': query,
+        }
+        return render(request, 'blog/search.html', context)
+    else:
+        return render(request, "blog/search.html", {
+            'categories': categories,
+        })

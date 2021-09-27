@@ -93,11 +93,20 @@
     <!-- Alerts/Messages-->
     {% if messages %}	<!-- referring to django messages-->
 				{% for message in messages %}
-					<script>
-					  document.addEventListener("DOMContentLoaded", function(){
-					    alert(" {{ message }}");
-					  });
-					</script>
+            <div class="modal-on-load" data-target="#myModal1"></div>
+
+            <!-- Modal -->
+            <div class="modal1 mfp-hide" id="myModal1">
+                  <div class="block mx-auto" style="background-color: #FFF; max-width: 500px;">
+                      <div class="center" style="padding: 50px;">
+                          <span class="fs-4">{{message}}</span>
+                          <p class="mb-0"></p>
+                      </div>
+                      <div class="section center m-0" style="padding: 30px;">
+                          <a href="#" class="button" onClick="$.magnificPopup.close();return false;">Close</a>
+                      </div>
+                  </div>
+              </div>`
 				{% endfor %}
     {% endif %}
 

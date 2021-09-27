@@ -122,7 +122,8 @@ ol{
 }
 
 .post p, .post ol li{
-    font-size: 18px;
+    font-size: 16.5px;
+    font-family: Poppins, sans-serif;
 }
 .post td{font-size: 17.5px;}
 
@@ -131,7 +132,7 @@ ol{
         font-size: 19px;
     }
     .post p, .post ol li{
-        font-size: 17.5px;
+        font-size: 15.5px;
     }
 }
 
@@ -157,6 +158,7 @@ h1, h2, h3, h4, h5, .nav-link{
 
 .package_name {
   font-size: 18.5px;
+    font-family: Poppins, sans-serif;
 }
 
 /* packages_heading */

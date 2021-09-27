@@ -51,7 +51,7 @@ def email_signup(request):
             else:                                                                       # to here, not important
                 subscribe(form.instance.email)
                 form.save()
-                messages.success(request, "Your Email has been submitted. Thank you for joining! ")
+                messages.success(request, "You have been successfully subscribed to our Newsletter. ")
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

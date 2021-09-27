@@ -196,7 +196,7 @@
                 {% endfor %}
             </div><!-- .tagcloud end -->
 
-          <div class="clear"></div>
+          <div class="clear mb-5"></div>
 
         </div>
         <div class="col-1"></div>
@@ -211,11 +211,12 @@
 
                       <p style="font-size: 15px; line-height: 1.5; color: #999;">Subscribe to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</p>
                       <div class="widget-subscribe-form-result"></div>
-                      <form id="widget-subscribe-form2" action="include/subscribe.php" method="post" class="mb-0" novalidate="novalidate">
-                          <div class="input-group mx-auto">
-                              <div class="input-group-text"><i class="icon-email2"></i></div>
-                              <input type="email" id="widget-subscribe-form-email2" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                          </div>
+                      <form id="widget-subscribe-form2" action="{% url 'marketing:subscription' %}" method="post" class="mb-0" novalidate="novalidate">
+                        {% csrf_token %}
+                        <div class="input-group mx-auto">
+                          <div class="input-group-text"><i class="icon-email2"></i></div>
+                          <input type="email" id="widget-subscribe-form-email2" name="email" class="form-control required email" required placeholder="Enter your Email">
+                        </div>
                           <button class="button button-3d w-100 button-small m-0" style="margin-top: 15px !important;" type="submit">Subscribe</button>
                       </form>
                   </div>
@@ -483,19 +484,19 @@
                         {% csrf_token %}
                         <div class="form-group col-4">
                             <label for="author">Name</label>
-                            <input type="text" name="name" id="author" value="" size="22" tabindex="1" class="form-control" />
+                            <input type="text" name="name" id="author" value="" size="22" tabindex="1" class="form-control" required/>
                         </div>
 
                         <div class="form-group col-4">
                             <label for="email">Email</label>
-                            <input type="text" name="email" id="email" value="" size="22" tabindex="2" class="form-control" />
+                            <input type="text" name="email" id="email" value="" size="22" tabindex="2" class="form-control" required/>
                         </div>
 
                         <div class="w-100"></div>
 
                         <div class="form-group col-12">
                             <label for="comment">Comment</label>
-                            <textarea name="comment" id="comment" cols="58" rows="7" tabindex="4" class="form-control"></textarea>
+                            <textarea name="comment" id="comment" cols="58" rows="7" tabindex="4" class="form-control" required></textarea>
                         </div>
 
                         <div class="form-group col-12 mt-4 mb-0">

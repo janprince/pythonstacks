@@ -51,21 +51,19 @@
                             <div class="row">
                                 <div class="col-md-4 form-group">
                                     <label for="template-contactform-name">Name <small>*</small></label>
-                                    <input type="text" id="template-contactform-name" name="name"
-                                           value="" class="sm-form-control required"/>
+                                    <input type="text" id="template-contactform-name" name="name" class="sm-form-control required" required />
                                 </div>
 
                                 <div class="col-md-4 form-group">
                                     <label for="template-contactform-email">Email <small>*</small></label>
-                                    <input type="email" id="template-contactform-email" name="email" value=""class="required email sm-form-control"/>
+                                    <input type="email" id="template-contactform-email" name="email" required class="required email sm-form-control"/>
                                 </div>
 
                                 <div class="w-100"></div>
 
                                 <div class="col-md-8 form-group">
                                     <label for="template-contactform-subject">Subject <small>*</small></label>
-                                    <input type="text" id="template-contactform-subject" name="subject" value=""
-                                           class="required sm-form-control"/>
+                                    <input type="text" id="template-contactform-subject" name="subject" required class="required sm-form-control"/>
                                 </div>
 
                                 <div class="col-md-4 form-group">
@@ -84,13 +82,7 @@
 
                                 <div class="col-12 form-group">
                                     <label for="template-contactform-message">Message <small>*</small></label>
-                                    <textarea class="required sm-form-control" id="template-contactform-message"
-                                              name="message" rows="6" cols="30"></textarea>
-                                </div>
-
-                                <div class="col-12 form-group d-none">
-                                    <input type="text" id="template-contactform-botcheck"
-                                           name="template-contactform-botcheck" value="" class="sm-form-control"/>
+                                    <textarea class="required sm-form-control" id="template-contactform-message" required name="message" rows="6" cols="30"></textarea>
                                 </div>
 
                                 <div class="col-12">
@@ -191,6 +183,5 @@
         </div>
     </div>
 </section><!-- #content end -->
-
 
 {% endblock content %}
