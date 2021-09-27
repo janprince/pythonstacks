@@ -44,10 +44,16 @@
                               <a class="menu-link" href="{% url 'blog:index' %}"><div>Articles</div></a>
                               <ul class="sub-menu-container">
                                   <li class="menu-item">
-                                      <a class="menu-link" href="{% url 'blog:category' 'python' %}"><div>Python</div></a>
+                                      <a class="menu-link" href="{% url 'blog:category' 'python' %}"><div>Python Tutorials</div></a>
                                   </li>
                                   <li class="menu-item">
-                                      <a class="menu-link" href="#"><div>Software Development</div></a>
+                                      <a class="menu-link" href="{% url 'blog:category' 'django' %}"><div>Django Tutorials</div></a>
+                                  </li>
+                                  <li class="menu-item">
+                                      <a class="menu-link" href="{% url 'blog:category' 'software-development' %}"><div>Software Development</div></a>
+                                  </li>
+                                  <li class="menu-item">
+                                      <a class="menu-link" href="{% url 'blog:category' 'ethical-hacking' %}"><div>Ethical Hacking</div></a>
                                   </li>
                               </ul>
                           </li>
