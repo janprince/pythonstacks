@@ -10,13 +10,19 @@
   <meta name="twitter:site" content="@PythonStacks" />
   <meta name="twitter:title" content="{{ category.title_representation }}" />
   <meta name="twitter:description" content="{{ category.meta_description }}" />
+{% if category.image %}
   <meta name="twitter:image" content="https://www.pythonstacks.com{{ category.image.url }}" />
+{% endif %}
+
 
   <meta property="og:url" content="https://www.pythonstacks.com/category/{{ category.slug }}" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ category.title_representation }}" />
   <meta property="og:description" content="{{ category.meta_description }}" />
+{% if category.image %}
   <meta property="og:image" content="https://www.pythonstacks.com{{ category.image.url }}" />
+{% endif %}
+
 {% endblock meta %}
 
 
