@@ -8,6 +8,8 @@ from django.utils import timezone
 class Package(models.Model):
     name = models.CharField(max_length=120, unique=True)
     homepage = models.URLField(blank=True, max_length=300)
+    documentation = models.URLField(blank=True, max_length=300)
+    affiliate_course = models.URLField(blank=True, max_length=500)
     image = models.ImageField(blank=True, upload_to='package_images')
     description = RichTextUploadingField(blank=True)
     pub_date = models.DateTimeField(default=timezone.now)
