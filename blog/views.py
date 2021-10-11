@@ -11,10 +11,10 @@ categories = Category.objects.all()
 
 # Index view
 def index(request):
-    posts = Post.objects.filter(featured=True).exclude(Q(title__icontains="course")) # exclude online courses
+    posts = Post.objects.filter(featured=True)  #.exclude(Q(title__icontains="course")) # exclude online courses
 
     context = {
-        'posts': posts[:10],
+        'posts': posts[:20],
         'categories': categories,
     }
     return render(request, 'blog/index.html', context)

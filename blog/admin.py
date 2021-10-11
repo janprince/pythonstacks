@@ -8,11 +8,17 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('featured', )
     search_fields = ['title']
-    actions = ['feature_posts']
+    actions = ['feature_posts', 'make_popular', 'remove_popular']
     filter_horizontal = ("categories",)
 
     def feature_posts(self, request, queryset):
         queryset.update(featured=True)
+
+    def make_popular(self, request, queryset):
+        queryset.update(popular=True)
+
+    def remove_popular(self, request, queryset):
+        queryset.update(popular=False)
 
 
 # Category
