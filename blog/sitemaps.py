@@ -4,8 +4,8 @@ from django.urls import reverse
 
 
 class StaticViewSitemap(Sitemap):
-    priority = 0.8
-    changefreq = 'weekly'
+    priority = 0.9
+    changefreq = 'daily'
 
     def items(self):
         return ["blog:index", "python_packages:index", "python_packages:disclaimer"]
@@ -15,8 +15,8 @@ class StaticViewSitemap(Sitemap):
 
 
 class BlogSitemap(Sitemap):
-    changefreq = "monthly"
-    priority =  0.8
+    changefreq = "weekly"
+    priority = 0.9
 
     def items(self):
         return Post.objects.filter(featured=True)
@@ -27,7 +27,7 @@ class BlogSitemap(Sitemap):
 
 class CategorySitemap(Sitemap):
     changefreq = "weekly"
-    priority =  0.9
+    priority = 0.8
 
     def items(self):
         return Category.objects.all()
