@@ -38,7 +38,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True)
     meta_description = models.TextField(max_length=170, blank=True)
     content = RichTextUploadingField()
-    pub_date = models.DateTimeField(default=timezone.now)      # default=timezone.now - from django.utils import tim...
+    pub_date = models.DateTimeField(auto_now=True)      # default=timezone.now - from django.utils import tim...
     categories = models.ManyToManyField(Category, blank=False, related_name='posts')
     popular = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
