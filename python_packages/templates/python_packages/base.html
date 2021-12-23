@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="{% static 'python_packages/css/dark.css' %}" type="text/css" />
   <link rel="stylesheet" href="{% static 'python_packages/css/font-icons.css' %}" type="text/css" />
   <link rel="stylesheet" href="{% static 'python_packages/css/animate.css' %}" type="text/css" />
-  <link rel="stylesheet" href="{% static 'python_packages/css/magnific-popup.css' %}" type="text/css" />
+<!--  <link rel="stylesheet" href="{% static 'python_packages/css/magnific-popup.css' %}" type="text/css" />-->
 
   <link rel="stylesheet" href="{% static 'python_packages/css/custom.css' %}" type="text/css" />
   <link rel="stylesheet" href="{% static 'blog/css/fonts.css' %}" type="text/css" />
@@ -79,12 +79,12 @@
 
   <!-- Go To Top
   ============================================= -->
-  <div id="gotoTop" class="icon-angle-up"></div>
+  <div onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="gotoTop" class="icon-angle-up"></div>
 
   <!-- JavaScripts
   ============================================= -->
   <script src="{% static 'python_packages/js/jquery.js' %}"></script>
-  <script src="{% static 'python_packages/js/plugins.min.js' %}"></script>
+  {% block extra_script %}{% endblock extra_script %}
 
   <!-- Footer Scripts
   ============================================= -->
@@ -93,20 +93,11 @@
     <!-- Alerts/Messages-->
     {% if messages %}	<!-- referring to django messages-->
 				{% for message in messages %}
-            <div class="modal-on-load" data-target="#myModal1"></div>
-
-            <!-- Modal -->
-            <div class="modal1 mfp-hide" id="myModal1">
-                  <div class="block mx-auto" style="background-color: #FFF; max-width: 500px;">
-                      <div class="center" style="padding: 50px;">
-                          <span class="fs-4">{{message}}</span>
-                          <p class="mb-0"></p>
-                      </div>
-                      <div class="section center m-0" style="padding: 30px;">
-                          <a href="#" class="button" onClick="$.magnificPopup.close();return false;">Close</a>
-                      </div>
-                  </div>
-              </div>`
+          <script>
+              window.addEventListener('DOMContentLoaded', function () {
+                alert("{{message}}");
+              })
+          </script>
 				{% endfor %}
     {% endif %}
 

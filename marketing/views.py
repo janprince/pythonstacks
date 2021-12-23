@@ -47,11 +47,11 @@ def email_signup(request):
         if form.is_valid():
             email_q = EmailSubscription.objects.filter(email=form.instance.email)       # From here
             if email_q.exists():
-                messages.info(request, "You Are Already Subscribed. Thank You ! ")
+                messages.info(request, "You Are Already Subscribed.")
             else:                                                                       # to here, not important
                 subscribe(form.instance.email)
                 form.save()
-                messages.success(request, "You have been successfully subscribed to our Newsletter. ")
+                messages.success(request, "Email Added to Subscription. ")
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

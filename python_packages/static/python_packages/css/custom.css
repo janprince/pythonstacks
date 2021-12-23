@@ -98,6 +98,16 @@ html {
     padding: 5px
 }
 
+/* footer dark */
+/*.dark #footer, #footer.dark {*/
+/*    color: rgba(255,255,255,0.75);*/
+/*    background-color: #282828;*/
+/*    border-top-color: rgba(255,255,255,0.15);*/
+/*}*/
+/*.dark, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {*/
+/*    color: #EEE;*/
+/*}*/
+
 
 /** =========================================================================== */
 html {

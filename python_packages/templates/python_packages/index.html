@@ -156,5 +156,9 @@
   </div>
 </section><!-- #content end -->
 
-
 {% endblock content %}
+
+{% block extra_script %}
+  <link rel="stylesheet" href="{% static 'python_packages/css/magnific-popup.css' %}" type="text/css" />
+  <script src="{% static 'python_packages/js/plugins.min.js' %}"></script>
+{% endblock extra_script %}
