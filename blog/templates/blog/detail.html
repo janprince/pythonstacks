@@ -247,15 +247,6 @@
                       {% for post in popular_posts %}
                         <div class="entry col-12">
                           <div class="grid-inner row g-0">
-                              <div class="col-auto">
-                                  <div class="entry-image">
-                                      {% if post.image %}
-                                      <a href="{% url 'blog:detail' post.slug %}"><img src="{{post.image.url}}" alt="Image"></a>
-                                      {% else %}
-                                      <a href="{% url 'blog:detail' post.slug %}"><img src="{% static 'blog/images/bg/python-wall1.png' %}"alt="Image"></a>
-                                      {% endif %}
-                                  </div>
-                              </div>
                               <div class="col ps-3">
                                   <div class="entry-title">
                                       <h4><a href="{% url 'blog:detail' post.slug %}">{{post.title}}</a></h4>
