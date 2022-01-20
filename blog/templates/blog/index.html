@@ -46,27 +46,7 @@
               <!-- Single Page Categories
               ============================================= -->
               <div class="row gutter-50">
-                  <div class="col-lg-3 cat-widgets position-sticky h-100" style="top: 234px;">
-                      <div class="widget widget-search">
-                          <form class="input-group" method="get" action="{% url 'blog:search' %}">
-                              <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
-                              <button class="btn btn-outline-secondary icon-line-search" type="button"></button>
-                          </form>
-                      </div>
-
-                      <div class="widget widget-nav mt-md-5">
-                          <ul class="nav">
-                              <li class="nav-item active">
-                                  <a class="nav-link" href="#">All Categories</a>
-                              </li>
-                            {% for cat in categories %}
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{% url 'blog:category' cat.slug %}">{{ cat.tag }}</a>
-                              </li>
-                            {% endfor %}
-                          </ul>
-                      </div>
-                  </div>
+                  {% include 'blog/sidebar.html' %}
 
                   <div class="col-lg-9 mt-5 mt-lg-0">
                       <div class="d-flex">
@@ -108,7 +88,7 @@
                                   </div>
                                   <div class="entry-content mt-3">
                                       <p><!--something--></p>
-                                      <a href="{% url 'blog:detail' post.slug %}" class="more-link">Read the artcile</a>
+                                      <a href="{% url 'blog:detail' post.slug %}" class="more-link">Read the article</a>
                                   </div>
                               </article>
                           </div>

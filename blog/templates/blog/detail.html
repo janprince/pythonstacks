@@ -189,14 +189,18 @@
 
           <!-- Tag Cloud
             ============================================= -->
-          <div class="tagcloud">
-                <h4>Related Categories</h4>
-                {% for cat in categories %}
-                <a href="{% url 'blog:category' cat.slug %}">{{cat.tag}}</a>
-                {% endfor %}
-            </div><!-- .tagcloud end -->
+          <div class="tagcloud mb-5">
+            <h4>Related Categories</h4>
+            {% for cat in categories %}
+            <a href="{% url 'blog:category' cat.slug %}">{{cat.tag}}</a>
+            {% endfor %}
+          </div><!-- .tagcloud end -->
 
-          <div class="clear mb-5"></div>
+          <div class="clear mb-3"></div>
+
+          <div class="fluid-width-video-wrapper mb-4">
+            <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=66092&url_id=902" target="_blank"><img src="{% static 'blog/images/ads/nord_7.png' %}"></a>
+          </div>
 
         </div>
         <div class="col-1"></div>
@@ -215,6 +219,12 @@
               <div class="widget clearfix placeholder-custom">
 
                   <h4 class="pt-2">Ad</h4>
+
+                <!-- nord -->
+                  <div class="fluid-width-video-wrapper mt-2 mb-5">
+                    <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=66092&url_id=902"><img src="{% static 'blog/images/ads/nord_6.png' %}"></a>
+                  </div>
+
                   <div class="fluid-width-video-wrapper">
                     <a href="https://click.linksynergy.com/deeplink?id=w7*S3fGR7tg&mid=39197&murl=https%3A%2F%2Fwww.udemy.com%2F"><img src="{% static 'blog/images/ads/udemy1.png' %}"></a>
                   </div>

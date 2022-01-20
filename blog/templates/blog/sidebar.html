@@ -1,0 +1,32 @@
+{% load static %}
+<div class="col-lg-3 cat-widgets position-sticky h-100" style="top: 234px;">
+  <div class="widget widget-search">
+    <form class="input-group" method="get" action="{% url 'blog:search' %}">
+      <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-secondary icon-line-search" type="button"></button>
+    </form>
+  </div>
+
+  <div class="widget widget-nav mt-md-5">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:index' %}">All Categories</a>
+      </li>
+      {% for cat in categories %}
+      {% if cat == category %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'blog:category' cat.slug %}">{{ cat.tag }}</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:category' cat.slug %}">{{ cat.tag }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="fluid-width-video-wrapper my-5 d-none d-lg-block">
+    <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=66092&url_id=902"><img src="{% static 'blog/images/ads/nord_2.png' %}"></a>
+  </div>
+</div>
