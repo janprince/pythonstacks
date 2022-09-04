@@ -6,7 +6,7 @@
 <head>
   {% include "blog/ads/googleanalytics.html" %}
 
-  {% comment %}{% include "blog/ads/googleadsense.html" %}{% endcomment %}
+  {% include "blog/ads/googleadsense.html" %}
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,6 +47,7 @@
 
   <!-- Custom JS -->
   <script src="{% static 'python_packages/js/custom.js' %}"></script>
+  <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 
   <!-- ShareThis -->
   {% block sharethis %}
@@ -72,6 +73,11 @@
   </div>
 
   <!-- #wrapper end -->
+
+  <!-- Show an image ad -->
+  <div style="position: fixed; bottom: 0; right: 0">
+    <div data-ea-publisher="wwwpythonstackscom" data-ea-type="image"></div>
+  </div>
 
 
   <!-- Prism JS -->
